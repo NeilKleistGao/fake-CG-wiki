@@ -67,4 +67,33 @@ nav:
     - 关于本项目: intro/about.md
     - 致谢: intro/thanks.md
   - 工具软件:
+    - 工具软件简介: tools/index.md
+    - IDE: tools/ide.md
     - OpenGL: tools/opengl.md
+    - Unity3D: tools/unity3d.md
+    - Blender: tools/blender.md
+    - 也许……: tools/none.md
+  - 线性代数:
+    - 线性代数简介: linear_algebra/index.md
+  - 微积分:
+    - 微积分简介: calculus/index.md
+  - 概率论:
+    - 概率论简介: probabiity/index.md
+  - 光栅化:
+    - 光栅化简介: rasterization/index.md
+  - 光线追踪:
+    - 光线追踪简介: ray_tracing/index.md
+  - 光照和阴影:
+    - 光照和阴影简介: light_shadow/index.md
+  - 反走样技术:
+    - 反走样技术简介: antialiasing/index.md
+  - 辐射度量学:
+    - 辐射度量学简介: radiance/index.md
+  - 基于物理的渲染:
+    - 基于物理的渲染简介: pbr/index.md
+  - 实时渲染技术:
+    - 实时渲染简介: rtr/index.md
+  - 光子映射:
+    - 光子映射简介: photon/index.md
+  - 杂项:
+    - 简介: misc/index.md
