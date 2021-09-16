@@ -83,6 +83,21 @@ $$\vec P \times \vec Q = (P_yQ_x - P_xQ_y)\vec i - (P_xQ_z - P_zQ_x)\vec j + (P_
 除了大小，我们还需要 $\vec u$ 的单位方向： $\frac{\vec u}{||\vec u||}$ 。
 联系上面提到的点乘运算，我们可以得出投影大小的公式： $||\vec w|| = \frac{\vec u \cdot \vec v}{||\vec u||}$ 。
 
+### 向量的线性组合
+假定我们手握一些向量： $\vec v_1, \vec v_2, \dots , \vec v_n$ ，我们可以用如下的方式生成一些新的向量：
+
+$$
+\vec v_{n + 1} = a_1 \vec v_1 + a_2 \vec v_2 + \dots + a_n \vec v_n
+$$
+
+其中 $\vec v_{n + 1}$ 被称为前n个向量的线性组合，并与这n个向量**线性相关**。
+如果 $\vec v_{n + 1}$ 无法用这样的方式获得，则称其与这n个向量**线性无关**。
+ 
+## 行向量和列向量
+上面的向量我们全部写成了行向量（即把所有数值写在一行里），这样更接近大家在中学时所学的坐标表示的形式。
+
+向量还可以写为列向量： $\begin{bmatrix}1\\2\\3\end{bmatrix}$ ，有时这样的形式更加常见。
+
 ## 参考资料
 + [向量- 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/%E5%90%91%E9%87%8F)
 + [GAMES101-现代计算机图形学入门-闫令琪](https://www.bilibili.com/video/BV1X7411F744?p=2)

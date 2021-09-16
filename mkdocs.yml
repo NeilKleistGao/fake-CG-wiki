@@ -83,6 +83,9 @@ nav:
     - 概率论简介: probabiity/index.md
   - 光栅化:
     - 光栅化简介: rasterization/index.md
+    - 图像在屏幕上的显示: rasterization/display.md
+    - 渲染管线: rasterization/pipeline.md
+    - MVP变换: rasterization/mvp.md
   - 光线追踪:
     - 光线追踪简介: ray_tracing/index.md
   - 光照和阴影:

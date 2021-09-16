@@ -710,13 +710,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    向量的线性组合
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
+    行向量和列向量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
     参考资料
   </a>
   
@@ -863,6 +877,42 @@
     <li class="md-nav__item">
       <a href="../../rasterization/" class="md-nav__link">
         光栅化简介
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/display/" class="md-nav__link">
+        图像在屏幕上的显示
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/pipeline/" class="md-nav__link">
+        渲染管线
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/mvp/" class="md-nav__link">
+        MVP变换
       </a>
     </li>
   
@@ -1290,13 +1340,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    向量的线性组合
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
+    行向量和列向量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
     参考资料
   </a>
   
@@ -1375,7 +1439,22 @@
 如果我们给出 <span><span class="MathJax_Preview">\vec a</span><script type="math/tex">\vec a</script></span> ，不难发现在三角形ACD里，目标向量 <span><span class="MathJax_Preview">\vec w</span><script type="math/tex">\vec w</script></span> 的大小正好是 <span><span class="MathJax_Preview">||\vec v||cos \theta</span><script type="math/tex">||\vec v||cos \theta</script></span> 。
 除了大小，我们还需要 <span><span class="MathJax_Preview">\vec u</span><script type="math/tex">\vec u</script></span> 的单位方向： <span><span class="MathJax_Preview">\frac{\vec u}{||\vec u||}</span><script type="math/tex">\frac{\vec u}{||\vec u||}</script></span> 。
 联系上面提到的点乘运算，我们可以得出投影大小的公式： <span><span class="MathJax_Preview">||\vec w|| = \frac{\vec u \cdot \vec v}{||\vec u||}</span><script type="math/tex">||\vec w|| = \frac{\vec u \cdot \vec v}{||\vec u||}</script></span> 。</p>
-<h2 id="_9">参考资料<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="_9">向量的线性组合<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>假定我们手握一些向量： <span><span class="MathJax_Preview">\vec v_1, \vec v_2, \dots , \vec v_n</span><script type="math/tex">\vec v_1, \vec v_2, \dots , \vec v_n</script></span> ，我们可以用如下的方式生成一些新的向量：</p>
+<div>
+<div class="MathJax_Preview">
+\vec v_{n + 1} = a_1 \vec v_1 + a_2 \vec v_2 + \dots + a_n \vec v_n
+</div>
+<script type="math/tex; mode=display">
+\vec v_{n + 1} = a_1 \vec v_1 + a_2 \vec v_2 + \dots + a_n \vec v_n
+</script>
+</div>
+<p>其中 <span><span class="MathJax_Preview">\vec v_{n + 1}</span><script type="math/tex">\vec v_{n + 1}</script></span> 被称为前n个向量的线性组合，并与这n个向量<strong>线性相关</strong>。
+如果 <span><span class="MathJax_Preview">\vec v_{n + 1}</span><script type="math/tex">\vec v_{n + 1}</script></span> 无法用这样的方式获得，则称其与这n个向量<strong>线性无关</strong>。</p>
+<h2 id="_10">行向量和列向量<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>上面的向量我们全部写成了行向量（即把所有数值写在一行里），这样更接近大家在中学时所学的坐标表示的形式。</p>
+<p>向量还可以写为列向量： <span><span class="MathJax_Preview">\begin{bmatrix}1\\2\\3\end{bmatrix}</span><script type="math/tex">\begin{bmatrix}1\\2\\3\end{bmatrix}</script></span> ，有时这样的形式更加常见。</p>
+<h2 id="_11">参考资料<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://zh.wikipedia.org/wiki/%E5%90%91%E9%87%8F">向量- 维基百科，自由的百科全书</a></li>
 <li><a href="https://www.bilibili.com/video/BV1X7411F744?p=2">GAMES101-现代计算机图形学入门-闫令琪</a></li>

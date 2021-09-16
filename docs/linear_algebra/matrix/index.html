@@ -677,31 +677,72 @@
     矩阵乘法
   </a>
   
+    <nav class="md-nav" aria-label="矩阵乘法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    向量的点乘
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    列向量的线性组合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    行向量的线性组合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    分块乘法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    方程组的几何解释
+  <a href="#_7" class="md-nav__link">
+    矩阵转置
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
+    方程组与矩阵
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     矩阵消元
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     矩阵的逆
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     参考资料
   </a>
   
@@ -836,6 +877,42 @@
     <li class="md-nav__item">
       <a href="../../rasterization/" class="md-nav__link">
         光栅化简介
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/display/" class="md-nav__link">
+        图像在屏幕上的显示
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/pipeline/" class="md-nav__link">
+        渲染管线
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/mvp/" class="md-nav__link">
+        MVP变换
       </a>
     </li>
   
@@ -1218,31 +1295,72 @@
     矩阵乘法
   </a>
   
+    <nav class="md-nav" aria-label="矩阵乘法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    向量的点乘
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    列向量的线性组合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    行向量的线性组合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    分块乘法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    方程组的几何解释
+  <a href="#_7" class="md-nav__link">
+    矩阵转置
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
+    方程组与矩阵
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     矩阵消元
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     矩阵的逆
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     参考资料
   </a>
   
@@ -1264,11 +1382,701 @@
                   <h1>矩阵</h1>
                 
                 <h2 id="_1">什么是矩阵<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>数学上，一个 <span><span class="MathJax_Preview">m\times n</span><script type="math/tex">m\times n</script></span> 的矩阵是一个由m行n列元素排列成的矩形阵列。矩阵里的元素可以是数字、符号或数学式。</p>
+<p>目前为止，我们所研究的矩阵的范围仅限于实矩阵（即矩阵里的元素都是实数）。</p>
+<p>以下是一个 <span><span class="MathJax_Preview">3 \times 3</span><script type="math/tex">3 \times 3</script></span> 的矩阵：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 0 \\
+    0 &amp; 0 &amp; 1
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{bmatrix}
+</script>
+</div>
+<p>我们也可以认为行向量是一个 <span><span class="MathJax_Preview">1 \times n</span><script type="math/tex">1 \times n</script></span> 的矩阵，而列向量一个 <span><span class="MathJax_Preview">n \times 1</span><script type="math/tex">n \times 1</script></span> 的矩阵。</p>
 <h2 id="_2">矩阵乘法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h2 id="_3">方程组的几何解释<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h2 id="_4">矩阵消元<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h2 id="_5">矩阵的逆<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<h2 id="_6">参考资料<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>矩阵的乘法可以按照不同的方式来理解。</p>
+<p>我们以</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    2 &amp; 1 &amp; 2 \\
+    1 &amp; 1 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+    2 &amp; 1 &amp; 3 \\
+    2 &amp; 2 &amp; 2 \\
+    1 &amp; 2 &amp; 3
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    2 & 1 & 2 \\
+    1 & 1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    2 & 1 & 3 \\
+    2 & 2 & 2 \\
+    1 & 2 & 3
+\end{bmatrix}
+</script>
+</div>
+<p>为例，讲解矩阵乘法的几种理解方式。</p>
+<h3 id="_3">向量的点乘<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>最常规的矩阵乘法是将第一个矩阵拆分为行向量，将第二个矩阵拆分为列向量，然后分别进行点乘：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    2 &amp; 1 &amp; 2 \\
+    1 &amp; 1 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+    2 &amp; 1 &amp; 3 \\
+    2 &amp; 2 &amp; 2 \\
+    1 &amp; 2 &amp; 3
+\end{bmatrix}
+= 
+\begin{bmatrix}
+    \begin{bmatrix}1 &amp; 2 &amp; 3\end{bmatrix} \\
+    \begin{bmatrix}2 &amp; 1 &amp; 2\end{bmatrix} \\
+    \begin{bmatrix}1 &amp; 1 &amp; 1\end{bmatrix}
+\end{bmatrix}
+\begin{bmatrix}
+    \begin{bmatrix}2\\2\\1\end{bmatrix}
+    \begin{bmatrix}2\\2\\2\end{bmatrix}
+    \begin{bmatrix}1\\2\\3\end{bmatrix}
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    2 & 1 & 2 \\
+    1 & 1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    2 & 1 & 3 \\
+    2 & 2 & 2 \\
+    1 & 2 & 3
+\end{bmatrix}
+= 
+\begin{bmatrix}
+    \begin{bmatrix}1 & 2 & 3\end{bmatrix} \\
+    \begin{bmatrix}2 & 1 & 2\end{bmatrix} \\
+    \begin{bmatrix}1 & 1 & 1\end{bmatrix}
+\end{bmatrix}
+\begin{bmatrix}
+    \begin{bmatrix}2\\2\\1\end{bmatrix}
+    \begin{bmatrix}2\\2\\2\end{bmatrix}
+    \begin{bmatrix}1\\2\\3\end{bmatrix}
+\end{bmatrix}
+</script>
+</div>
+<p>结果矩阵中 <span><span class="MathJax_Preview">a_{ij}</span><script type="math/tex">a_{ij}</script></span> 的结果就是第i个行向量和第j个列向量的点乘：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    2 &amp; 1 &amp; 2 \\
+    1 &amp; 1 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+    2 &amp; 1 &amp; 3 \\
+    2 &amp; 2 &amp; 2 \\
+    1 &amp; 2 &amp; 3
+\end{bmatrix}
+= 
+\begin{bmatrix}
+    9 &amp; 11 &amp; 14 \\
+    8 &amp; 10 &amp; 10 \\
+    5 &amp; 6 &amp; 6
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    2 & 1 & 2 \\
+    1 & 1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    2 & 1 & 3 \\
+    2 & 2 & 2 \\
+    1 & 2 & 3
+\end{bmatrix}
+= 
+\begin{bmatrix}
+    9 & 11 & 14 \\
+    8 & 10 & 10 \\
+    5 & 6 & 6
+\end{bmatrix}
+</script>
+</div>
+<p>上例中的 <span><span class="MathJax_Preview">9</span><script type="math/tex">9</script></span> ，不难发现其实是第一行向量和第一列向量点成的结果：</p>
+<div>
+<div class="MathJax_Preview">
+a_{11} = \begin{bmatrix}1 &amp; 2 &amp; 3\end{bmatrix} \cdot \begin{bmatrix}2\\2\\1\end{bmatrix} = 2 + 4 + 3 = 9
+</div>
+<script type="math/tex; mode=display">
+a_{11} = \begin{bmatrix}1 & 2 & 3\end{bmatrix} \cdot \begin{bmatrix}2\\2\\1\end{bmatrix} = 2 + 4 + 3 = 9
+</script>
+</div>
+<p>根据上面的乘法方式，我们不难看出：如果两个矩阵相乘，其大小必须是 <span><span class="MathJax_Preview">M \times K</span><script type="math/tex">M \times K</script></span> 和 <span><span class="MathJax_Preview">K \times N</span><script type="math/tex">K \times N</script></span> 的，即第一个矩阵的列数要和第二个矩阵的行数相等。
+矩阵乘法的结果是 <span><span class="MathJax_Preview">M \times N</span><script type="math/tex">M \times N</script></span> 的。</p>
+<p>我们也可以得到另一个信息：矩阵乘法<strong>并不一定满足交换率</strong>。在不是方阵的情况下，两个矩阵交换顺序甚至无法相乘！你也可以交换上面的两个矩阵的顺序，看看结果是否一致。
+你也可以尝试寻找两个交换后结果不变的矩阵，并分析为什么。</p>
+<h3 id="_4">列向量的线性组合<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>我们先考虑第二个矩阵的第一列：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    2 &amp; 1 &amp; 2 \\
+    1 &amp; 1 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}2\\2\\1\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    2 & 1 & 2 \\
+    1 & 1 & 1
+\end{bmatrix}
+\begin{bmatrix}2\\2\\1\end{bmatrix}
+</script>
+</div>
+<p>根据上面的推导，这样的乘法是合法的，我依然可以采取向量点乘的方式得到结果：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    2 &amp; 1 &amp; 2 \\
+    1 &amp; 1 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}2\\2\\1\end{bmatrix} = 
+\begin{bmatrix}9\\8\\5\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    2 & 1 & 2 \\
+    1 & 1 & 1
+\end{bmatrix}
+\begin{bmatrix}2\\2\\1\end{bmatrix} = 
+\begin{bmatrix}9\\8\\5\end{bmatrix}
+</script>
+</div>
+<p>如果我们将第一个矩阵写成三个列向量的形式，我们会发现：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}9\\8\\5\end{bmatrix}=
+2\begin{bmatrix}1\\2\\1\end{bmatrix} +
+2\begin{bmatrix}2\\1\\1\end{bmatrix} +
+\begin{bmatrix}3\\2\\1\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}9\\8\\5\end{bmatrix}=
+2\begin{bmatrix}1\\2\\1\end{bmatrix} +
+2\begin{bmatrix}2\\1\\1\end{bmatrix} +
+\begin{bmatrix}3\\2\\1\end{bmatrix}
+</script>
+</div>
+<p>对于剩下的两列，我们也可以用类似的方法求出。这里就可以得出我们的结论：矩阵乘法结果的第i列，可以视为第一个矩阵列向量的线性组合。</p>
+<p>更进一步地，我们希望推广出一个更通用的结论：<strong>矩阵右乘（即把矩阵放在右边）的本质是对左侧矩阵的列进行线性组合</strong>。</p>
+<h3 id="_5">行向量的线性组合<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>同理，我们也可以尝试如下的形式：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}1 &amp; 2 &amp; 3\end{bmatrix}
+\begin{bmatrix}
+    2 &amp; 1 &amp; 3 \\
+    2 &amp; 2 &amp; 2 \\
+    1 &amp; 2 &amp; 3
+\end{bmatrix}
+=
+\begin{bmatrix}9 &amp; 11 &amp; 14\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}1 & 2 & 3\end{bmatrix}
+\begin{bmatrix}
+    2 & 1 & 3 \\
+    2 & 2 & 2 \\
+    1 & 2 & 3
+\end{bmatrix}
+=
+\begin{bmatrix}9 & 11 & 14\end{bmatrix}
+</script>
+</div>
+<p>类似于类的情况，我们也可以将矩阵乘法视为行向量的线性组合，更具体的：矩阵乘法结果的第i行，可以视为第二个矩阵行向量的线性组合。
+同理我们也可以得到：<strong>矩阵左乘（即把矩阵放在左边）的本质是对右侧矩阵的行进行线性组合</strong>。</p>
+<h3 id="_6">分块乘法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>我们还可以将上述的乘法写为如下的形式：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    A_{2\times 2} &amp; A_{2\times 1} \\
+    A_{1\times 2} &amp; A_{1\times 1} \\
+\end{bmatrix}
+\begin{bmatrix}
+    B_{2\times 2} &amp; B_{2\times 1} \\
+    B_{1\times 2} &amp; B_{1\times 1} \\
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    A_{2\times 2} & A_{2\times 1} \\
+    A_{1\times 2} & A_{1\times 1} \\
+\end{bmatrix}
+\begin{bmatrix}
+    B_{2\times 2} & B_{2\times 1} \\
+    B_{1\times 2} & B_{1\times 1} \\
+\end{bmatrix}
+</script>
+</div>
+<p>其中： </p>
+<div>
+<div class="MathJax_Preview"> 
+A_{2\times 2} = 
+\begin{bmatrix}
+    2 &amp; 1 \\
+    2 &amp; 2 
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display"> 
+A_{2\times 2} = 
+\begin{bmatrix}
+    2 & 1 \\
+    2 & 2 
+\end{bmatrix}
+</script>
+</div>
+<div>
+<div class="MathJax_Preview"> 
+A_{2\times 1} = 
+\begin{bmatrix}
+    3 \\
+    2
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display"> 
+A_{2\times 1} = 
+\begin{bmatrix}
+    3 \\
+    2
+\end{bmatrix}
+</script>
+</div>
+<div>
+<div class="MathJax_Preview"> 
+A_{1\times 2} = 
+\begin{bmatrix}
+    1 &amp; 1
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display"> 
+A_{1\times 2} = 
+\begin{bmatrix}
+    1 & 1
+\end{bmatrix}
+</script>
+</div>
+<div>
+<div class="MathJax_Preview"> 
+A_{1\times 1} = 
+\begin{bmatrix}
+    3
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display"> 
+A_{1\times 1} = 
+\begin{bmatrix}
+    3
+\end{bmatrix}
+</script>
+</div>
+<p>同理你也可以对第二个矩阵进行相应的拆分。这种形式被称为分块矩阵乘法。现在，你需要做的仅仅只是把元素从实数换成矩阵，然后沿用之前的所有运算法则。
+你可以进行任意的拆分，只要保证拆分后各个元素依然可以相乘即可。</p>
+<p>这种形式可以有效化减复杂的矩阵，在一些算法优化和证明中有着不错的应用。</p>
+<h2 id="_7">矩阵转置<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>对于如下的一个矩阵</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    2 &amp; 1 &amp; 3 \\
+    2 &amp; 2 &amp; 2 
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    2 & 1 & 3 \\
+    2 & 2 & 2 
+\end{bmatrix}
+</script>
+</div>
+<p>你可以把它写在纸上，并将纸张顺时针旋转90度，最后将它翻面。此时我们写下“新矩阵”中对应位置上的数字：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    2 &amp; 2 \\
+    1 &amp; 2 \\
+    3 &amp; 2
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    2 & 2 \\
+    1 & 2 \\
+    3 & 2
+\end{bmatrix}
+</script>
+</div>
+<p>这个过程我们称之为矩阵的转置。如果矩阵是方阵，你可以更简单地，沿对角线交换两侧的元素，从而完成转置的操作。</p>
+<p>更正式地，数学上转置的解释为：对一个 <span><span class="MathJax_Preview">M \times N</span><script type="math/tex">M \times N</script></span> 的矩阵A，其转置的结果 <span><span class="MathJax_Preview">A^T</span><script type="math/tex">A^T</script></span> 是一个 <span><span class="MathJax_Preview">N \times M</span><script type="math/tex">N \times M</script></span> 的矩阵，其中的元素 <span><span class="MathJax_Preview">a'_{ij} = a_{ji}</span><script type="math/tex">a'_{ij} = a_{ji}</script></span> 。</p>
+<p>回顾一下矩阵的乘法，如果对矩阵乘法的结果取转置： <span><span class="MathJax_Preview">(AB)^T</span><script type="math/tex">(AB)^T</script></span> ，为了保证转置后两个矩阵依然可以相乘，我们需要交换矩阵的顺序： <span><span class="MathJax_Preview">(AB)^T = B^TA^T</span><script type="math/tex">(AB)^T = B^TA^T</script></span> 。你可以自己验证一下这个结论。</p>
+<h2 id="_8">方程组与矩阵<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>现在让我们暂时先放下沉重的负担，回忆一下小学（或者初中）时代的美好童年（如果你的童年并不美好，请允许我们对此表示抱歉，相信你会有一个更美好的未来XD）：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{array}{l}
+x + y = 2 \\
+-x + 2y = 1
+\end{array}
+</div>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+x + y = 2 \\
+-x + 2y = 1
+\end{array}
+</script>
+</div>
+<p>这是一个很常见的二元一次方程组，我们很容易可以求得方程组的解： <span><span class="MathJax_Preview">x = -1, y = 1</span><script type="math/tex">x = -1, y = 1</script></span> ，并画出平面内的图像：</p>
+<p><img alt="Screenshot from 2021-09-16 14-47-36.png" src="https://i.loli.net/2021/09/16/3VboCLFQfSmePA6.png" /></p>
+<p>除了消元的做法外，更直观的方法就是像这样把图像画出，然后找到两条直线的焦点。</p>
+<p>好了，回忆到此结束（非常抱歉这个环节如此短暂）！我们的重点在于：我们可以使用矩阵表现出这个方程组：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 1 \\
+    -1 &amp; 2 
+\end{bmatrix}
+\begin{bmatrix}
+    x \\ y
+\end{bmatrix}
+=
+\begin{bmatrix}
+    2 \\ 1
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 1 \\
+    -1 & 2 
+\end{bmatrix}
+\begin{bmatrix}
+    x \\ y
+\end{bmatrix}
+=
+\begin{bmatrix}
+    2 \\ 1
+\end{bmatrix}
+</script>
+</div>
+<p>或者更一般地，我们写作 <span><span class="MathJax_Preview">A \vec x = \vec b</span><script type="math/tex">A \vec x = \vec b</script></span> ，其中A为方程组的系数矩阵， <span><span class="MathJax_Preview">\vec x</span><script type="math/tex">\vec x</script></span> 为未知数向量， <span><span class="MathJax_Preview">\vec b</span><script type="math/tex">\vec b</script></span> 为结果向量。</p>
+<p>现在，结合矩阵乘法，我们可以给出方程组的另一个解释：找到两个系数x和y，使得两个列向量的线性组合等于 <span><span class="MathJax_Preview">\vec b</span><script type="math/tex">\vec b</script></span> ：</p>
+<p><img alt="Screenshot from 2021-09-16 14-52-25.png" src="https://i.loli.net/2021/09/16/PBx12uwLFmkXTGH.png" /></p>
+<p>在实际运算中，我们还是更偏爱于消元的做法。接下来我们会讨论如何在矩阵形式下对方程组进行消元。</p>
+<h2 id="_9">矩阵消元<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>我们来解一个三元的方程组：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    2 &amp; 1 &amp; 2 \\
+    1 &amp; 1 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+    x \\ y \\ z
+\end{bmatrix}
+=
+\begin{bmatrix}
+    9 \\ 8 \\ 5
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    2 & 1 & 2 \\
+    1 & 1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    x \\ y \\ z
+\end{bmatrix}
+=
+\begin{bmatrix}
+    9 \\ 8 \\ 5
+\end{bmatrix}
+</script>
+</div>
+<p>其中，未知数向量对于我们来说用处不大（无论写作xyz或是写作abc甚至rgb对于我们解这个方程都没有影响）。所以我们更倾向于用这个矩阵：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 2 &amp; 3 &amp; 9 \\
+    2 &amp; 1 &amp; 2 &amp; 8 \\
+    1 &amp; 1 &amp; 1 &amp; 5
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 2 & 3 & 9 \\
+    2 & 1 & 2 & 8 \\
+    1 & 1 & 1 & 5
+\end{bmatrix}
+</script>
+</div>
+<p>这个矩阵叫做方程的增广矩阵，即我们把方程的常数项与系数矩阵进行了合并。
+接下来我们将会进行消元操作，消元完成后我们会利用回带的方式求出方程的解。</p>
+<p>消元的基本步骤是使用一个方程的k倍与另外一行相加，使得矩阵内的0元增加，这样我们就可以更方便地使用剩下的元素对方程进行求解。</p>
+<p>首先先用第二行减去两倍的第一行，我们可以得到：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 2 &amp; 3 &amp; 9 \\
+    0 &amp; -3 &amp; -4 &amp; -10 \\
+    1 &amp; 1 &amp; 1 &amp; 5
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 2 & 3 & 9 \\
+    0 & -3 & -4 & -10 \\
+    1 & 1 & 1 & 5
+\end{bmatrix}
+</script>
+</div>
+<p>这样第二个方程就少了一维未知变量，更容易进行求解。</p>
+<p>回顾上面的矩阵乘法，我们不难发现上面的操作其实等价于：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 2 &amp; 3 &amp; 9 \\
+    0 &amp; -3 &amp; -4 &amp; -10 \\
+    1 &amp; 1 &amp; 1 &amp; 5
+\end{bmatrix}
+=
+\begin{bmatrix}
+    1 &amp; 0 &amp; 0 \\
+    -2 &amp; 1 &amp; 0  \\
+    0 &amp; 0 &amp; 1 
+\end{bmatrix}
+\begin{bmatrix}
+    1 &amp; 2 &amp; 3 &amp; 9 \\
+    2 &amp; 1 &amp; 2 &amp; 8 \\
+    1 &amp; 1 &amp; 1 &amp; 5
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 2 & 3 & 9 \\
+    0 & -3 & -4 & -10 \\
+    1 & 1 & 1 & 5
+\end{bmatrix}
+=
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    -2 & 1 & 0  \\
+    0 & 0 & 1 
+\end{bmatrix}
+\begin{bmatrix}
+    1 & 2 & 3 & 9 \\
+    2 & 1 & 2 & 8 \\
+    1 & 1 & 1 & 5
+\end{bmatrix}
+</script>
+</div>
+<p>其中</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 0 &amp; 0 \\
+    -2 &amp; 1 &amp; 0  \\
+    0 &amp; 0 &amp; 1 
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    -2 & 1 & 0  \\
+    0 & 0 & 1 
+\end{bmatrix}
+</script>
+</div>
+<p>这个矩阵由</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 0 \\
+    0 &amp; 0 &amp; 1 
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1 
+\end{bmatrix}
+</script>
+</div>
+<p>修改了一个值得到。上面的这个矩阵我们称为单位矩阵(一般记作I)，它的特性在于在任何矩阵乘法中它对另外的矩阵没有任何影响（试着用矩阵乘法的原理解释），或者说它是矩阵乘法的单位元。
+由这个矩阵修改得到的新矩阵我们称为初等矩阵(一般记作E，也可以理解为消元矩阵)。初等矩阵的作用是将矩阵的某一行（或者某一列）的k倍加到另一行（或者另一列）上。</p>
+<p>我们省略的中间其他的消元步骤，只给出最后的结果：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 2 &amp; 3 &amp; 9 \\
+    0 &amp; -3 &amp; -4 &amp; -10 \\
+    0 &amp; 0 &amp; -\frac{2}{3} &amp; -\frac{2}{3}
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 2 & 3 & 9 \\
+    0 & -3 & -4 & -10 \\
+    0 & 0 & -\frac{2}{3} & -\frac{2}{3}
+\end{bmatrix}
+</script>
+</div>
+<p>其中我们的系数矩阵已经变成了</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    0 &amp; -3 &amp; -4 \\
+    0 &amp; 0 &amp; -\frac{2}{3}
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & -3 & -4 \\
+    0 & 0 & -\frac{2}{3}
+\end{bmatrix}
+</script>
+</div>
+<p>这是一个非常优雅的形式。对角线以下的部分全部为0！这样的矩阵我们称为上三角矩阵，也是我们消元的终极目的。</p>
+<p>接下来我们完成回带操作：</p>
+<ul>
+<li>由矩阵的最后一行我们可以得到 <span><span class="MathJax_Preview">z = 1</span><script type="math/tex">z = 1</script></span></li>
+<li>将 <span><span class="MathJax_Preview">z = 1</span><script type="math/tex">z = 1</script></span> 带入到第二行，我们可以再求出 <span><span class="MathJax_Preview">y = 2</span><script type="math/tex">y = 2</script></span></li>
+<li>将两个求出的值都带入第一行，得到 <span><span class="MathJax_Preview">x = 2</span><script type="math/tex">x = 2</script></span></li>
+</ul>
+<p>这样我们解方程的步骤就全部结束了。这个算法被命名为<strong>高斯消元</strong>。</p>
+<p>你可能会注意到：如果矩阵中任何一个 <span><span class="MathJax_Preview">a_{ii}</span><script type="math/tex">a_{ii}</script></span> 元素为0，我们就无法求出方程组的解。这些对角线上的元素我们称之为主元。
+如果在消元时主元为0,我们可以尝试着将该行与下面的行进行交换，从而修复这个问题。如果无法通过交换解决，说明该方程组无解。</p>
+<blockquote>
+<p>关于判定方程组无解的方法，你可能已经听说过了行列式的概念。但我（包括一些教程和教材）并不主张在一开始就提出行列式。这样的教学顺序并不是循序渐进的，不利于理解和消化。</p>
+<p>你可能也发现了，这个方程组来源于上面矩阵乘法的例子。如果没有，说明你的注意力可能还不是非常集中XD。</p>
+</blockquote>
+<h2 id="_10">矩阵的逆<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>我们之前提到过：矩阵乘法的实质是对向量进行线性组合。那么我们能不能找到一个线性组合的逆运算呢？</p>
+<p>如果对于矩阵乘法 <span><span class="MathJax_Preview">AB</span><script type="math/tex">AB</script></span> ，我们可以找到一个矩阵 <span><span class="MathJax_Preview">A^{-1}</span><script type="math/tex">A^{-1}</script></span> ，使得 <span><span class="MathJax_Preview">A^{-1}AB = B</span><script type="math/tex">A^{-1}AB = B</script></span> ，那么我们称 <span><span class="MathJax_Preview">A^{-1}</span><script type="math/tex">A^{-1}</script></span> 为矩阵 <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 的逆矩阵。
+也可以说，如果 <span><span class="MathJax_Preview">A^{-1}A = AA^{-1} = I</span><script type="math/tex">A^{-1}A = AA^{-1} = I</script></span> ，那么 <span><span class="MathJax_Preview">A^{-1}</span><script type="math/tex">A^{-1}</script></span> 为矩阵 <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 的逆矩阵。</p>
+<p>矩阵求逆需要用到和消元类似的方式，只不过我们不再只使用一个向量，而是将单位矩阵与原矩阵合并：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 2 &amp; 2 &amp; 1 &amp; 0 &amp; 0 \\
+    2 &amp; 5 &amp; 2 &amp; 0 &amp; 1 &amp; 0 \\
+    1 &amp; 1 &amp; 2 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 2 & 2 & 1 & 0 & 0 \\
+    2 & 5 & 2 & 0 & 1 & 0 \\
+    1 & 1 & 2 & 0 & 0 & 1
+\end{bmatrix}
+</script>
+</div>
+<p>我们现在消元的目的在于将左半矩阵变为单位矩阵，那么右半的矩阵就是我们所需要的 <span><span class="MathJax_Preview">A^{-1}</span><script type="math/tex">A^{-1}</script></span> 。
+这种做法被称为<strong>高斯-若尔当</strong>算法，其基本思路就是如果 <span><span class="MathJax_Preview">AA^{-1} = I</span><script type="math/tex">AA^{-1} = I</script></span> ，我们不妨用消元的思路在两侧同时乘上 <span><span class="MathJax_Preview">A^{-1}</span><script type="math/tex">A^{-1}</script></span> ，这样右侧的单位矩阵就会变为答案。</p>
+<p>为了节省版面和流量，我们这里也只给出消元的最终结果：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 0 &amp; 0 &amp; -4 &amp; 1 &amp; 3 \\
+    0 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; -1 \\
+    0 &amp; 0 &amp; 1 &amp; \frac{3}{2} &amp; -\frac{1}{2} &amp; -\frac{1}{2}
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 0 & 0 & -4 & 1 & 3 \\
+    0 & 1 & 0 & 1 & 0 & -1 \\
+    0 & 0 & 1 & \frac{3}{2} & -\frac{1}{2} & -\frac{1}{2}
+\end{bmatrix}
+</script>
+</div>
+<p>你可以将结果与原矩阵相乘来验证你的计算是否正确。</p>
+<p>有一些特殊的矩阵并不需要我们专门做这么复杂的计算:</p>
+<ul>
+<li>单位矩阵I的逆矩阵就是其本身</li>
+<li>初等矩阵E的逆矩阵只需将修改过的元素取反，例如</li>
+</ul>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 0 &amp; 0 \\
+    -2 &amp; 1 &amp; 0  \\
+    0 &amp; 0 &amp; 1 
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    -2 & 1 & 0  \\
+    0 & 0 & 1 
+\end{bmatrix}
+</script>
+</div>
+<p>这个矩阵的逆矩阵为</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    1 &amp; 0 &amp; 0 \\
+    2 &amp; 1 &amp; 0  \\
+    0 &amp; 0 &amp; 1 
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    2 & 1 & 0  \\
+    0 & 0 & 1 
+\end{bmatrix}
+</script>
+</div>
+<p>你可以借助消元的思想验证它的正确性</p>
+<ul>
+<li><span><span class="MathJax_Preview">(AB)^{-1} = B^{-1}A^{-1}</span><script type="math/tex">(AB)^{-1} = B^{-1}A^{-1}</script></span> ，只需将矩阵相乘即可验证</li>
+<li><span><span class="MathJax_Preview">(A^T)^{-1}=(A^{-1})^T</span><script type="math/tex">(A^T)^{-1}=(A^{-1})^T</script></span> ，只需将矩阵相乘即可验证</li>
+</ul>
+<p>由于求逆的算法本质还是消元，所以无法消元的矩阵自然也不存在逆矩阵。我们将会在之后的内容中看到如何不进行消元，从而判断矩阵是否可逆。</p>
+<h2 id="_11">参考资料<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E7%9F%A9%E9%98%B5">矩阵- 维基百科，自由的百科全书</a></li>
+<li><a href="https://open.163.com/newview/movie/courseintro?newurl=M6V0BQC4M">麻省理工公开课：线性代数</a></li>
+</ul>
                 
               
               
