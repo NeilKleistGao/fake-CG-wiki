@@ -307,8 +307,8 @@
   
   
     <li class="md-tabs__item">
-      <a href="../radiance/" class="md-tabs__link">
-        辐射度量学
+      <a href="../geometry/" class="md-tabs__link">
+        几何
       </a>
     </li>
   
@@ -955,13 +955,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
       <label class="md-nav__link" for="__nav_10">
-        辐射度量学
+        几何
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="辐射度量学" data-md-level="1">
+      <nav class="md-nav" aria-label="几何" data-md-level="1">
         <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
-          辐射度量学
+          几何
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -970,8 +970,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../radiance/" class="md-nav__link">
-        辐射度量学简介
+      <a href="../geometry/" class="md-nav__link">
+        几何简介
       </a>
     </li>
   
@@ -1166,7 +1166,18 @@
                 
                   <h1>光栅化简介</h1>
                 
-                
+                <blockquote>
+<p>我们正处在图形与交互技术极速发展的浪尖！ —— 刘利刚教授 中国科学技术大学 图形与几何计算实验室</p>
+</blockquote>
+<p>本章主要介绍光栅化成像的相关知识。</p>
+<p>光栅化（Rasterisation）是将图像实时显示在屏幕上最流行的算法之一。
+通过对输入数据的处理，光栅化可以得知屏幕上每个像素的渲染信息：是否需要渲染，渲染成什么样子。</p>
+<p>光栅化的速度是非常快的。但相应的其渲染质量与光线追踪等其他算法比起来就要差很多。光栅化难以正确地模拟光照，从而只能生成相对低质量的画面。
+尽管如此，由于很多设备的运算性能跟不上，光栅化依然是目前使用的主流算法。</p>
+<p>本章将会以渲染流水线为核心，按顺序介绍其中的每个步骤。
+我们推荐你观看<a href="https://www.bilibili.com/video/BV1X7411F744?p=3">GAMES101-现代计算机图形学入门-闫令琪</a>以更好地掌握这方面的知识。
+当你完成这部分的学习后，你可以尝试着跟随<a href="https://github.com/ssloy/tinyrenderer">tinyrenderer</a>教程，创建一个属于自己的渲染器。</p>
+<p>本章不会涉及到光照/阴影/实时渲染算法的细节。这些内容有专门的章节负责讲解。</p>
                 
               
               
