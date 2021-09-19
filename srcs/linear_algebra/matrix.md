@@ -453,6 +453,31 @@ $$
 
 由于求逆的算法本质还是消元，所以无法消元的矩阵自然也不存在逆矩阵。我们将会在之后的内容中看到如何不进行消元，从而判断矩阵是否可逆。
 
+## 叉乘的矩阵表示
+我们可以将向量的叉乘写为矩阵的形式。
+
+$$
+\vec P \times \vec Q = (P_yQ_z - P_zQ_y)\vec i - (P_xQ_z - P_zQ_x)\vec j + (P_xQ_y - P_yQ_x)\vec k
+$$
+
+我们可以整理出叉乘矩阵和叉乘公式：
+
+$$
+\vec P \times \vec Q =
+\begin{bmatrix}
+    0 & -P_z & P_y \\
+    P_z & 0 & -P_x  \\
+    -P_y & P_x & 0 
+\end{bmatrix}
+\begin{bmatrix}
+    Q_x \\ Q_y \\ Q_z
+\end{bmatrix}
+$$
+
+叉乘矩阵是一个反对称矩阵（斜对称矩阵），其转置是自身的加法逆元（即 $A^T = -A$ ）
+
+
 ## 参考资料
 + [矩阵- 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/%E7%9F%A9%E9%98%B5)
 + [麻省理工公开课：线性代数](https://open.163.com/newview/movie/courseintro?newurl=M6V0BQC4M)
++ [反对称矩阵- 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/%E5%8F%8D%E5%B0%8D%E7%A8%B1%E7%9F%A9%E9%99%A3)

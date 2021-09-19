@@ -67,7 +67,7 @@ $\vec a \cdot \vec b = ||\vec a||||\vec b||cos\theta$ ，其中 $cos \theta$ 是
 
 三维情况下，两个向量的叉乘也可以写为：
 
-$$\vec P \times \vec Q = (P_yQ_x - P_xQ_y)\vec i - (P_xQ_z - P_zQ_x)\vec j + (P_xQ_y - P_yQ_x)\vec k$$ 
+$$\vec P \times \vec Q = (P_yQ_z - P_zQ_y)\vec i - (P_xQ_z - P_zQ_x)\vec j + (P_xQ_y - P_yQ_x)\vec k$$ 
 
 其中 $\vec i, \vec j, \vec k$ 分别是x,y,z上的单位向量。
 

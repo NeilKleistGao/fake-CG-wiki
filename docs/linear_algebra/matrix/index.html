@@ -743,6 +743,13 @@
       
         <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
+    叉乘的矩阵表示
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
     参考资料
   </a>
   
@@ -901,6 +908,30 @@
     <li class="md-nav__item">
       <a href="../../rasterization/mvp/" class="md-nav__link">
         MVP变换
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/rasterization/" class="md-nav__link">
+        光栅化
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/texture/" class="md-nav__link">
+        纹理映射
       </a>
     </li>
   
@@ -1349,6 +1380,13 @@
       
         <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
+    叉乘的矩阵表示
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
     参考资料
   </a>
   
@@ -2060,10 +2098,47 @@ x + y = 2 \\
 <li><span><span class="MathJax_Preview">(A^T)^{-1}=(A^{-1})^T</span><script type="math/tex">(A^T)^{-1}=(A^{-1})^T</script></span> ，只需将矩阵相乘即可验证</li>
 </ul>
 <p>由于求逆的算法本质还是消元，所以无法消元的矩阵自然也不存在逆矩阵。我们将会在之后的内容中看到如何不进行消元，从而判断矩阵是否可逆。</p>
-<h2 id="_11">参考资料<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<h2 id="_11">叉乘的矩阵表示<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>我们可以将向量的叉乘写为矩阵的形式。</p>
+<div>
+<div class="MathJax_Preview">
+\vec P \times \vec Q = (P_yQ_z - P_zQ_y)\vec i - (P_xQ_z - P_zQ_x)\vec j + (P_xQ_y - P_yQ_x)\vec k
+</div>
+<script type="math/tex; mode=display">
+\vec P \times \vec Q = (P_yQ_z - P_zQ_y)\vec i - (P_xQ_z - P_zQ_x)\vec j + (P_xQ_y - P_yQ_x)\vec k
+</script>
+</div>
+<p>我们可以整理出叉乘矩阵和叉乘公式：</p>
+<div>
+<div class="MathJax_Preview">
+\vec P \times \vec Q =
+\begin{bmatrix}
+    0 &amp; -P_z &amp; P_y \\
+    P_z &amp; 0 &amp; -P_x  \\
+    -P_y &amp; P_x &amp; 0 
+\end{bmatrix}
+\begin{bmatrix}
+    Q_x \\ Q_y \\ Q_z
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\vec P \times \vec Q =
+\begin{bmatrix}
+    0 & -P_z & P_y \\
+    P_z & 0 & -P_x  \\
+    -P_y & P_x & 0 
+\end{bmatrix}
+\begin{bmatrix}
+    Q_x \\ Q_y \\ Q_z
+\end{bmatrix}
+</script>
+</div>
+<p>叉乘矩阵是一个反对称矩阵（斜对称矩阵），其转置是自身的加法逆元（即 <span><span class="MathJax_Preview">A^T = -A</span><script type="math/tex">A^T = -A</script></span> ）</p>
+<h2 id="_12">参考资料<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://zh.wikipedia.org/wiki/%E7%9F%A9%E9%98%B5">矩阵- 维基百科，自由的百科全书</a></li>
 <li><a href="https://open.163.com/newview/movie/courseintro?newurl=M6V0BQC4M">麻省理工公开课：线性代数</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%8F%8D%E5%B0%8D%E7%A8%B1%E7%9F%A9%E9%99%A3">反对称矩阵- 维基百科，自由的百科全书</a></li>
 </ul>
                 
               
