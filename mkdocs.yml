@@ -89,12 +89,12 @@ nav:
     - 纹理映射: rasterization/texture.md
   - 光线追踪:
     - 光线追踪简介: ray_tracing/index.md
-  - 光照和阴影:
-    - 光照和阴影简介: light_shadow/index.md
+  - 辐射度量学:
+    - 辐射度量学简介: radiance/index.md
   - 反走样技术:
     - 反走样技术简介: antialiasing/index.md
-  - 几何:
-    - 几何简介: geometry/index.md
+  - 几何建模:
+    - 几何建模简介: geometry/index.md
   - 基于物理的渲染:
     - 基于物理的渲染简介: pbr/index.md
   - 实时渲染技术:

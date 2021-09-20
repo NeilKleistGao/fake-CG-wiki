@@ -137,6 +137,8 @@ R_z(\alpha) =
 \end{bmatrix}
 $$
 
+你可以发现，旋转 $\alpha$ 度和 旋转 $-\alpha$ 度的矩阵正好互为转置。也就是说**旋转矩阵的逆矩阵为原矩阵的转置**。
+
 三维空间中的旋转被拆解为以上三个旋转轴上的旋转，旋转的计算需要将三个矩阵乘起来。这种旋转方式被称为欧拉角旋转。
 
 > 可能你已经听说过了万向节死锁和四元数，我们在这个部分暂时不会涉及这方面的内容
@@ -200,8 +202,145 @@ $$
 
 ## MVP变换
 ### 模型变换
+模型变换需要将坐标从模型空间转换到世界空间。由于每个模型都有其在世界空间中的位置，缩放大小和旋转角度，只需要将相关矩阵相乘即可。
+需要注意模型锚点的位置！如果需要对模型进行旋转和缩放，需要先将模型的锚点平移到原点，然后才能进行旋转和缩放。
+
 ### 观察变换
+观察变换需要将相机连带整体场景变换到原点，并指向特殊的方向。我们定义摄像机的三个变量： `position`， `lookat` 和 `vup`,分别表示摄像机的位置，镜头方向和向上朝向。
+
+平移部分只需要一个平移矩阵即可完成，我们重点讨论旋转。将 $\vec {x'} = \vec {lookat} \times \vec {vup}$ ， $\vec {y'} = \vec {vup}$ 和 $\vec {z'} = \vec {lookat}$ 旋转到 $\vec x, \vec y, \vec z$ 并不容易思考。
+但我们可以使用逆向思维：
+
+$$
+\begin{bmatrix}
+    \vec {x'}_x & \vec {x'}_y & \vec {x'}_z \\
+    \vec {y'}_x & \vec {y'}_y & \vec {y'}_z \\
+    \vec {z'}_x & \vec {z'}_y & \vec {z'}_z
+\end{bmatrix}
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    \vec {x'}_x & \vec {x'}_y & \vec {x'}_z \\
+    \vec {y'}_x & \vec {y'}_y & \vec {y'}_z \\
+    \vec {z'}_x & \vec {z'}_y & \vec {z'}_z
+\end{bmatrix}
+$$
+
+我们现在只需要求出该矩阵的逆矩阵即可。根据上面旋转矩阵的推论，我们只需要将这个矩阵转置：
+
+$$
+\begin{bmatrix}
+    \vec {x'}_x & \vec {x'}_y & \vec {x'}_z \\
+    \vec {y'}_x & \vec {y'}_y & \vec {y'}_z \\
+    \vec {z'}_x & \vec {z'}_y & \vec {z'}_z
+\end{bmatrix}^T
+=
+\begin{bmatrix}
+    \vec {x'}_x & \vec {y'}_x & \vec {z'}_x \\
+    \vec {x'}_y & \vec {y'}_y & \vec {z'}_y \\
+    \vec {x'}_z & \vec {y'}_z & \vec {z'}_z
+\end{bmatrix}
+$$
+
 ### 投影变换
+投影的方式分为两种：正交投影和透视投影。正交投影相对简单，因为正交投影的视锥体是一个长方体：
+
+![Screenshot from 2021-09-20 15-26-36.png](https://i.loli.net/2021/09/20/1O5Bf4V3Tl7gYEu.png)
+
+我们需要将这个长方体压缩到边长为2,且中心在原点。我们很容易可以写出这个矩阵：
+
+$$
+\begin{bmatrix}
+    \frac{2}{r - l} & 0 & 0 & -\frac{r + l}{r - l} \\
+    0 & \frac{2}{t - b} & 0 & -\frac{t + b}{t - b} \\
+    0 & 0 & -\frac{2}{f - n} & -\frac{f + n}{f - n} \\
+    0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+这个矩阵由两部分组成：首先将长方体中心平移到原点，然后再进行缩放操作。
+
+比较麻烦的是透视投影。由于透视投影的视锥体是一个棱台，我们需要将其压缩为一个长方体，然后再按照正交投影的方式进行计算。
+
+我们从侧面来观察视锥体（向X轴负半轴看去）：
+
+![Screenshot from 2021-09-20 15-37-33.png](https://i.loli.net/2021/09/20/ClfdNHevu6XEKDg.png)
+
+假定我们在视锥体边缘上取出某个点，我们可以得到他的Y轴和Z轴的坐标。我们需要知道“压缩”后，这个点的Y轴坐标会变成多少。 
+注意到场景中存在一个相似三角形的关系： $\frac{n}{z} = \frac{y'}{y}$ ，我们可以得到 $y' = \frac{n}{z}y$ ，同理也可以得到 $x' = \frac{n}{z}x$ 。
+
+现在我们可以填出矩阵的一部分：
+
+$$
+\begin{bmatrix}
+    \frac{n}{z} & 0 & 0 & 0 \\
+    0 & \frac{n}{z} & 0 & 0 \\
+    ? & ? & ? & ? \\
+    0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+由于我们使用齐次坐标，我们的变换也可以写为这个形式：
+
+$$
+\begin{bmatrix}
+    n & 0 & 0 & 0 \\
+    0 & n & 0 & 0 \\
+    ? & ? & ? & ? \\
+    0 & 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    x \\ y \\ z \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    nx \\ ny \\ ? \\ z
+\end{bmatrix}
+$$
+
+我们需要求出剩下的未知数。对于近平面上的点，无论如何变换，其Z值是不会变化的。于是我们可以得到：
+
+$$
+\begin{bmatrix}
+    n & 0 & 0 & 0 \\
+    0 & n & 0 & 0 \\
+    0 & 0 & A & B \\
+    0 & 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    x \\ y \\ n \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    nx \\ ny \\ n^2 \\ n
+\end{bmatrix}
+$$
+
+由于 $n^2$ 与 $x, y$ 无关，我们可以将前两项补为0。并设最后的未知数为 $A, B$ 。
+除了近平面上的点以外，远屏幕上的中心点也不会发生任何变化。我们得到方程组：
+
+$$
+\begin{array}{l}
+An + B = n^2 \\
+Af + B = f^2
+\end{array}
+$$
+
+解得： $A = n + f, B = -nf$ 。综上，我们得到的透视矩阵为：
+
+$$
+\begin{bmatrix}
+    n & 0 & 0 & 0 \\
+    0 & n & 0 & 0 \\
+    0 & 0 & n + f & -nf \\
+    0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
 ## 参考资料
 + [Learn OpenGL CN](https://learnopengl-cn.github.io/)
 + [GAMES101-现代计算机图形学入门-闫令琪](https://www.bilibili.com/video/BV1X7411F744?p=3)

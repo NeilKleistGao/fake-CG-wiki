@@ -280,8 +280,8 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../light_shadow/" class="md-tabs__link">
-        光照和阴影
+      <a href="../../radiance/" class="md-tabs__link">
+        辐射度量学
       </a>
     </li>
   
@@ -313,7 +313,7 @@
   
     <li class="md-tabs__item">
       <a href="../../geometry/" class="md-tabs__link">
-        几何
+        几何建模
       </a>
     </li>
   
@@ -1032,13 +1032,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
       <label class="md-nav__link" for="__nav_8">
-        光照和阴影
+        辐射度量学
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="光照和阴影" data-md-level="1">
+      <nav class="md-nav" aria-label="辐射度量学" data-md-level="1">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
-          光照和阴影
+          辐射度量学
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1047,8 +1047,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../light_shadow/" class="md-nav__link">
-        光照和阴影简介
+      <a href="../../radiance/" class="md-nav__link">
+        辐射度量学简介
       </a>
     </li>
   
@@ -1116,13 +1116,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
       <label class="md-nav__link" for="__nav_10">
-        几何
+        几何建模
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="几何" data-md-level="1">
+      <nav class="md-nav" aria-label="几何建模" data-md-level="1">
         <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
-          几何
+          几何建模
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1132,7 +1132,7 @@
   
     <li class="md-nav__item">
       <a href="../../geometry/" class="md-nav__link">
-        几何简介
+        几何建模简介
       </a>
     </li>
   
@@ -1667,6 +1667,7 @@ R_z(\alpha) =
 \end{bmatrix}
 </script>
 </div>
+<p>你可以发现，旋转 <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> 度和 旋转 <span><span class="MathJax_Preview">-\alpha</span><script type="math/tex">-\alpha</script></span> 度的矩阵正好互为转置。也就是说<strong>旋转矩阵的逆矩阵为原矩阵的转置</strong>。</p>
 <p>三维空间中的旋转被拆解为以上三个旋转轴上的旋转，旋转的计算需要将三个矩阵乘起来。这种旋转方式被称为欧拉角旋转。</p>
 <blockquote>
 <p>可能你已经听说过了万向节死锁和四元数，我们在这个部分暂时不会涉及这方面的内容</p>
@@ -1753,8 +1754,227 @@ y' = y + dy
 </ul>
 <h2 id="mvp">MVP变换<a class="headerlink" href="#mvp" title="Permanent link">&para;</a></h2>
 <h3 id="_11">模型变换<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>模型变换需要将坐标从模型空间转换到世界空间。由于每个模型都有其在世界空间中的位置，缩放大小和旋转角度，只需要将相关矩阵相乘即可。
+需要注意模型锚点的位置！如果需要对模型进行旋转和缩放，需要先将模型的锚点平移到原点，然后才能进行旋转和缩放。</p>
 <h3 id="_12">观察变换<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>观察变换需要将相机连带整体场景变换到原点，并指向特殊的方向。我们定义摄像机的三个变量： <code>position</code>， <code>lookat</code> 和 <code>vup</code>,分别表示摄像机的位置，镜头方向和向上朝向。</p>
+<p>平移部分只需要一个平移矩阵即可完成，我们重点讨论旋转。将 <span><span class="MathJax_Preview">\vec {x'} = \vec {lookat} \times \vec {vup}</span><script type="math/tex">\vec {x'} = \vec {lookat} \times \vec {vup}</script></span> ， <span><span class="MathJax_Preview">\vec {y'} = \vec {vup}</span><script type="math/tex">\vec {y'} = \vec {vup}</script></span> 和 <span><span class="MathJax_Preview">\vec {z'} = \vec {lookat}</span><script type="math/tex">\vec {z'} = \vec {lookat}</script></span> 旋转到 <span><span class="MathJax_Preview">\vec x, \vec y, \vec z</span><script type="math/tex">\vec x, \vec y, \vec z</script></span> 并不容易思考。
+但我们可以使用逆向思维：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    \vec {x'}_x &amp; \vec {x'}_y &amp; \vec {x'}_z \\
+    \vec {y'}_x &amp; \vec {y'}_y &amp; \vec {y'}_z \\
+    \vec {z'}_x &amp; \vec {z'}_y &amp; \vec {z'}_z
+\end{bmatrix}
+\begin{bmatrix}
+    1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 0 \\
+    0 &amp; 0 &amp; 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    \vec {x'}_x &amp; \vec {x'}_y &amp; \vec {x'}_z \\
+    \vec {y'}_x &amp; \vec {y'}_y &amp; \vec {y'}_z \\
+    \vec {z'}_x &amp; \vec {z'}_y &amp; \vec {z'}_z
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    \vec {x'}_x & \vec {x'}_y & \vec {x'}_z \\
+    \vec {y'}_x & \vec {y'}_y & \vec {y'}_z \\
+    \vec {z'}_x & \vec {z'}_y & \vec {z'}_z
+\end{bmatrix}
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    \vec {x'}_x & \vec {x'}_y & \vec {x'}_z \\
+    \vec {y'}_x & \vec {y'}_y & \vec {y'}_z \\
+    \vec {z'}_x & \vec {z'}_y & \vec {z'}_z
+\end{bmatrix}
+</script>
+</div>
+<p>我们现在只需要求出该矩阵的逆矩阵即可。根据上面旋转矩阵的推论，我们只需要将这个矩阵转置：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    \vec {x'}_x &amp; \vec {x'}_y &amp; \vec {x'}_z \\
+    \vec {y'}_x &amp; \vec {y'}_y &amp; \vec {y'}_z \\
+    \vec {z'}_x &amp; \vec {z'}_y &amp; \vec {z'}_z
+\end{bmatrix}^T
+=
+\begin{bmatrix}
+    \vec {x'}_x &amp; \vec {y'}_x &amp; \vec {z'}_x \\
+    \vec {x'}_y &amp; \vec {y'}_y &amp; \vec {z'}_y \\
+    \vec {x'}_z &amp; \vec {y'}_z &amp; \vec {z'}_z
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    \vec {x'}_x & \vec {x'}_y & \vec {x'}_z \\
+    \vec {y'}_x & \vec {y'}_y & \vec {y'}_z \\
+    \vec {z'}_x & \vec {z'}_y & \vec {z'}_z
+\end{bmatrix}^T
+=
+\begin{bmatrix}
+    \vec {x'}_x & \vec {y'}_x & \vec {z'}_x \\
+    \vec {x'}_y & \vec {y'}_y & \vec {z'}_y \\
+    \vec {x'}_z & \vec {y'}_z & \vec {z'}_z
+\end{bmatrix}
+</script>
+</div>
 <h3 id="_13">投影变换<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>投影的方式分为两种：正交投影和透视投影。正交投影相对简单，因为正交投影的视锥体是一个长方体：</p>
+<p><img alt="Screenshot from 2021-09-20 15-26-36.png" src="https://i.loli.net/2021/09/20/1O5Bf4V3Tl7gYEu.png" /></p>
+<p>我们需要将这个长方体压缩到边长为2,且中心在原点。我们很容易可以写出这个矩阵：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    \frac{2}{r - l} &amp; 0 &amp; 0 &amp; -\frac{r + l}{r - l} \\
+    0 &amp; \frac{2}{t - b} &amp; 0 &amp; -\frac{t + b}{t - b} \\
+    0 &amp; 0 &amp; -\frac{2}{f - n} &amp; -\frac{f + n}{f - n} \\
+    0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    \frac{2}{r - l} & 0 & 0 & -\frac{r + l}{r - l} \\
+    0 & \frac{2}{t - b} & 0 & -\frac{t + b}{t - b} \\
+    0 & 0 & -\frac{2}{f - n} & -\frac{f + n}{f - n} \\
+    0 & 0 & 0 & 1
+\end{bmatrix}
+</script>
+</div>
+<p>这个矩阵由两部分组成：首先将长方体中心平移到原点，然后再进行缩放操作。</p>
+<p>比较麻烦的是透视投影。由于透视投影的视锥体是一个棱台，我们需要将其压缩为一个长方体，然后再按照正交投影的方式进行计算。</p>
+<p>我们从侧面来观察视锥体（向X轴负半轴看去）：</p>
+<p><img alt="Screenshot from 2021-09-20 15-37-33.png" src="https://i.loli.net/2021/09/20/ClfdNHevu6XEKDg.png" /></p>
+<p>假定我们在视锥体边缘上取出某个点，我们可以得到他的Y轴和Z轴的坐标。我们需要知道“压缩”后，这个点的Y轴坐标会变成多少。 
+注意到场景中存在一个相似三角形的关系： <span><span class="MathJax_Preview">\frac{n}{z} = \frac{y'}{y}</span><script type="math/tex">\frac{n}{z} = \frac{y'}{y}</script></span> ，我们可以得到 <span><span class="MathJax_Preview">y' = \frac{n}{z}y</span><script type="math/tex">y' = \frac{n}{z}y</script></span> ，同理也可以得到 <span><span class="MathJax_Preview">x' = \frac{n}{z}x</span><script type="math/tex">x' = \frac{n}{z}x</script></span> 。</p>
+<p>现在我们可以填出矩阵的一部分：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    \frac{n}{z} &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; \frac{n}{z} &amp; 0 &amp; 0 \\
+    ? &amp; ? &amp; ? &amp; ? \\
+    0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    \frac{n}{z} & 0 & 0 & 0 \\
+    0 & \frac{n}{z} & 0 & 0 \\
+    ? & ? & ? & ? \\
+    0 & 0 & 0 & 1
+\end{bmatrix}
+</script>
+</div>
+<p>由于我们使用齐次坐标，我们的变换也可以写为这个形式：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    n &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; n &amp; 0 &amp; 0 \\
+    ? &amp; ? &amp; ? &amp; ? \\
+    0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+    x \\ y \\ z \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    nx \\ ny \\ ? \\ z
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    n & 0 & 0 & 0 \\
+    0 & n & 0 & 0 \\
+    ? & ? & ? & ? \\
+    0 & 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    x \\ y \\ z \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    nx \\ ny \\ ? \\ z
+\end{bmatrix}
+</script>
+</div>
+<p>我们需要求出剩下的未知数。对于近平面上的点，无论如何变换，其Z值是不会变化的。于是我们可以得到：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    n &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; n &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; A &amp; B \\
+    0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+    x \\ y \\ n \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    nx \\ ny \\ n^2 \\ n
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    n & 0 & 0 & 0 \\
+    0 & n & 0 & 0 \\
+    0 & 0 & A & B \\
+    0 & 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    x \\ y \\ n \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    nx \\ ny \\ n^2 \\ n
+\end{bmatrix}
+</script>
+</div>
+<p>由于 <span><span class="MathJax_Preview">n^2</span><script type="math/tex">n^2</script></span> 与 <span><span class="MathJax_Preview">x, y</span><script type="math/tex">x, y</script></span> 无关，我们可以将前两项补为0。并设最后的未知数为 <span><span class="MathJax_Preview">A, B</span><script type="math/tex">A, B</script></span> 。
+除了近平面上的点以外，远屏幕上的中心点也不会发生任何变化。我们得到方程组：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{array}{l}
+An + B = n^2 \\
+Af + B = f^2
+\end{array}
+</div>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+An + B = n^2 \\
+Af + B = f^2
+\end{array}
+</script>
+</div>
+<p>解得： <span><span class="MathJax_Preview">A = n + f, B = -nf</span><script type="math/tex">A = n + f, B = -nf</script></span> 。综上，我们得到的透视矩阵为：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    n &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; n &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; n + f &amp; -nf \\
+    0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    n & 0 & 0 & 0 \\
+    0 & n & 0 & 0 \\
+    0 & 0 & n + f & -nf \\
+    0 & 0 & 0 & 1
+\end{bmatrix}
+</script>
+</div>
 <h2 id="_14">参考资料<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://learnopengl-cn.github.io/">Learn OpenGL CN</a></li>
