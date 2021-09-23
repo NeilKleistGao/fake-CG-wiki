@@ -73,40 +73,40 @@ glm::vec2 v0{0, 0}, v1{10, 300};
 
 ```c++
 glColor3f(1.0f, 1.0f, 1.0f);
-    glm::vec2 v0{0, 0}, v1{10, 300};
-    glBegin(GL_POINTS);
-    {
-        int dx = v1.x - v0.x;
-        int dy = v1.y - v0.y;
-        bool flag = false;
-        if (std::abs(dy) > std::abs(dx)) {
-            std::swap(v0.x, v0.y);
-            std::swap(v1.x, v1.y);
-            std::swap(dx, dy);
-            flag = true;
+glm::vec2 v0{0, 0}, v1{10, 300};
+glBegin(GL_POINTS);
+{
+    int dx = v1.x - v0.x;
+    int dy = v1.y - v0.y;
+    bool flag = false;
+    if (std::abs(dy) > std::abs(dx)) {
+        std::swap(v0.x, v0.y);
+        std::swap(v1.x, v1.y);
+        std::swap(dx, dy);
+        flag = true;
+    }
+
+    float err = 0.0f;
+    float dlt = (float)dy / dx;
+
+    int y = v0.y;
+    for (int i = v0.x; i <= v1.x; ++i) {
+        if (flag) {
+            glVertex2f(y / 300.0f, i / 400.0f);
+        }
+        else {
+            glVertex2f(i / 400.0f , y / 300.0f);
         }
 
-        float err = 0.0f;
-        float dlt = (float)dy / dx;
+        err += dlt;
 
-        int y = v0.y;
-        for (int i = v0.x; i <= v1.x; ++i) {
-            if (flag) {
-                glVertex2f(y / 300.0f, i / 400.0f);
-            }
-            else {
-                glVertex2f(i / 400.0f , y / 300.0f);
-            }
-
-            err += dlt;
-
-            if (err >= 0.5f) {
-                ++y;
-                err -= 1.0f;
-            }
+        if (err >= 0.5f) {
+            ++y;
+            err -= 1.0f;
         }
     }
-    glEnd();
+}
+glEnd();
 ```
 
 这样我们就能看到一条完整的直线了：
@@ -115,12 +115,147 @@ glColor3f(1.0f, 1.0f, 1.0f);
 
 此外，由于浮点运算的低效，你也可以将里面的浮点运算全部乘上`dx`，转化为整形运算，从而提高效率。
 
-## 扫描线算法
+## 三角形光栅化
+我们接下来开始进行画三角形的工作。
 
-## 重心公式与插值
+其实我们可以选择的形状有很多：三角形，四边形，甚至六边形等等，为什么一定要选择三角形来作为基本单位？这是因为：
+
++ 三角形是最简单的多边形
++ 所有的多边形都可以拆分为三角形
++ 保证所有点都在同一平面内
++ 内外分明，不会有洞
++ 易于插值
+
+所有的这些性质让我们更倾向于使用三角形来表示模型。
+
+### 扫描线算法
+
+![Screenshot from 2021-09-23 20-07-53.png](https://i.loli.net/2021/09/23/QXVEA8FwWonNdJ2.png)
+
+扫描线的思路非常简单：假定我有一条水平的直线（如图），我使用这条直线扫过三角形，判断线上某些点是否在三角形内，然后对在三角形内的部分执行下一步操作。
+
+以 $\triangle ABC$ 为例：最开始的直线落在了B点上，此时需要渲染的点是非常明晰的（或者反过来落在线段AC上，我们也能知道要渲染的范围）。随着直线不断向下扫描，我们可以不断更新这个范围，
+从而将整个三角形都渲染出来。稍复杂一点的情况类似于 $\triangle DEF$ ：当直线落到点E的时候，我们需要切换其中一侧的直线，才能继续渲染：
+
+```c++
+void draw() {
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glm::vec2 v0{0, 0}, v1{100, 20}, v2{50, 100};
+    glBegin(GL_POINTS);
+    {
+        // 按y顺序排好
+        if (v0.y > v1.y) {
+            std::swap(v0, v1);
+        }
+        if (v0.y > v2.y) {
+            std::swap(v0, v2);
+        }
+        if (v1.y > v2.y) {
+            std::swap(v1, v2);
+        }
+
+        // 先计算低的一半
+        for (int i = v0.y; i <= v1.y; ++i) {
+            // 两条边的t值
+            float t1 = (i - v0.y) / (v1.y - v0.y + 1);
+            float t2 = (i - v0.y) / (v2.y - v0.y + 1);
+
+            // 当前扫描扫到的边界点
+            auto vt1 = v0 + (v1 - v0) * t1;
+            auto vt2 = v0 + (v2 - v0) * t2;
+            if (vt1.x > vt2.x) {
+                std::swap(vt1, vt2);
+            }
+
+            for (int j = vt1.x; j <= vt2.x; ++j) {
+                glVertex2f(j / 400.0f, i / 300.0f);
+            }
+        }
+
+        // 同理处理另一半
+        for (int i = v1.y; i <= v2.y; ++i) {
+            float t1 = (i - v1.y) / (v2.y - v1.y + 1);
+            float t2 = (i - v0.y) / (v2.y - v0.y + 1);
+
+            auto vt1 = v1 + (v2 - v1) * t1;
+            auto vt2 = v0 + (v2 - v0) * t2;
+            if (vt1.x > vt2.x) {
+                std::swap(vt1, vt2);
+            }
+
+            for (int j = vt1.x; j <= vt2.x; ++j) {
+                glVertex2f(j / 400.0f, i / 300.0f);
+            }
+        }
+    }
+    glEnd();
+}
+```
+
+效果：
+
+![Screenshot from 2021-09-23 20-32-09.png](https://i.loli.net/2021/09/23/IyhaCbTt6EGxQL2.png)
+
+### 判断点是否在三角形内
+上面的算法固然可行，但是实现复杂，并且不方便执行并行化：我首先需要计算出直线和三角形两边的交点，然后才可以进行渲染，甚至可能会涉及多次坐标值的判断和交换。
+我们希望对所有点一视同仁：如果这个点在三角形中，那么渲染，否则抛弃。
+
+回顾[线性代数](https://neilkleistgao.github.io/fake-CG-wiki/linear_algebra/)部分：我们可以利用两个点的叉乘来判断点是否在三角形内：
+
+![Screenshot from 2021-09-23 20-40-19.png](https://i.loli.net/2021/09/23/O7dFwSzArq4uyE9.png)
+
+如图，点D在 $\triangle ABC$ 内，而点E在 $\triangle ABC$ 外。我们先看点D：
+
++ $\vec {CB} \times \vec {CD} > 0$ （这里大于0指在右手定则下叉乘的结果指向屏幕外）
++ $\vec {BA} \times \vec {BD} > 0$
++ $\vec {AC} \times \vec {AD} > 0$
+
+不难发现：所有的叉乘结果都是大于0的，这样我们就可以认为：这个点在三角形的内部。相反，我们看看点E：
+
++ $\vec {AC} \times \vec {AE} > 0$
++ $\vec {CB} \times \vec {CE} < 0$
++ $\vec {BA} \times \vec {BE} > 0$
+
+此时存在一项叉乘的符号与其他两项不同，我们就可以认定点E是在三角形的外部。
+
+```c++
+void draw() {
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glm::vec2 v0{0, 0}, v1{100, 20}, v2{50, 100};
+    // 假定所有点按照顺时针给出，这样我们只需要判断是否有小于0的情况
+    glBegin(GL_POINTS);
+    {
+        int min_x = std::min(std::min(v0.x, v1.x), v2.x);
+        int max_x = std::max(std::max(v0.x, v1.x), v2.x);
+        int min_y = std::min(std::min(v0.y, v1.y), v2.y);
+        int max_y = std::max(std::max(v0.y, v1.y), v2.y);
+
+        auto e1 = v1 - v0, e2 = v2 - v1, e3 = v0 - v2;
+        for (int i = min_x; i <= max_x; ++i) {
+            for (int j = min_y; j <= max_y; ++j) {
+                auto p = glm::vec2{i, j};
+                auto t1 = p - v0, t2 = p - v1, t3 = p - v2;
+                if (e1.x * t1.y - e1.y * t1.x >= 0.0f &&
+                        e2.x * t2.y - e2.y * t2.x >= 0.0f &&
+                        e3.x * t3.y - e3.y * t3.x >= 0.0f) {
+                    glVertex2f(i / 400.0f, j / 300.0f);
+                }
+            }
+        }
+    }
+    glEnd();
+}
+```
+
+### 重心公式与插值
+上面的方法很不错，但是我们在确定这些像素后，还需要对他们进行插值。我们在指定如纹理坐标等数据的时候，无法详细到给每一个像素都指定一遍。
+一般地，三角形的每个顶点会被赋予一个纹理坐标。我们需要将三角形中的点，表示为三个顶点的线性组合，这样我们才能计算每个像素的纹理坐标并进行纹理采样。
+
+
 
 ## 背面剔除
 
 ## 参考资料
 + [tinyrenderer](https://github.com/ssloy/tinyrenderer/wiki)
 + [布雷森汉姆直线算法 - 维基百科](https://zh.wikipedia.org/wiki/%E5%B8%83%E9%9B%B7%E6%A3%AE%E6%BC%A2%E5%A7%86%E7%9B%B4%E7%B7%9A%E6%BC%94%E7%AE%97%E6%B3%95)
++ [GAMES101-现代计算机图形学入门-闫令琪](https://www.bilibili.com/video/BV1X7411F744?p=5)
