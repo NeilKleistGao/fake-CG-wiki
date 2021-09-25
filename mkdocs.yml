@@ -77,6 +77,8 @@ nav:
     - 线性代数简介: linear_algebra/index.md
     - 向量: linear_algebra/vector.md
     - 矩阵: linear_algebra/matrix.md
+    - 向量空间: linear_algebra/vector_space.md
+    - 基和维数: linear_algebra/base.md
   - 微积分:
     - 微积分简介: calculus/index.md
   - 概率论:

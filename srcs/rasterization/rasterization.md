@@ -251,9 +251,47 @@ void draw() {
 上面的方法很不错，但是我们在确定这些像素后，还需要对他们进行插值。我们在指定如纹理坐标等数据的时候，无法详细到给每一个像素都指定一遍。
 一般地，三角形的每个顶点会被赋予一个纹理坐标。我们需要将三角形中的点，表示为三个顶点的线性组合，这样我们才能计算每个像素的纹理坐标并进行纹理采样。
 
+![Screenshot from 2021-09-25 09-20-34.png](https://i.loli.net/2021/09/25/RKNFTW4erhgwEzD.png)
 
+我们将三角形的某个顶点平移到原点，可以看到AB和AC并不共线。我们以这两条边所在的直线为轴，建立新的坐标系。此时D的坐标就可以被表示为： $\alpha \vec {AB} + \beta \vec {AC}$ 。要保证点D在三角形内部，我们首先要保证 $\alpha \ge 0, \beta \ge 0$ 。此外，点D不能越过线段BC，而BC上的点均可以写为 $\alpha \vec {AB} + \beta \vec {AC}$ ，其中 $\alpha + \beta = 1$ 。我们将三角形平移回原来的位置，再将上面的式子展开： $\alpha \vec {AB} + \beta \vec {AC} = \alpha(B - A) + \beta(C - A) = \alpha B + \beta C + (1 - \alpha + \beta)A$ 。 其中 $\alpha \ge 0, \beta \ge 0, \alpha + \beta \le 1$ 。这就是三角形的重心公式。
+
+我们可以将任意一个点带入方程（两个未知数，x和y各可以列一个方程），解出 $\alpha$ 和 $\beta$ ，如果这两个变量满足要求，则说明这个点在三角形的内部，并且这两个值可以直接用于插值；反之，这个点就在三角形外。
+
+
+```c++
+void draw() {
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glm::vec2 v0{0, 0}, v1{100, 20}, v2{50, 100};
+    // 假定所有点按照顺时针给出，这样我们只需要判断是否有小于0的情况
+    glBegin(GL_POINTS);
+    {
+        int min_x = std::min(std::min(v0.x, v1.x), v2.x);
+        int max_x = std::max(std::max(v0.x, v1.x), v2.x);
+        int min_y = std::min(std::min(v0.y, v1.y), v2.y);
+        int max_y = std::max(std::max(v0.y, v1.y), v2.y);
+
+        for (int i = min_x; i <= max_x; ++i) {
+            for (int j = min_y; j <= max_y; ++j) {
+                float u = (-(static_cast<float>(i) - v1.x) * (v2.y - v1.y) + (static_cast<float>(j) - v1.y) * (v2.x - v1.x))
+                          / (-(v0.x - v1.x) * (v2.y - v1.y) + (v0.y - v1.y) * (v2.x - v1.x)),
+                        v = (-(static_cast<float>(i) - v2.x) * (v0.y - v2.y) + (static_cast<float>(j) - v2.y) * (v0.x - v2.x))
+                            / (-(v1.x - v2.x) * (v0.y - v2.y) + (v1.y - v2.y) * (v0.x - v2.x)),
+                        w = 1.0f - u - v;
+
+                if (u >= 0.0f && v >= 0.0f && w >= 0.0f) {
+                    glVertex2f(static_cast<float>(i) / 400.0f, static_cast<float>(j) / 300.0f);
+                }
+            }
+        }
+    }
+    glEnd();
+}
+```
 
 ## 背面剔除
+有的时候我们并不是每个三角形都需要进行这样的操作。显而易见的，三角形越多，我们渲染模型就需要更长的时间。我们会选择一些三角形并将他们忽略掉，这些三角形一般是背对我们的三角形。
+
+如何定义三角形是否正面面对摄像机？我们可以根据叉乘计算出该三角形的法线向量，并用点乘判断法线向量与摄像机`lookat`向量之间的关系。如果两个向量点乘为负，说明三角形面向摄像机那一侧，那这个三角形就可以被保留。
 
 ## 参考资料
 + [tinyrenderer](https://github.com/ssloy/tinyrenderer/wiki)
