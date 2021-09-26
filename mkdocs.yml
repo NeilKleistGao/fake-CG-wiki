@@ -81,6 +81,8 @@ nav:
     - 基和维数: linear_algebra/base.md
   - 微积分:
     - 微积分简介: calculus/index.md
+    - 从自然数说起: calculus/natural.md
+    - 级数和级数收敛: calculus/series.md
   - 概率论:
     - 概率论简介: probabiity/index.md
   - 光栅化:
@@ -95,6 +97,7 @@ nav:
     - 辐射度量学简介: radiance/index.md
   - 反走样技术:
     - 反走样技术简介: antialiasing/index.md
+    - 采样原理: antialiasing/sampling.md
   - 几何建模:
     - 几何建模简介: geometry/index.md
   - 基于物理的渲染:
