@@ -70,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -717,9 +722,72 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          从自然数说起
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         从自然数说起
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    自然数和皮亚诺公理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    加法和乘法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    减法和整数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    除法和有理数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    有理数完备吗
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1230,6 +1298,71 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    自然数和皮亚诺公理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    加法和乘法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    减法和整数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    除法和有理数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    有理数完备吗
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1238,7 +1371,72 @@
                 
                   <h1>从自然数说起</h1>
                 
-                
+                <p>本篇粗略地概括了《陶哲轩实分析》中关于各个数系建立的过程。并不提供详细的证明过程。</p>
+<h2 id="_1">自然数和皮亚诺公理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>上古时代，人类就学会了使用结绳记事的方法来记录事情。不难想象那个时代的人们已经对“自然数”有了一定的了解。我们在很小的时候也是从这些数字开始：<code>0, 1, 2, 3...</code>。
+虽然看这个博客的朋友们应该都比较老了（如果你们已经有孩子了的话，对孩子好一点，做人还是开心最重要——许培祥），我们还是以“自然数”为起点，开始对微积分的研究。</p>
+<p>与之前不同，我们将会从一个稍微“正式”一些的角度来看待自然数。这个视角就是皮亚诺公理。这个公理这样定义自然数：</p>
+<ul>
+<li>0是自然数</li>
+<li>每一个自然数 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> ，都会存在一个后继 <span><span class="MathJax_Preview">a++</span><script type="math/tex">a++</script></span> ，使得 <span><span class="MathJax_Preview">a++</span><script type="math/tex">a++</script></span> 也是自然数</li>
+<li>两个自然数 <span><span class="MathJax_Preview">a, b</span><script type="math/tex">a, b</script></span> 相等，当且仅当他们的后继相等</li>
+<li>0不是任何自然数的后继</li>
+<li>对于命题P，如果 <span><span class="MathJax_Preview">P(0)</span><script type="math/tex">P(0)</script></span> 为真，且当 <span><span class="MathJax_Preview">P(a)</span><script type="math/tex">P(a)</script></span> 为真时， <span><span class="MathJax_Preview">P(a++)</span><script type="math/tex">P(a++)</script></span> 也为真，那么这个命题P对所有自然数都为真</li>
+</ul>
+<p>你可以很容易地验证我们现在所熟知的自然数满足上面的定义；你也可以验证某些数不是自然数。</p>
+<h2 id="_2">加法和乘法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>我们所定义的自然数只有一个“后继”操作。这个运算是不那么方便的，我们可能希望一次性前进更多的步数。我们据此定义了加法：</p>
+<ul>
+<li>首先， 我们定义 <span><span class="MathJax_Preview">0 + a = a</span><script type="math/tex">0 + a = a</script></span></li>
+<li>如果 <span><span class="MathJax_Preview">a + b</span><script type="math/tex">a + b</script></span> 有定义，那么 <span><span class="MathJax_Preview">(a++) + b = (a + b)++</span><script type="math/tex">(a++) + b = (a + b)++</script></span></li>
+</ul>
+<p>我们使用归纳的方式定义了自然数的加法。当然，我们还有很多的工作需要完成，比如证明 <span><span class="MathJax_Preview">a + 0 = a</span><script type="math/tex">a + 0 = a</script></span> 。这看起来很显然，但我们仍然需要严格证明这些内容。
+由于篇幅有限，我们在这里省略了后续的证明，如果你对这些内容感兴趣，你可以参照《陶哲轩实分析》完成这些证明。</p>
+<p>加法对于我们来说依然不够方便。假如我们的先人每天可以采集5个苹果，为了统计这一年来的收成，我们的祖先需要做365次加法（如果他们的一年和现在一样长的话）。
+为此，我们希望能够定义“乘法”来更快地进行加法运算：</p>
+<ul>
+<li>对于任意的自然数 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> ， <span><span class="MathJax_Preview">0 \times a = 0</span><script type="math/tex">0 \times a = 0</script></span></li>
+<li>如果 <span><span class="MathJax_Preview">a \times b</span><script type="math/tex">a \times b</script></span> 有定义，那么 <span><span class="MathJax_Preview">(a++) \times b = (a \times b) + b</span><script type="math/tex">(a++) \times b = (a \times b) + b</script></span></li>
+</ul>
+<p>同样的，你也需要自行完成u关于乘法运算的其他证明。</p>
+<h2 id="_3">减法和整数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>加法和乘法只能将我们手上的数字朝着一个方向推去，却不能逆着运算回来。我们知道今天收获了多少苹果以及总共苹果的存量，但我们无法得知昨天一共存了多少苹果。
+为了解决这个问题，我们需要定义加法的逆运算，也就是减法。在定义减法前，我们尝试着定义“整数”：</p>
+<ul>
+<li>整数是一个自然数二元组 <span><span class="MathJax_Preview">(a, b)</span><script type="math/tex">(a, b)</script></span> </li>
+<li>两个整数 <span><span class="MathJax_Preview">(a, b)</span><script type="math/tex">(a, b)</script></span> 和 <span><span class="MathJax_Preview">(c, d)</span><script type="math/tex">(c, d)</script></span> 相等，当且仅当 <span><span class="MathJax_Preview">a + d = b + c</span><script type="math/tex">a + d = b + c</script></span></li>
+</ul>
+<p>我们还可以扩展加法和乘法，使得这两种运算也可以被运用到整数上：</p>
+<ul>
+<li><span><span class="MathJax_Preview">(a, b) + (c, d) = (a + c, b + d)</span><script type="math/tex">(a, b) + (c, d) = (a + c, b + d)</script></span></li>
+<li><span><span class="MathJax_Preview">(a, b) \times (c, d) = a \times c - a \times d - b \times c + b \times d</span><script type="math/tex">(a, b) \times (c, d) = a \times c - a \times d - b \times c + b \times d</script></span></li>
+</ul>
+<p>此外，我们可以发现： <span><span class="MathJax_Preview">(a, 0) \ne (0, a)</span><script type="math/tex">(a, 0) \ne (0, a)</script></span> （带入定义即可验证）。我们定义一个“负运算”，使得 <span><span class="MathJax_Preview">-(a, 0) = (0, a)</span><script type="math/tex">-(a, 0) = (0, a)</script></span> 。</p>
+<p>现在，脱去这个括号的马甲，我们可以发现这就是我们所需要的减法。我们定义了如 <span><span class="MathJax_Preview">-2</span><script type="math/tex">-2</script></span> 这样的“非自然数”的含义，并且将运算扩展到了整数上。</p>
+<h2 id="_4">除法和有理数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>我们为加法找到了一个逆运算，相对应的我们也可以为乘法找到一个逆运算。我们可以依葫芦画瓢，定义一个二元组 <span><span class="MathJax_Preview">[a, b]</span><script type="math/tex">[a, b]</script></span> ，这个二元组代表一个更大的数系：有理数。
+两个有理数 <span><span class="MathJax_Preview">[a, b], [c, d]</span><script type="math/tex">[a, b], [c, d]</script></span> 相等，当且仅当 <span><span class="MathJax_Preview">a \times d = b \times c</span><script type="math/tex">a \times d = b \times c</script></span> 。这个定义和整数的定义非常相似。同理，我们也可以将之前的运算迁移过来：</p>
+<ul>
+<li>有理数的加法： <span><span class="MathJax_Preview">[a, b] + [c, d] = [ad + bc, b \times d]</span><script type="math/tex">[a, b] + [c, d] = [ad + bc, b \times d]</script></span></li>
+<li>有理数的减法： <span><span class="MathJax_Preview">[a, b] - [c, d] = [ad - bc, b \times d]</span><script type="math/tex">[a, b] - [c, d] = [ad - bc, b \times d]</script></span></li>
+<li>有理数的负运算： <span><span class="MathJax_Preview">-[a, b] = [-a, b]</span><script type="math/tex">-[a, b] = [-a, b]</script></span></li>
+<li>有理数的乘法： <span><span class="MathJax_Preview">[a, b] \times [c, d] = [a \times c, b \times d]</span><script type="math/tex">[a, b] \times [c, d] = [a \times c, b \times d]</script></span></li>
+</ul>
+<p>注意，我们不能让 <span><span class="MathJax_Preview">b = 0</span><script type="math/tex">b = 0</script></span> 或者是 <span><span class="MathJax_Preview">d = 0</span><script type="math/tex">d = 0</script></span> 。假如我们允许这么做，我们将无法保证 <span><span class="MathJax_Preview">[a, b] \times [b, 1] = [a, 1]</span><script type="math/tex">[a, b] \times [b, 1] = [a, 1]</script></span> 和 <span><span class="MathJax_Preview">a \times 0 = 0</span><script type="math/tex">a \times 0 = 0</script></span> 同时成立。</p>
+<p>与整数类似，我们发现 <span><span class="MathJax_Preview">[a, b] \ne [b, a]</span><script type="math/tex">[a, b] \ne [b, a]</script></span> ，为了将二者联系起来，我们定义一个“倒数”的运算，使得 <span><span class="MathJax_Preview">[a, b]^{-1} = [b, a]</span><script type="math/tex">[a, b]^{-1} = [b, a]</script></span> 。</p>
+<p>将方括号换成我们所熟悉的分数和除法的形式，你可以验证我们的定义。</p>
+<h2 id="_5">有理数完备吗<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>这个标题似乎有些沉重，因为我们还不知道完备的定义。不过我们可以考虑这样一个问题：</p>
+<p><img alt="Screenshot from 2021-09-29 22-58-38.png" src="https://i.loli.net/2021/09/29/BEc52CjIhLbMYnz.png" /></p>
+<p>这个正方形的对角线长度是多少？也许你会很自然地说出 <span><span class="MathJax_Preview">\sqrt{2}</span><script type="math/tex">\sqrt{2}</script></span> ，但你将会发现 <span><span class="MathJax_Preview">\sqrt{2}</span><script type="math/tex">\sqrt{2}</script></span> 并不在我们所熟知的“有理数”的范畴。</p>
+<p>假定 <span><span class="MathJax_Preview">\sqrt{2}</span><script type="math/tex">\sqrt{2}</script></span> 是有理数，根据上面的定义，我们应该可以将它写为 <span><span class="MathJax_Preview">\frac{a}{b}</span><script type="math/tex">\frac{a}{b}</script></span> 的形式，其中 <span><span class="MathJax_Preview">a, b</span><script type="math/tex">a, b</script></span> 互质（你有耐心和能力看到这里，应该不需要我解释什么是“互质”了吧XD）。
+此时我们有 <span><span class="MathJax_Preview">\frac{a}{b} = \sqrt{2}</span><script type="math/tex">\frac{a}{b} = \sqrt{2}</script></span> 。将这个式子的两边平方，并在两边乘上 <span><span class="MathJax_Preview">b^2</span><script type="math/tex">b^2</script></span> ，得到： <span><span class="MathJax_Preview">a^2 = 2b^2</span><script type="math/tex">a^2 = 2b^2</script></span> 。此时等式的右侧是一个偶数，那么等式的左侧也应该是一个偶数。更进一步地， <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 应该是一个偶数。此时， <span><span class="MathJax_Preview">a^2</span><script type="math/tex">a^2</script></span> 应该是4的倍数（每一个 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 为它提供一个2），我们可以在两边同时除以2： <span><span class="MathJax_Preview">\frac{a^2}{2} = b^2</span><script type="math/tex">\frac{a^2}{2} = b^2</script></span> ，此时等是的左边依然是一个整数，且依然是2的倍数。这样我们就得到了 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 也是2的倍数的结论，与我们的假设矛盾。</p>
+<p>可以看到：某些数（这里的例子是 <span><span class="MathJax_Preview">\sqrt{2}</span><script type="math/tex">\sqrt{2}</script></span> ）并不在有理数的范围内。这说明有理数是有“漏洞”的（正式的说法就是：有理数是不完备的）。我们需要寻找另外的一些数来填充这些空洞。</p>
+<h2 id="_6">参考资料<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>《陶哲轩实分析》陶哲轩</li>
+<li><a href="https://www.bilibili.com/video/BV1a5411J77T">【Secretlab圣临】EG.iceiceice 三冰趣味采访</a></li>
+</ul>
                 
               
               
