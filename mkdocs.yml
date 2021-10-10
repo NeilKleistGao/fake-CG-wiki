@@ -86,7 +86,6 @@ nav:
     - 函数极限，求导和微分: calculus/derivative.md
     - 积分和牛顿-莱布尼茨公式: calculus/integration.md
     - 复数和欧拉公式: calculus/complex.md
-    - 傅立叶级数和傅立叶变换: calculus/fourier.md
   - 概率论:
     - 概率论简介: probabiity/index.md
   - 光栅化:
