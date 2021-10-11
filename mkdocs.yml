@@ -84,6 +84,7 @@ nav:
     - 从自然数说起: calculus/natural.md
     - 柯西数列与极限: calculus/sequence.md
     - 函数极限，求导和微分: calculus/derivative.md
+    - 介值定理和微分中值定理: calculus/mean.md
     - 积分和牛顿-莱布尼茨公式: calculus/integration.md
     - 复数和欧拉公式: calculus/complex.md
   - 概率论:
