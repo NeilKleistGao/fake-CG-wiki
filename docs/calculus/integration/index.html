@@ -70,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -744,6 +749,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../mean/" class="md-nav__link">
+        介值定理和微分中值定理
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -753,9 +770,58 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          积分和牛顿-莱布尼茨公式
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         积分和牛顿-莱布尼茨公式
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    定积分
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    不定积分
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    牛顿-莱布尼茨公式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1266,6 +1332,57 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    定积分
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    不定积分
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    牛顿-莱布尼茨公式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1274,7 +1391,59 @@
                 
                   <h1>积分和牛顿-莱布尼茨公式</h1>
                 
-                
+                <h2 id="_1">定积分<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>本章的标题叫做“微积分”，如果只讨论微分而不讨论积分无疑是不合理的。我们依然从一个实际的问题开始着手：</p>
+<p><img alt="Screenshot from 2021-10-11 22-01-58.png" src="https://i.loli.net/2021/10/11/wLXWT25OI6F7aPe.png" /></p>
+<p>我们如何求抛物线 <span><span class="MathJax_Preview">y = x^2, x = 2</span><script type="math/tex">y = x^2, x = 2</script></span> 以及x轴所围成的图形的面积？这不是一个常规的几何图形（如三角形，矩形或是圆形），所以我们没有现成的公式进行计算。
+如果我们可以把这个图形切割为上面提到的这些图形的话，就能化简问题。</p>
+<p>假定我们对面积的精度要求不是那么的高：</p>
+<p><img alt="Screenshot from 2021-10-11 22-05-57.png" src="https://i.loli.net/2021/10/11/KEwe96yGO4iajPC.png" /></p>
+<p>四边形ABCD作为一个不那么精确的近似，在某些情况下是可以被接受的（比如求两个面积的相对关系），但大部分情况下，我们希望精度能更高一些。
+我们可以尝试用更多的矩形来填充这个区域：</p>
+<p><img alt="Screenshot from 2021-10-11 22-09-49.png" src="https://i.loli.net/2021/10/11/xBprJ3PLfsb6tqU.png" /></p>
+<p>很明显，空白的区域比起之前来小了不少。我们希望这样不断地添加矩形，直到他尽可能地铺满整个区域：</p>
+<p><img alt="Screenshot from 2021-10-11 22-14-46.png" src="https://i.loli.net/2021/10/11/jCMzuALVgUn6O3e.png" /></p>
+<p>我们离答案越来越接近了！可惜的是，我们并不能完美地用这些矩形填充这个区域，除非这些矩形足够<strong>细小</strong>，可以伸进这个区域的每一个角落。
+而这恰恰是极限所擅长的。</p>
+<p>我们假定每一个矩形的底边长度为 <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> ，这样我们就可以写出图形面积的计算公式： <span><span class="MathJax_Preview">S = \sum d \times x_i^2 + \epsilon</span><script type="math/tex">S = \sum d \times x_i^2 + \epsilon</script></span> ，其中 <span><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span> 是每个矩形左下角点的横坐标。
+之所以我们还需要加入一个 <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> ，是因为这只是一个近似的结果，而这个结果是存在误差的。现在我们可以使用极限来代替这个 <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> ： <span><span class="MathJax_Preview">S = \lim_{d \to 0} d \times x_i^2</span><script type="math/tex">S = \lim_{d \to 0} d \times x_i^2</script></span> 。我们仍然不知道这个极限是否存在，如果存在的话收敛到哪里。从面积的定义来看：这是一个封闭的图形，所以这个极限一定会收敛到某个数。这个数我们称之为0到2上 <span><span class="MathJax_Preview">y = x^2</span><script type="math/tex">y = x^2</script></span> 的积分，且该函数是可积的。我们使用一个新的符号： <span><span class="MathJax_Preview">\int_0^2x^2dx</span><script type="math/tex">\int_0^2x^2dx</script></span> 来表示这个积分，其中 <span><span class="MathJax_Preview">\int</span><script type="math/tex">\int</script></span> 旁边的数字分别被称为积分上限和积分下限。</p>
+<p>我们还没完成刚才的任务！我们给它取好了名字，找好了新的标记，但是却还没有完成计算！我们把式子换一个写法： <span><span class="MathJax_Preview">\lim_{n \to \infty} \sum_{i = 1}^n (x_i - x_{i - 1}) \times x_{i - 1}^2</span><script type="math/tex">\lim_{n \to \infty} \sum_{i = 1}^n (x_i - x_{i - 1}) \times x_{i - 1}^2</script></span> 。我们不再考虑让底边无限趋近于0,而是让分的份数变得足够多！
+假定我们每次划分都是等长划分，那么上式可以写为： <span><span class="MathJax_Preview">\lim_{n \to \infty} \sum_{i = 0}^n \frac{2}{n} \times x_i^2 = \lim_{n \to \infty} \frac{2}{n} \sum_{i = 0}^n  x_i^2</span><script type="math/tex">\lim_{n \to \infty} \sum_{i = 0}^n \frac{2}{n} \times x_i^2 = \lim_{n \to \infty} \frac{2}{n} \sum_{i = 0}^n  x_i^2</script></span> 。 此时我们需要将 <span><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span> 表示为一个具体的数值！由于我们是等距划分，我们可以认为 <span><span class="MathJax_Preview">x_i = x_{i - 1} + \frac{2}{n}, x_0 = 0</span><script type="math/tex">x_i = x_{i - 1} + \frac{2}{n}, x_0 = 0</script></span> 。
+于是我们有： <span><span class="MathJax_Preview">\lim_{n \to \infty} \frac{2}{n} \sum_{i = 1}^n (\frac{2i}{n})^2 = \lim_{n \to \infty} \frac{8}{n^3} \sum_{i = 1}^n i^2</span><script type="math/tex">\lim_{n \to \infty} \frac{2}{n} \sum_{i = 1}^n (\frac{2i}{n})^2 = \lim_{n \to \infty} \frac{8}{n^3} \sum_{i = 1}^n i^2</script></span> 。
+根据平方和公式，我们最终得到 <span><span class="MathJax_Preview">\lim_{n \to \infty} \frac{8}{n^3} \frac{n(n + 1)(2n + 1)}{6} = \lim_{n \to \infty} \frac{8n^3 + 12n^2 + 4n}{3n^3} = \frac{8}{3}</span><script type="math/tex">\lim_{n \to \infty} \frac{8}{n^3} \frac{n(n + 1)(2n + 1)}{6} = \lim_{n \to \infty} \frac{8n^3 + 12n^2 + 4n}{3n^3} = \frac{8}{3}</script></span> 。</p>
+<p>我们终于可以写下 <span><span class="MathJax_Preview">\int_0^2 x^2dx = \frac{8}{3}</span><script type="math/tex">\int_0^2 x^2dx = \frac{8}{3}</script></span> 。这是定积分中非常简单的一个例子。</p>
+<p>根据上面的运算，我们可以很容易地得到如下的一些结论：</p>
+<ul>
+<li>如果 <span><span class="MathJax_Preview">a = b</span><script type="math/tex">a = b</script></span> ,那么 <span><span class="MathJax_Preview">\int_a^b f(x)dx = 0</span><script type="math/tex">\int_a^b f(x)dx = 0</script></span></li>
+<li>如果 <span><span class="MathJax_Preview">a &lt; b &lt; c</span><script type="math/tex">a < b < c</script></span> ，那么 <span><span class="MathJax_Preview">\int_a^b f(x)dx + \int_b^c f(x)dx = \int_a^c f(x)dx</span><script type="math/tex">\int_a^b f(x)dx + \int_b^c f(x)dx = \int_a^c f(x)dx</script></span></li>
+<li>定积分是线性变换，也就是说 <span><span class="MathJax_Preview">\int_a^b (\alpha f(x) + \beta g(x))dx = \alpha\int_a^bf(x)dx + \beta\int_a^bg(x)dx</span><script type="math/tex">\int_a^b (\alpha f(x) + \beta g(x))dx = \alpha\int_a^bf(x)dx + \beta\int_a^bg(x)dx</script></span></li>
+</ul>
+<blockquote>
+<p>你也许会好奇，为什么我们的矩形一定要这样竖着画。这种“画法”只是积分的一种形式，这种形式被称为黎曼积分。
+常见的积分还有勒贝格积分，我们目前不会讨论这些积分，黎曼积分是我们的重点。</p>
+</blockquote>
+<h2 id="_2">不定积分<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>相比定积分，不定积分与微分的关系更加紧密。不定积分也被称为<strong>反导数</strong> 。与定积分不同，在不定积分中我们不再指定积分的上下限。
+如果 <span><span class="MathJax_Preview">F'(x) = f(x)</span><script type="math/tex">F'(x) = f(x)</script></span> ，那么 <span><span class="MathJax_Preview">\int f(x)dx = F(x) + C</span><script type="math/tex">\int f(x)dx = F(x) + C</script></span> 。我们需要在 <span><span class="MathJax_Preview">F(x)</span><script type="math/tex">F(x)</script></span> 后加入一个常数 <span><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> ，因为在求导的过程中，
+常数的导数为 <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> ，这部分不会保存在我们的导函数中。在不给任何其他信息的情况下，我们无法知道这个常数 <span><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> 是多少。更确切地说，
+不定积分求出的是一系列的函数。</p>
+<p>根据求导的公式，我们可以总结出一些不定积分的公式：</p>
+<ul>
+<li><span><span class="MathJax_Preview">\int x^m dx = \frac{1}{m + 1}x^{m + 1} + C</span><script type="math/tex">\int x^m dx = \frac{1}{m + 1}x^{m + 1} + C</script></span></li>
+<li><span><span class="MathJax_Preview">\int \frac{1}{x}dx = ln|x| + C</span><script type="math/tex">\int \frac{1}{x}dx = ln|x| + C</script></span></li>
+<li><span><span class="MathJax_Preview">\int e^xdx = e^x + C</span><script type="math/tex">\int e^xdx = e^x + C</script></span></li>
+<li><span><span class="MathJax_Preview">\int a^xdx = \frac{a^x}{lna} + C</span><script type="math/tex">\int a^xdx = \frac{a^x}{lna} + C</script></span></li>
+<li><span><span class="MathJax_Preview">\int cosxdx = sinx + C</span><script type="math/tex">\int cosxdx = sinx + C</script></span></li>
+<li><span><span class="MathJax_Preview">\int sinxdx = -cosx + C</span><script type="math/tex">\int sinxdx = -cosx + C</script></span></li>
+</ul>
+<h2 id="-">牛顿-莱布尼茨公式<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<p>你肯定已经厌倦了使用极限计算定积分了！如果能像不定积分一样，就能大大简化我们的运算。
+事实上，我们可以使用牛顿-莱布尼茨公式（也叫做微积分第二基本定理）将定积分转化为不定积分的形式： <span><span class="MathJax_Preview">\int_a^b f(x)dx = F(b) - F(a)</span><script type="math/tex">\int_a^b f(x)dx = F(b) - F(a)</script></span> ，其中 <span><span class="MathJax_Preview">F(x)</span><script type="math/tex">F(x)</script></span> 是 <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> 的原函数。</p>
+<h2 id="_3">参考资料<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E9%BB%8E%E6%9B%BC%E7%A7%AF%E5%88%86">黎曼积分- 维基百科，自由的百科全书</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%BE%AE%E7%A7%AF%E5%88%86%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86">微积分基本定理- 维基百科，自由的百科全书</a></li>
+</ul>
                 
               
               
@@ -1299,7 +1468,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../derivative/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 函数极限，求导和微分" rel="prev">
+        <a href="../mean/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 介值定理和微分中值定理" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1308,7 +1477,7 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              函数极限，求导和微分
+              介值定理和微分中值定理
             </div>
           </div>
         </a>
