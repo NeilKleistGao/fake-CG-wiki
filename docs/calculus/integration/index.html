@@ -1439,6 +1439,12 @@
 <h2 id="-">牛顿-莱布尼茨公式<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
 <p>你肯定已经厌倦了使用极限计算定积分了！如果能像不定积分一样，就能大大简化我们的运算。
 事实上，我们可以使用牛顿-莱布尼茨公式（也叫做微积分第二基本定理）将定积分转化为不定积分的形式： <span><span class="MathJax_Preview">\int_a^b f(x)dx = F(b) - F(a)</span><script type="math/tex">\int_a^b f(x)dx = F(b) - F(a)</script></span> ，其中 <span><span class="MathJax_Preview">F(x)</span><script type="math/tex">F(x)</script></span> 是 <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> 的原函数。</p>
+<p>我们从 <span><span class="MathJax_Preview">F(b) - F(a)</span><script type="math/tex">F(b) - F(a)</script></span> 入手。我们假设存在序列 <span><span class="MathJax_Preview">a = x_0, x_1, \dots , x_n = b</span><script type="math/tex">a = x_0, x_1, \dots , x_n = b</script></span> ，那么 <span><span class="MathJax_Preview">F(b) - F(a) = F(x_n) - F(x_0)</span><script type="math/tex">F(b) - F(a) = F(x_n) - F(x_0)</script></span> 。
+我们可以很容易地进行拆项： <span><span class="MathJax_Preview">F(b) - F(a) = F(x_n) - F(x_{n - 1}) + F(x_{n - 1}) - F(x_{n - 2}) + F(x_{n - 2}) - \dots - F(x_0)</span><script type="math/tex">F(b) - F(a) = F(x_n) - F(x_{n - 1}) + F(x_{n - 1}) - F(x_{n - 2}) + F(x_{n - 2}) - \dots - F(x_0)</script></span> 。
+整理上面这个式子，我们可以写为 <span><span class="MathJax_Preview">F(b) - F(a) = \sum_{i = 1}^{n}(F(x_i) - F(x_{i - 1}))</span><script type="math/tex">F(b) - F(a) = \sum_{i = 1}^{n}(F(x_i) - F(x_{i - 1}))</script></span> 。</p>
+<p>根据拉格郎日中值定理，我们有 <span><span class="MathJax_Preview">F'(\xi) = \frac{F(b) - F(a)}{b - a}</span><script type="math/tex">F'(\xi) = \frac{F(b) - F(a)}{b - a}</script></span> 。所以对于每一个小项，我们有 <span><span class="MathJax_Preview">F(x_i) - F(x_{i - 1}) = F'(\xi_i)(x_i - x_{i - 1})</span><script type="math/tex">F(x_i) - F(x_{i - 1}) = F'(\xi_i)(x_i - x_{i - 1})</script></span> 。
+所以 <span><span class="MathJax_Preview">F(b) - F(a) = \sum_{i = 1}^{n}(F'(\xi_i)(x_i - x_{i - 1}))</span><script type="math/tex">F(b) - F(a) = \sum_{i = 1}^{n}(F'(\xi_i)(x_i - x_{i - 1}))</script></span> 。由于 <span><span class="MathJax_Preview">F(x)</span><script type="math/tex">F(x)</script></span> 是原函数，所以 <span><span class="MathJax_Preview">F(b) - F(a) = \sum_{i = 1}^{n}f(\xi_i)\Delta x_i)</span><script type="math/tex">F(b) - F(a) = \sum_{i = 1}^{n}f(\xi_i)\Delta x_i)</script></span> 。
+此时只要对右式取极限，即可得到牛顿-莱布尼茨公式。</p>
 <h2 id="_3">参考资料<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://zh.wikipedia.org/wiki/%E9%BB%8E%E6%9B%BC%E7%A7%AF%E5%88%86">黎曼积分- 维基百科，自由的百科全书</a></li>
