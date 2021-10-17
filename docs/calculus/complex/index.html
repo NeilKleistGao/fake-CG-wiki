@@ -70,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -777,9 +782,85 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          复数和欧拉公式
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         复数和欧拉公式
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    实数、虚数和复数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    复数基本运算
+  </a>
+  
+    <nav class="md-nav" aria-label="复数基本运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    共扼和模长
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    四则运算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    矩阵表示和棣莫弗公式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    欧拉公式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1055,6 +1136,30 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../antialiasing/filter/" class="md-nav__link">
+        卷积与滤波
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../antialiasing/msaa/" class="md-nav__link">
+        多重采样抗锯齿
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1278,6 +1383,84 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    实数、虚数和复数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    复数基本运算
+  </a>
+  
+    <nav class="md-nav" aria-label="复数基本运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    共扼和模长
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    四则运算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    矩阵表示和棣莫弗公式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    欧拉公式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1286,7 +1469,133 @@
                 
                   <h1>复数和欧拉公式</h1>
                 
-                
+                <h2 id="_1">实数、虚数和复数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>我们在之前的推导中看到了如何从自然数出发，导出我们现在常用的几大数系。但是事情还没有结束。因为我们没有处理这个问题： <span><span class="MathJax_Preview">\sqrt {-1}</span><script type="math/tex">\sqrt {-1}</script></span> 是多少？</p>
+<p>你的小学或中学老师会告诉你这是错的，因为根号运算下面的数字必须是非负的。但这只是局限于实数中的真理：</p>
+<p><img alt="Screenshot from 2021-10-17 10-25-20.png" src="https://i.loli.net/2021/10/17/MeDW2N54Q8Tid1G.png" /></p>
+<p>这是实数数轴上的数字5。数轴是一个一维的结构，这意味着我们只能对点进行平移和缩放（也就是线性代数中的线性组合）。
+对一个点进行平移时使用加法（如 <span><span class="MathJax_Preview">7 = 5 + 2</span><script type="math/tex">7 = 5 + 2</script></span> ，我们可以理解为我把5这个数字平移了2格，来到了7的位置），
+而对一个点进行缩放的时候使用乘法（如 <span><span class="MathJax_Preview">10 = 5 \times 2</span><script type="math/tex">10 = 5 \times 2</script></span> ，我们可以理解为我把5拉伸为原来的两倍，来到10的位置）。</p>
+<p>如果缩放的过程所使用的数字是一个负数，我们通常会将步骤拆分为两步。以 <span><span class="MathJax_Preview">5 \times (-2)</span><script type="math/tex">5 \times (-2)</script></span> 为例：</p>
+<ul>
+<li>首先计算 <span><span class="MathJax_Preview">5 \times 2 = 10</span><script type="math/tex">5 \times 2 = 10</script></span> ，即先完成缩放操作</li>
+<li>再计算 <span><span class="MathJax_Preview">10 \times (-1) = -10</span><script type="math/tex">10 \times (-1) = -10</script></span> ，这个操作我们将它“翻译”为翻转，也就是改变它在数轴上相对0（也就是原点）的位置。我们也可以认为他是进行了一个180度的大旋转。</li>
+</ul>
+<p>到现在，我们再回过头来讨论“ <span><span class="MathJax_Preview">\sqrt {-1}</span><script type="math/tex">\sqrt {-1}</script></span> 是多少？”这件事。我们将根号拿掉，换成一个我们更喜欢的形式： <span><span class="MathJax_Preview">(-1)^{0.5}</span><script type="math/tex">(-1)^{0.5}</script></span> 。这里的 <span><span class="MathJax_Preview">0.5</span><script type="math/tex">0.5</script></span> 次方，
+我们不妨认为他包含着某个运算“只计算一半”的意义（就像 <span><span class="MathJax_Preview">5 + 4 \times 0.5 = 7</span><script type="math/tex">5 + 4 \times 0.5 = 7</script></span> ，本来我们应该平移4个单位，但因为0.5的存在，我们其实只做了一半，即平移了2个单位）。</p>
+<p>我们再来看 <span><span class="MathJax_Preview">5 \times (-1)</span><script type="math/tex">5 \times (-1)</script></span> 这个操作，这个操作意味着我们要将5旋转180度，到达-5的位置。如果我们将式子改写为 <span><span class="MathJax_Preview">5 \times (-1)^0.5</span><script type="math/tex">5 \times (-1)^0.5</script></span> ，
+我们是否可以理解为：<strong>我们将这个数只旋转90度</strong>？</p>
+<p><img alt="Screenshot from 2021-10-17 10-39-22.png" src="https://i.loli.net/2021/10/17/y3gICqnaKrN6Gpx.png" /></p>
+<p>由于90度根本就不存在于数轴上，我们需要将视野扩展到二维的平面。此时，点B的数值可以被我们写为 <span><span class="MathJax_Preview">5\sqrt {-1}</span><script type="math/tex">5\sqrt {-1}</script></span> ，这意味着我们为 <span><span class="MathJax_Preview">\sqrt {-1}</span><script type="math/tex">\sqrt {-1}</script></span> 找到了一个属于自己的位置！
+我们不妨为它取一个新的符号 <span><span class="MathJax_Preview">i = \sqrt{-1}</span><script type="math/tex">i = \sqrt{-1}</script></span> （i为image的首字母），并将原来的数轴称为实轴，将新的这个数轴称为虚轴，虚轴上的数字我们称为虚数。</p>
+<blockquote>
+<p>我们不打算在这里引入过多的群论的内容，如果你对这些内容感兴趣（事实上他们确实很有意思！），请参见参考资料</p>
+</blockquote>
+<p>此时，我们可以将整个平面内的数字表示为一个点：</p>
+<p><img alt="Screenshot from 2021-10-17 10-45-07.png" src="https://i.loli.net/2021/10/17/c6WGhSgUbF7TXns.png" /></p>
+<p>每个点表示为 <span><span class="MathJax_Preview">(R, I)</span><script type="math/tex">(R, I)</script></span> 或者 <span><span class="MathJax_Preview">R + I</span><script type="math/tex">R + I</script></span> （其中R表示real，实部；I表示Image，虚部）的形式。这样的数字是实数和虚数的复合，我们称之为复数。</p>
+<h2 id="_2">复数基本运算<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">共扼和模长<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>复数一个非常重要的运算是他的<strong>共扼</strong>，没有共扼很多其他的运算将无法实现。一个附属 <span><span class="MathJax_Preview">z = a + bi</span><script type="math/tex">z = a + bi</script></span> 的共扼 <span><span class="MathJax_Preview">\bar z</span><script type="math/tex">\bar z</script></span> 只需要将虚部取反 <span><span class="MathJax_Preview">\bar z = a - bi</span><script type="math/tex">\bar z = a - bi</script></span> 。
+在图像上，一个复数的共扼等同于其关于实轴的对称点。</p>
+<p>为什么共扼如此重要？假如你尝试计算一下 <span><span class="MathJax_Preview">z\bar z</span><script type="math/tex">z\bar z</script></span> ，你会得到 <span><span class="MathJax_Preview">a^2 + b^2</span><script type="math/tex">a^2 + b^2</script></span> 。这不仅给我们提供了从复数到实数的转换方式，
+而且还给我们提供了一个全新的拆项思路： <span><span class="MathJax_Preview">a^2 + b^2 = (a + bi)(a - bi)</span><script type="math/tex">a^2 + b^2 = (a + bi)(a - bi)</script></span> 。</p>
+<p>除此以外，我们还可以借助共扼计算复数的“长度” <span><span class="MathJax_Preview">|z| = \sqrt {z\bar z}</span><script type="math/tex">|z| = \sqrt {z\bar z}</script></span> 。一个复数的模长表示了它到原点的距离，如果我们将两个复数相减再取模，将会得到复平面内两个点的距离。</p>
+<h3 id="_4">四则运算<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>复数之间也可以使用与实数相似的四则运算，并且得到的数字依然是复数：</p>
+<ul>
+<li>加法： <span><span class="MathJax_Preview">(a + bi) + (c + di) = (a + b) + (c + d)i</span><script type="math/tex">(a + bi) + (c + di) = (a + b) + (c + d)i</script></span></li>
+<li>减法： <span><span class="MathJax_Preview">(a + bi) - (c + di) = (a - b) + (c - d)i</span><script type="math/tex">(a + bi) - (c + di) = (a - b) + (c - d)i</script></span></li>
+<li>乘法： <span><span class="MathJax_Preview">(a + bi) \times (c + di) = ac + adi + cbi + bdi^2 = (ac - bd) + (ad + bc)i</span><script type="math/tex">(a + bi) \times (c + di) = ac + adi + cbi + bdi^2 = (ac - bd) + (ad + bc)i</script></span></li>
+<li>除法： <span><span class="MathJax_Preview">\frac{a + bi}{c + di} = \frac{(a + bi)(c - di)}{(c + di)(c - di)} = \frac{(ac + bd) + (bc - ad)i}{c^2 + d^2}</span><script type="math/tex">\frac{a + bi}{c + di} = \frac{(a + bi)(c - di)}{(c + di)(c - di)} = \frac{(ac + bd) + (bc - ad)i}{c^2 + d^2}</script></span></li>
+</ul>
+<p>其中除法相对特殊：我们希望 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 只出现在分子上而不是分母上，所以我们需要进行一步“分母实数化”（类似于我们不希望在分母中看到无理数时进行的分母有理化）。</p>
+<h2 id="_5">矩阵表示和棣莫弗公式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>复数还可以写为矩阵形式：</p>
+<div>
+<div class="MathJax_Preview">
+a + bi = 
+\begin{bmatrix}
+a &amp; -b \\
+b &amp; a
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+a + bi = 
+\begin{bmatrix}
+a & -b \\
+b & a
+\end{bmatrix}
+</script>
+</div>
+<p>为什么能这么写呢？我们尝试在复平面上画个圆：</p>
+<p><img alt="Screenshot from 2021-10-17 12-49-47.png" src="https://i.loli.net/2021/10/17/nkY3sASuNFX4hWe.png" /></p>
+<p>这是一个单位圆。我们在其中找到一个点，并且假设它和原点的连线与实轴的夹角为 <span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span> 。
+如果我们希望将一个向量在空间中旋转 <span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span> 角度，我们很容易可以写出他的旋转矩阵：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+cos\theta &amp; -sin\theta \\
+sin\theta &amp; cos\theta
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+cos\theta & -sin\theta \\
+sin\theta & cos\theta
+\end{bmatrix}
+</script>
+</div>
+<p>我们不难发现： <span><span class="MathJax_Preview">a = cos\theta, b = sin\theta</span><script type="math/tex">a = cos\theta, b = sin\theta</script></span> 。于是，我们可以将复数写成矩阵的形式了。</p>
+<p>如果我们希望一口气旋转n次（n不必是整数，比如我可能希望旋转3次，再旋转“半次”，此时 <span><span class="MathJax_Preview">n = 3.5</span><script type="math/tex">n = 3.5</script></span>），此时我们所旋转的角度就变为了 <span><span class="MathJax_Preview">n\theta</span><script type="math/tex">n\theta</script></span> 。
+当然，我们也可以将这些旋转矩阵拆开，一次一次地乘。所以我们可以非常直观地得到这个公式：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+cos\theta &amp; -sin\theta \\
+sin\theta &amp; cos\theta
+\end{bmatrix}^n = 
+\begin{bmatrix}
+cosn\theta &amp; -sinn\theta \\
+sinn\theta &amp; cosn\theta
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+cos\theta & -sin\theta \\
+sin\theta & cos\theta
+\end{bmatrix}^n = 
+\begin{bmatrix}
+cosn\theta & -sinn\theta \\
+sinn\theta & cosn\theta
+\end{bmatrix}
+</script>
+</div>
+<p>将其转换为复数的形式，那么我们将会得到： <span><span class="MathJax_Preview">(cos\theta + isin\theta)^n  = cosn\theta + isinn\theta</span><script type="math/tex">(cos\theta + isin\theta)^n  = cosn\theta + isinn\theta</script></span> 。这就是著名的棣莫弗公式。</p>
+<blockquote>
+<p>这是一个非正式的证明，他非常直观。但如果你希望看到更系统的证明，请阅读参考资料</p>
+</blockquote>
+<h2 id="_6">欧拉公式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>欧拉公式又称为<strong>上帝公式</strong>，他将 <span><span class="MathJax_Preview">0, 1, \pi, e, i</span><script type="math/tex">0, 1, \pi, e, i</script></span> 有机地结合在了一起： <span><span class="MathJax_Preview">e^{i\pi} + 1 = 0</span><script type="math/tex">e^{i\pi} + 1 = 0</script></span> 。</p>
+<p>初见这个公式，你肯定会感到惊讶！事实上欧拉公式更通用的形式是这样： <span><span class="MathJax_Preview">e^{ix} = cosx + isinx</span><script type="math/tex">e^{ix} = cosx + isinx</script></span> 。</p>
+<p>首先，我们需要定义复数域上的 <span><span class="MathJax_Preview">e^x</span><script type="math/tex">e^x</script></span> ： 对于 <span><span class="MathJax_Preview">c = a + bi</span><script type="math/tex">c = a + bi</script></span> ，有 <span><span class="MathJax_Preview">e^c = \lim_{n \to \infty} (1 + \frac{c}{n})^n</span><script type="math/tex">e^c = \lim_{n \to \infty} (1 + \frac{c}{n})^n</script></span> 。这和实数上大体是相同的。
+根据上面的棣莫弗公式，我们可以得到极限内的式子等于 <span><span class="MathJax_Preview">(1 + \frac{a + bi}{n})^n = ((1 + \frac{a}{n}) + i\frac{b}{n})^n = r_n(cos\theta_n + isin\theta_n)</span><script type="math/tex">(1 + \frac{a + bi}{n})^n = ((1 + \frac{a}{n}) + i\frac{b}{n})^n = r_n(cos\theta_n + isin\theta_n)</script></span> 。
+其中 <span><span class="MathJax_Preview">r_n = ((1 + \frac{a}{n})^2 + \frac{b}{n}^2)^{\frac{n}{2}}, \theta_n = narctan\frac{\frac{b}{n}}{1 + \frac{a}{n}}</span><script type="math/tex">r_n = ((1 + \frac{a}{n})^2 + \frac{b}{n}^2)^{\frac{n}{2}}, \theta_n = narctan\frac{\frac{b}{n}}{1 + \frac{a}{n}}</script></span> 。</p>
+<p>我们对 <span><span class="MathJax_Preview">r_n</span><script type="math/tex">r_n</script></span> 和 <span><span class="MathJax_Preview">\theta_n</span><script type="math/tex">\theta_n</script></span> 分别求极限。对于 <span><span class="MathJax_Preview">r_n</span><script type="math/tex">r_n</script></span> ，我们希望把那个恼人的 <span><span class="MathJax_Preview">\frac{n}{2}</span><script type="math/tex">\frac{n}{2}</script></span> 拿下来。
+所以取自然对数： <span><span class="MathJax_Preview">\lim_{n \to \infty} lnr_n = \lim_{n \to \infty} \frac{n}{2}ln((1 + \frac{a}{n})^2 + \frac{b}{n}^2)</span><script type="math/tex">\lim_{n \to \infty} lnr_n = \lim_{n \to \infty} \frac{n}{2}ln((1 + \frac{a}{n})^2 + \frac{b}{n}^2)</script></span> 。
+由于 <span><span class="MathJax_Preview">\lim_{n \to \infty} \frac{1}{n} = 0</span><script type="math/tex">\lim_{n \to \infty} \frac{1}{n} = 0</script></span> ，由经典的等价无穷小，上式可以转化为 <span><span class="MathJax_Preview">\lim_{n \to \infty} \frac{n}{2}(\frac{2a}{n} + \frac{a^2 + b^2}{n^2}) = a</span><script type="math/tex">\lim_{n \to \infty} \frac{n}{2}(\frac{2a}{n} + \frac{a^2 + b^2}{n^2}) = a</script></span> 。</p>
+<p>同时，另一边 <span><span class="MathJax_Preview">\lim_{n \to \infty} \theta_n = \lim_{n \to \infty} narctan\frac{\frac{b}{n}}{1 + \frac{a}{n}}</span><script type="math/tex">\lim_{n \to \infty} \theta_n = \lim_{n \to \infty} narctan\frac{\frac{b}{n}}{1 + \frac{a}{n}}</script></span> 。和上面一样，我们这次借助这两个函数的关系：</p>
+<p><img alt="Screenshot from 2021-10-17 13-17-59.png" src="https://i.loli.net/2021/10/17/kSHc75bCRguxKer.png" /></p>
+<p>在接近0的地方， <span><span class="MathJax_Preview">arctanx</span><script type="math/tex">arctanx</script></span> 和 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 是近似等价的。对原来的式子i进行替换： <span><span class="MathJax_Preview">\lim_{n \to \infty} \theta_n = \lim_{n \to \infty} n\frac{\frac{b}{n}}{1 + \frac{a}{n}} = b</span><script type="math/tex">\lim_{n \to \infty} \theta_n = \lim_{n \to \infty} n\frac{\frac{b}{n}}{1 + \frac{a}{n}} = b</script></span> 。</p>
+<p>于是，我们将两个极限整合在一起： <span><span class="MathJax_Preview">\lim_{n \to \infty} r_n(cos\theta_n + isin\theta_n) = e^a(cosb + isinb)</span><script type="math/tex">\lim_{n \to \infty} r_n(cos\theta_n + isin\theta_n) = e^a(cosb + isinb)</script></span> 。
+此时，我们令 <span><span class="MathJax_Preview">a = 0</span><script type="math/tex">a = 0</script></span> ，最终得到 <span><span class="MathJax_Preview">e^{ix} = cosx + sinx</span><script type="math/tex">e^{ix} = cosx + sinx</script></span> 。</p>
+<p>这将是我们连接三角函数与复函数之间非常重要的桥梁。</p>
+<h2 id="_7">参考资料<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1fx41187tZ?spm_id_from=333.999.0.0">【官方双语】欧拉公式与初等群论</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%A4%8D%E6%95%B0_(%E6%95%B0%E5%AD%A6)">复数(数学) - 维基百科，自由的百科全书</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%A3%A3%E8%8E%AB%E5%BC%97%E5%85%AC%E5%BC%8F">棣莫弗公式 - 维基百科，自由的百科全书</a></li>
+</ul>
                 
               
               

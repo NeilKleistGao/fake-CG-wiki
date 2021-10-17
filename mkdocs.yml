@@ -102,6 +102,8 @@ nav:
   - 反走样技术:
     - 反走样技术简介: antialiasing/index.md
     - 采样原理: antialiasing/sampling.md
+    - 卷积与滤波: antialiasing/filter.md
+    - 多重采样抗锯齿: antialiasing/msaa.md
   - 几何建模:
     - 几何建模简介: geometry/index.md
   - 基于物理的渲染:
