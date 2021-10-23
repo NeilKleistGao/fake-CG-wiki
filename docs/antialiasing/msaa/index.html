@@ -70,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -900,8 +905,20 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rasterization/texture/" class="md-nav__link">
-        纹理映射
+      <a href="../../rasterization/zbuffer/" class="md-nav__link">
+        深度缓存
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/shading/" class="md-nav__link">
+        光照着色
       </a>
     </li>
   
@@ -1059,9 +1076,58 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          多重采样抗锯齿
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         多重采样抗锯齿
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    低通滤波
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    多重采样
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    先采样还是先滤波
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1290,6 +1356,57 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    低通滤波
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    多重采样
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    先采样还是先滤波
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1298,7 +1415,87 @@
                 
                   <h1>多重采样抗锯齿</h1>
                 
-                
+                <h2 id="_1">低通滤波<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>我们在<a href="https://neilkleistgao.github.io/fake-CG-wiki/antialiasing/sampling/">采样原理</a>一节中已经探讨过了反走样的两种基本思路。
+其中增加采样率是一个代价比较高的做法（通常来说，增加采样率需要增加屏幕分辨率，而我们很难说服我们的用户买一台新的显示器），为此，我们需要过滤掉信号的高频部分。
+这固然会对图像的质量造成一定的影响，但这些高频信号所表示的细节的丢失和渲染上的瑕疵相比是微不足道的。</p>
+<p>能够帮助我们过滤掉高频信号，保留低频信号的滤波器称为低通滤波器。通常来说，我们会使用这样的一个卷积核对图像进行卷积操作，来进行近似“低通滤波”的操作：</p>
+<div>
+<div class="MathJax_Preview">
+\frac{1}{9}
+\begin{bmatrix}
+    1 &amp; 1 &amp; 1 \\
+    1 &amp; 1 &amp; 1 \\
+    1 &amp; 1 &amp; 1 
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\frac{1}{9}
+\begin{bmatrix}
+    1 & 1 & 1 \\
+    1 & 1 & 1 \\
+    1 & 1 & 1 
+\end{bmatrix}
+</script>
+</div>
+<p>在进行卷积操作的过程中，我们将一个点与周围一圈点进行了平均的操作。平均操作使得中间点与周围点更加接近，从而使得边界被<strong>模糊</strong>，达到“低通”的目的。
+除了 <span><span class="MathJax_Preview">3 \times 3</span><script type="math/tex">3 \times 3</script></span> 的卷积核外，我们还可以采用 <span><span class="MathJax_Preview">5 \times 5, 7 \times 7, 9 \times 9</span><script type="math/tex">5 \times 5, 7 \times 7, 9 \times 9</script></span> 甚至更大的大小。
+卷积核越大，模糊就越严重，保留下来的信号就越低频；卷积核越小，剩余的高频信号就越多（当卷积核的大小变为1时，我们就相当于什么都没做）。</p>
+<p>除了“平均”外，我们还可以对信号进行“加权平均”。一个典型的例子是高斯卷积核：</p>
+<div>
+<div class="MathJax_Preview">
+\frac{1}{16}
+\begin{bmatrix}
+    1 &amp; 2 &amp; 1 \\
+    2 &amp; 4 &amp; 2 \\
+    1 &amp; 2 &amp; 1 
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\frac{1}{16}
+\begin{bmatrix}
+    1 & 2 & 1 \\
+    2 & 4 & 2 \\
+    1 & 2 & 1 
+\end{bmatrix}
+</script>
+</div>
+<h2 id="_2">多重采样<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>本篇要讨论的内容为<strong>多重采样抗锯齿</strong>。从名字上来看我们似乎是想通过增加采样率来进行反走样，事实确实如此，但也不完全是。
+我们确实增加了<strong>图像缓存</strong>的采样率，但是显示器的采样率是不变的（这样用户就不必再去买一个显示器了）。</p>
+<p>我们回顾一下之前的采样过程：我们对屏幕上的每一个像素点进行采样，采样后将每份数据放入图像缓存中，等待输出至屏幕。
+为了实现多重采样，我们将“进行一次采样”变为进行 <span><span class="MathJax_Preview">4\times 4</span><script type="math/tex">4\times 4</script></span> 次采样（以下图片均来自于GAMES101，详见参考资料）：</p>
+<p><img alt="Screenshot from 2021-10-23 12-51-01.png" src="https://i.loli.net/2021/10/23/JYvCQmReKn561p2.png" /></p>
+<p>此时，我们对场景的采样从一次变为了16次。这些采样点对应原来的一个像素。我们并不会将屏幕分辨率扩展为原来的16倍，
+相反，在写入缓存前，我们将这16个点的值进行平均。此时我们仅剩下一个平均值，这时我们再将结果写回。
+平均后的结果不再是非零即一的了。如果16个点中有8个点采样的结果为1，那么我们最后的结果为0.5；如果有4个点为1，那么写回的结果就为0.25：</p>
+<p><img alt="Screenshot from 2021-10-23 13-00-18.png" src="https://i.loli.net/2021/10/23/fls1MySFhzWi9Gk.png" /></p>
+<p>此时屏幕的分辨率并没有改变，而我们已经得到了想要的效果：</p>
+<p><img alt="Screenshot from 2021-10-23 12-57-41.png" src="https://i.loli.net/2021/10/23/4hOv1r3KS5ZH9gN.png" /></p>
+<p>虽然我们确实增加了采样率（一个像素采样一次变为了一个像素采样16次），但我们可以对一些像素进行复用，所以在性能上并不会变为原来的16倍。</p>
+<p>你可以非常简单地在OpenGL中开启MSAA：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_MULTISAMPLE</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<blockquote>
+<p>你也可以建立自己的多重采样缓存，甚至可以自定义抗锯齿算法。详细的用法请参见参考资料</p>
+</blockquote>
+<h2 id="_3">先采样还是先滤波<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>在上面的做法中，我们确实在某种意义上增加了采样率（指对场景的采样），但事实上，在写入缓冲区前（屏幕对缓冲区进行采样前），我们进行了平均操作（即一个低通滤波）。
+所以本质上我们是先进行了滤波操作，然后才做的采样。</p>
+<p>我们不能将这个操作的顺序反过来：</p>
+<ul>
+<li>将对场景的采样写入缓存（只做1次采样）</li>
+<li>对缓冲区采样时，我们再做低通滤波</li>
+</ul>
+<p>这样的操作无法起到效果！因为在滤波前，高频信号已经被错误地当作某些低频信号写入缓冲了。此时再应用低通滤波器并不能根除他们：</p>
+<p><img alt="Screenshot from 2021-10-23 13-11-01.png" src="https://i.loli.net/2021/10/23/z8jJot9IykwFXQs.png" /></p>
+<p>上图为两种做法的对比：左图为先采样后滤波，右图为先滤波后采样。</p>
+<h2 id="_4">参考资料<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1X7411F744?p=6">GAMES101-现代计算机图形学入门-闫令琪</a></li>
+<li><a href="https://learnopengl-cn.github.io/04%20Advanced%20OpenGL/11%20Anti%20Aliasing/">抗锯齿</a></li>
+</ul>
                 
               
               

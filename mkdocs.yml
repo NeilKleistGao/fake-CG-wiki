@@ -94,7 +94,8 @@ nav:
     - 渲染管线: rasterization/pipeline.md
     - MVP变换: rasterization/mvp.md
     - 光栅化: rasterization/rasterization.md
-    - 纹理映射: rasterization/texture.md
+    - 深度缓存: rasterization/zbuffer.md
+    - 光照着色: rasterization/shading.md
   - 光线追踪:
     - 光线追踪简介: ray_tracing/index.md
   - 辐射度量学:
