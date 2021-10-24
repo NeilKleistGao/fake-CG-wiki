@@ -70,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -909,9 +914,58 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          深度缓存
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         深度缓存
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    画家算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    深度缓存
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    深度冲突
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1302,6 +1356,57 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    画家算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    深度缓存
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    深度冲突
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1310,7 +1415,88 @@
                 
                   <h1>深度缓存</h1>
                 
-                
+                <h2 id="_1">画家算法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在绘制图元的时候，我们常常需要考虑一个问题：究竟谁应该被放在前面（遮挡），谁应该被放在后面（被遮挡）。最早的算法是从油画家身上借鉴过来的。</p>
+<p>在绘制图像的时候，我们先绘制远景，再绘制近景，问题就可以迎刃而解。比如我们在绘制风景画的时候，先绘制远处的山，再绘制近处的地，最后再画距离最近的树（以下图片均来自于GAMES101，详见参考资料）：</p>
+<p><img alt="Screenshot from 2021-10-24 21-29-13.png" src="https://i.loli.net/2021/10/24/59vgchOAuICxQjM.png" /></p>
+<p>这样的方法可以解决大部分的问题，比如2D场景的渲染。但是对于特殊的3D场景，这个算法会出现问题：</p>
+<p><img alt="Screenshot from 2021-10-24 21-31-04.png" src="https://i.loli.net/2021/10/24/ybP147s8NnFdIvt.png" /></p>
+<p>此时的三维场景中存在着三个三角形。由于现在我们讨论的是空间而不是平面，这些三角形可以互相遮挡，从而形成一个环。我们无法判断出来谁在最上面，因而画家算法会导致错误。</p>
+<h2 id="_2">深度缓存<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>为了处理这样的情况，人们提出了深度缓存。除了我们最终写入的图像缓存外，我们还将记录每个位置对应的最小深度值：</p>
+<p><img alt="Screenshot from 2021-10-24 21-34-21.png" src="https://i.loli.net/2021/10/24/IvV6RjizlBYaGEH.png" /></p>
+<p>现在，我们渲染的流程如下：</p>
+<ul>
+<li>初始化深度缓存，所有的值为无穷大</li>
+<li>当我们需要向图像缓存写入的时候，先读取这个位置上的最小深度值</li>
+<li>如果当前这个像素的深度值更小，那么我们更新最小深度值，并把这个像素写入到图像缓存中</li>
+<li>否则，我们认为这个像素前面已经有其他像素把它挡住了，我们需要丢弃它</li>
+</ul>
+<p>在OpenGL中，深度缓存默认是关闭的，我们可以这样开启深度缓存：
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table></p>
+<p>并且在每一帧更新的时候进行清空操作：
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">glClear</span><span class="p">(</span><span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table></p>
+<p>此外，我们可以指定深度测试函数：
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">glDepthFunc</span><span class="p">(</span><span class="n">FUNC</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table></p>
+<p>其中，<code>FUNC</code>只能指定为如下的值：</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GL_ALWAYS</td>
+<td>永远可以通过深度测试，这和禁用深度缓存是一样的</td>
+</tr>
+<tr>
+<td>GL_NEVER</td>
+<td>永远无法通过深度测试</td>
+</tr>
+<tr>
+<td>GL_LESS</td>
+<td>当前深度值小于缓存内的值时可以通过测试</td>
+</tr>
+<tr>
+<td>GL_EQUAL</td>
+<td>当前深度值等于缓存内的值时可以通过测试</td>
+</tr>
+<tr>
+<td>GL_LEQUAL</td>
+<td>当前深度值小于等于缓存内的值时可以通过测试</td>
+</tr>
+<tr>
+<td>GL_GREATER</td>
+<td>当前深度值大于缓存内的值时可以通过测试</td>
+</tr>
+<tr>
+<td>GL_NOTEQUAL</td>
+<td>当前深度值不等于缓存内的值时可以通过测试</td>
+</tr>
+<tr>
+<td>GL_GEQUAL</td>
+<td>当前深度值大于等于缓存内的值时可以通过测试</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">深度冲突<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>由于我们的深度是一个0到1的浮点数，所以我们所保存的深度值是会有精度损失的。
+这意味着两个像素的深度值原本应该是一样的，但是由于精度不足，导致我们无法决定究竟应该把哪一个像素放在前面（以下图片来自于LearnOpenGL CN，详见参考资料）：</p>
+<p><img alt="" src="https://learnopengl-cn.github.io/img/04/01/depth_testing_z_fighting.png" /></p>
+<p>为了解决这样的问题，我们通常会去增大深度的精度值。虽然让两个物体不要靠的过近也可以解决问题，但是并不能保证这样的情况不会发生。</p>
+<h2 id="_4">参考资料<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1X7411F744?p=7">GAMES101-现代计算机图形学入门-闫令琪</a></li>
+<li><a href="https://learnopengl-cn.github.io/04%20Advanced%20OpenGL/01%20Depth%20testing/">深度测试</a></li>
+</ul>
                 
               
               
