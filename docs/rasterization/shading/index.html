@@ -16,7 +16,7 @@
     
     
       
-        <title>光照着色 - Fake CG Wiki</title>
+        <title>基本光照模型 - Fake CG Wiki</title>
       
     
     
@@ -70,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -96,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              光照着色
+              基本光照模型
             
           </span>
         </div>
@@ -921,10 +926,105 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          基本光照模型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        光照着色
+        基本光照模型
       </a>
       
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    着色与光照
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    光照类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基本光照模型
+  </a>
+  
+    <nav class="md-nav" aria-label="基本光照模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lambert" class="md-nav__link">
+    Lambert模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambert_1" class="md-nav__link">
+    半Lambert模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phong" class="md-nav__link">
+    Phong模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blinn-phong" class="md-nav__link">
+    Blinn-Phong光照模型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../texture/" class="md-nav__link">
+        纹理映射
+      </a>
     </li>
   
 
@@ -1302,15 +1402,632 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    着色与光照
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    光照类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基本光照模型
+  </a>
+  
+    <nav class="md-nav" aria-label="基本光照模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lambert" class="md-nav__link">
+    Lambert模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambert_1" class="md-nav__link">
+    半Lambert模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phong" class="md-nav__link">
+    Phong模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blinn-phong" class="md-nav__link">
+    Blinn-Phong光照模型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>光照着色</h1>
+                  <h1>基本光照模型</h1>
                 
-                
+                <h2 id="_1">着色与光照<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在拥有了几何数据以后，我们需要决定每个像素要如何渲染。我们需要为像素指定颜色，甚至是纹理（这部分在后面会提到）。
+这部分的功能通常是由片段着色器来完成（如果是可编程的渲染管线）。如下是一个Unity中的简单的着色器代码：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Shader</span> <span class="s">&quot;Unlit/Test&quot;</span>
+<span class="p">{</span>
+    <span class="n">Properties</span>
+    <span class="p">{</span>
+        _<span class="nf">Color </span><span class="p">(</span><span class="s">&quot;Color&quot;</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">SubShader</span>
+    <span class="p">{</span>
+        <span class="n">Pass</span>
+        <span class="p">{</span>
+            <span class="n">CGPROGRAM</span>
+            <span class="c1">#pragma vertex vert</span>
+            <span class="c1">#pragma fragment frag</span>
+
+            <span class="c1">#include &quot;UnityCG.cginc&quot;</span>
+
+            <span class="n">struct</span> <span class="n">appdata</span>
+            <span class="p">{</span>
+                <span class="n">float4</span> <span class="n">vertex</span> <span class="o">:</span> <span class="n">POSITION</span><span class="p">;</span>
+            <span class="p">};</span>
+
+            <span class="n">struct</span> <span class="n">v2f</span>
+            <span class="p">{</span>
+                <span class="n">float4</span> <span class="n">vertex</span> <span class="o">:</span> <span class="n">SV_POSITION</span><span class="p">;</span>
+            <span class="p">};</span>
+
+            <span class="n">fixed4</span> _<span class="n">Color</span><span class="p">;</span>
+
+            <span class="n">v2f</span> <span class="nf">vert </span><span class="p">(</span><span class="n">appdata</span> <span class="n">v</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">v2f</span> <span class="n">o</span><span class="p">;</span>
+                <span class="n">o.vertex</span> <span class="o">=</span> <span class="nf">UnityObjectToClipPos</span><span class="p">(</span><span class="n">v.vertex</span><span class="p">);</span>
+                <span class="n">return</span> <span class="n">o</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="n">fixed4</span> <span class="nf">frag </span><span class="p">(</span><span class="n">v2f</span> <span class="n">i</span><span class="p">)</span> <span class="o">:</span> <span class="n">SV_Target</span>
+            <span class="p">{</span>
+                <span class="n">return</span> _<span class="n">Color</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">ENDCG</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>这个着色器使用单独的颜色来渲染我们的三维物体。<code>frag</code>函数描述了这个材质的片段着色器，你可以看到他将我们输入的颜色直接返回了，所以我们渲染出的物体的颜色是固定的。
+每个需要被渲染的几何上的片段都会被执行一次片段着色器，这样的点被称为着色点。我们可以看到这个着色器的效果：</p>
+<p><img alt="Screenshot from 2021-10-30 12-55-11.png" src="https://i.loli.net/2021/10/30/OMG4RLHurn3qV6N.png" /></p>
+<p>这个着色的效果似乎和我们所想象的有一些出入：我们只能看到一个圆，而不是一个球。渲染引擎并没有出错，因为一个球无论从哪里看过去，都是一个不变的圆。
+出现这种情况的原因是因为缺少光照，所以这个球无法给我们带来立体感。虽然球的各处颜色相同，但由于光照的位置和方向不同，我们所看到的明暗应该是不一样的，这就是立体感缺失的原因。</p>
+<h2 id="_2">光照类型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>根据光照算法的不同，我们可以给出不同的划分方式。常见的划分方式是按照光照计算的频率进行的。</p>
+<p>光照计算的频率是可以调整的，如果硬件水平跟不上，我们可以降低光照计算的频率；反之，我们可以在次世代的机器上进行更高频率的计算，以实现更好的效果。
+按照这个划分方式，我们可以得到三种不同的类型：</p>
+<ul>
+<li>逐表面的光照：对于模型的不同表面，各自计算一次光照，并应用在表面的所有像素上。计算时使用的法线向量为平面的法线向量。这种计算方式在模型表面不多的时候开销低，但只适合于低多边形风格的渲染</li>
+<li>逐顶点的光照：对于每一个表面，计算其所有顶点的光照；对于表面内其他像素，我们使用这些顶点光照的插值来生成。</li>
+<li>逐像素（片段）的光照：对于每一个需要渲染的像素/片段，我们都执行一次光照计算。这样的渲染在模型面数较低的时候喜爱过最好，但开销也是最大的</li>
+</ul>
+<p><img alt="Screenshot from 2021-10-30 13-10-15.png" src="https://i.loli.net/2021/10/30/byctAfeY9iDILRh.png" /></p>
+<p>除此之外，还有其他的划分方式。例如，根据光线的弹射次数，可以分为直接光照（光线直接打在着色点上）和间接光照（光线通过弹射打在着色点上）；根据光线的生成方式，可以分为实时光照（运行时进行光照计算）和预计算光照（在运行前进行一系列的预处理，也叫光照烘焙）。</p>
+<h2 id="_3">基本光照模型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="lambert">Lambert模型<a class="headerlink" href="#lambert" title="Permanent link">&para;</a></h3>
+<p>Lambert模型非常简单，他只包含环境光和方向光。</p>
+<p>环境光可以被简单地当作一个常数，或者是一个与光照强度正相关的函数。虽然光照并不能直接照射到场景中的所有部分，但这并不意味着照不到的地方就是完全黑暗的。
+由于间接光照的存在，他们只是看起来比光照下的物体更暗一些。由于光栅化成像并不模拟光线的传递，间接光照的计算非常复杂，几乎不可能完成。为此，我们对间接光照进行了简化：使用一个常数代替。</p>
+<p>Lambert模型的方向光遵循Lambert定律：表面接受到来自光照的能量，与表面法线和光线方向的夹角成反比。夹角越大，表面接收到的能量就越小。当夹角大于等于90度时，表面将无法接受到任何的能量。</p>
+<p><img alt="Screenshot from 2021-10-30 13-37-13.png" src="https://i.loli.net/2021/10/30/GhuTd5zVYobfXce.png" /></p>
+<p>这和地球产生四季的原理是相似的：夏天时，太阳直射点移动到北回归线附近（这里以北半球为例，如果有南半球的读者请自行转换），此时北半球某点（以北京为例）的法线与光线的夹角变小，此时人们会感到炎热；而当冬天来到的时候，太阳直射点移动到南回归线附近，此时的夹角会增大许多，天气也就变得寒冷。对于热带地区，由于这个夹角常年很小，所以终年炎热。</p>
+<p>Lambert模型的方向光使用如下的公式计算： <span><span class="MathJax_Preview">Color \times Light \times max(0, \vec L \cdot \vec N)</span><script type="math/tex">Color \times Light \times max(0, \vec L \cdot \vec N)</script></span> 。需要注意的是光线向量和法线向量需要进行归一化，此时点成的结果才是夹角的余弦值。</p>
+<p>我们可以使用Unity实现这个效果：
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">Upgrade</span> <span class="n">NOTE</span><span class="o">:</span> <span class="n">replaced</span> <span class="s">&#39;_World2Object&#39;</span> <span class="n">with</span> <span class="s">&#39;unity_WorldToObject&#39;</span>
+
+<span class="n">Shader</span> <span class="s">&quot;Unlit/Test&quot;</span>
+<span class="p">{</span>
+    <span class="n">Properties</span>
+    <span class="p">{</span>
+        _<span class="nf">AmbientColor </span><span class="p">(</span><span class="s">&quot;Ambient Color&quot;</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+        _<span class="nf">DiffuseColor </span><span class="p">(</span><span class="s">&quot;Diffuse Color&quot;</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">SubShader</span>
+    <span class="p">{</span>
+        <span class="n">Pass</span>
+        <span class="p">{</span>
+            <span class="n">CGPROGRAM</span>
+            <span class="c1">#pragma vertex vert</span>
+            <span class="c1">#pragma fragment frag</span>
+
+            <span class="c1">#include &quot;UnityCG.cginc&quot;</span>
+
+            <span class="n">struct</span> <span class="n">appdata</span>
+            <span class="p">{</span>
+                <span class="n">float4</span> <span class="n">vertex</span> <span class="o">:</span> <span class="n">POSITION</span><span class="p">;</span>
+                <span class="n">float3</span> <span class="n">normal</span> <span class="o">:</span> <span class="n">NORMAL</span><span class="p">;</span>
+            <span class="p">};</span>
+
+            <span class="n">struct</span> <span class="n">v2f</span>
+            <span class="p">{</span>
+                <span class="n">float4</span> <span class="n">vertex</span> <span class="o">:</span> <span class="n">SV_POSITION</span><span class="p">;</span>
+                <span class="n">float3</span> <span class="n">normal</span> <span class="o">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+            <span class="p">};</span>
+
+            <span class="n">fixed4</span> _<span class="n">AmbientColor</span><span class="p">;</span>
+            <span class="n">fixed4</span> _<span class="n">DiffuseColor</span><span class="p">;</span>
+
+            <span class="n">v2f</span> <span class="nf">vert </span><span class="p">(</span><span class="n">appdata</span> <span class="n">v</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">v2f</span> <span class="n">o</span><span class="p">;</span>
+                <span class="n">o.vertex</span> <span class="o">=</span> <span class="nf">UnityObjectToClipPos</span><span class="p">(</span><span class="n">v.vertex</span><span class="p">);</span>
+                <span class="n">o.normal</span> <span class="o">=</span> <span class="nf">mul</span><span class="p">(</span><span class="n">v.normal</span><span class="p">,</span> <span class="p">(</span><span class="n">float3x3</span><span class="p">)</span><span class="n">unity_WorldToObject</span><span class="p">);</span>
+                <span class="n">return</span> <span class="n">o</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="n">fixed4</span> <span class="nf">frag </span><span class="p">(</span><span class="n">v2f</span> <span class="n">i</span><span class="p">)</span> <span class="o">:</span> <span class="n">SV_Target</span>
+            <span class="p">{</span>
+                <span class="n">fixed3</span> <span class="n">normal</span> <span class="o">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">i.normal</span><span class="p">);</span>
+                <span class="n">fixed3</span> <span class="n">light</span> <span class="o">=</span> <span class="nf">normalize</span><span class="p">(</span>_<span class="n">WorldSpaceLightPos0.xyz</span><span class="p">);</span>
+                <span class="n">fixed3</span> <span class="n">color</span> <span class="o">=</span> _<span class="n">AmbientColor.rgb</span> <span class="o">+</span> _<span class="n">DiffuseColor.rgb</span> <span class="o">*</span> <span class="nf">saturate</span><span class="p">(</span><span class="nf">dot</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span> <span class="n">light</span><span class="p">));</span>
+                <span class="n">return</span> <span class="nf">fixed4</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="m">1.0</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">ENDCG</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table></p>
+<p>最终效果如下：</p>
+<p><img alt="Screenshot from 2021-10-30 13-53-59.png" src="https://i.loli.net/2021/10/30/VyviQqg9e8WzdLR.png" /></p>
+<h3 id="lambert_1">半Lambert模型<a class="headerlink" href="#lambert_1" title="Permanent link">&para;</a></h3>
+<p>我们已经可以看到几何感了，但是在光不能到达的部分，颜色都是一样的黑暗。这不是我们希望的。虽然他们颜色要比正常颜色暗，但也应该有一个递进的过程。
+为此，Valve提出了一个改进做法：将慢反射系数的余弦值从 <span><span class="MathJax_Preview">[-1, 1]</span><script type="math/tex">[-1, 1]</script></span> 映射到 <span><span class="MathJax_Preview">[0, 1]</span><script type="math/tex">[0, 1]</script></span> 上，此时我们就不需要再进行求最大值的计算了：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">Upgrade</span> <span class="n">NOTE</span><span class="o">:</span> <span class="n">replaced</span> <span class="s">&#39;_World2Object&#39;</span> <span class="n">with</span> <span class="s">&#39;unity_WorldToObject&#39;</span>
+
+<span class="n">Shader</span> <span class="s">&quot;Unlit/Test&quot;</span>
+<span class="p">{</span>
+    <span class="n">Properties</span>
+    <span class="p">{</span>
+        _<span class="nf">AmbientColor </span><span class="p">(</span><span class="s">&quot;Ambient Color&quot;</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+        _<span class="nf">DiffuseColor </span><span class="p">(</span><span class="s">&quot;Diffuse Color&quot;</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">SubShader</span>
+    <span class="p">{</span>
+        <span class="n">Pass</span>
+        <span class="p">{</span>
+            <span class="n">CGPROGRAM</span>
+            <span class="c1">#pragma vertex vert</span>
+            <span class="c1">#pragma fragment frag</span>
+
+            <span class="c1">#include &quot;UnityCG.cginc&quot;</span>
+
+            <span class="n">struct</span> <span class="n">appdata</span>
+            <span class="p">{</span>
+                <span class="n">float4</span> <span class="n">vertex</span> <span class="o">:</span> <span class="n">POSITION</span><span class="p">;</span>
+                <span class="n">float3</span> <span class="n">normal</span> <span class="o">:</span> <span class="n">NORMAL</span><span class="p">;</span>
+            <span class="p">};</span>
+
+            <span class="n">struct</span> <span class="n">v2f</span>
+            <span class="p">{</span>
+                <span class="n">float4</span> <span class="n">vertex</span> <span class="o">:</span> <span class="n">SV_POSITION</span><span class="p">;</span>
+                <span class="n">float3</span> <span class="n">normal</span> <span class="o">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+            <span class="p">};</span>
+
+            <span class="n">fixed4</span> _<span class="n">AmbientColor</span><span class="p">;</span>
+            <span class="n">fixed4</span> _<span class="n">DiffuseColor</span><span class="p">;</span>
+
+            <span class="n">v2f</span> <span class="nf">vert </span><span class="p">(</span><span class="n">appdata</span> <span class="n">v</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">v2f</span> <span class="n">o</span><span class="p">;</span>
+                <span class="n">o.vertex</span> <span class="o">=</span> <span class="nf">UnityObjectToClipPos</span><span class="p">(</span><span class="n">v.vertex</span><span class="p">);</span>
+                <span class="n">o.normal</span> <span class="o">=</span> <span class="nf">mul</span><span class="p">(</span><span class="n">v.normal</span><span class="p">,</span> <span class="p">(</span><span class="n">float3x3</span><span class="p">)</span><span class="n">unity_WorldToObject</span><span class="p">);</span>
+                <span class="n">return</span> <span class="n">o</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="n">fixed4</span> <span class="nf">frag </span><span class="p">(</span><span class="n">v2f</span> <span class="n">i</span><span class="p">)</span> <span class="o">:</span> <span class="n">SV_Target</span>
+            <span class="p">{</span>
+                <span class="n">fixed3</span> <span class="n">normal</span> <span class="o">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">i.normal</span><span class="p">);</span>
+                <span class="n">fixed3</span> <span class="n">light</span> <span class="o">=</span> <span class="nf">normalize</span><span class="p">(</span>_<span class="n">WorldSpaceLightPos0.xyz</span><span class="p">);</span>
+                <span class="n">float</span> <span class="n">cof</span> <span class="o">=</span> <span class="nf">dot</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span> <span class="n">light</span><span class="p">)</span> <span class="o">*</span> <span class="m">0.5</span> <span class="o">+</span> <span class="m">0.5</span><span class="p">;</span>
+                <span class="n">fixed3</span> <span class="n">color</span> <span class="o">=</span> _<span class="n">AmbientColor.rgb</span> <span class="o">+</span> _<span class="n">DiffuseColor.rgb</span> <span class="o">*</span> <span class="n">cof</span><span class="p">;</span>
+                <span class="n">return</span> <span class="nf">fixed4</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="m">1.0</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">ENDCG</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>半Lambert模型的光照要比Lambert模型亮不少，但是过渡更加自然：</p>
+<p><img alt="Screenshot from 2021-10-30 14-02-34.png" src="https://i.loli.net/2021/10/30/WElTrC7egazvI8B.png" /></p>
+<h3 id="phong">Phong模型<a class="headerlink" href="#phong" title="Permanent link">&para;</a></h3>
+<p>Phong模型在Lambert模型的基础上添加了高光项，使得效果更加真实。为了处理高光，我们需要引入第三个向量：摄像机（或者是人眼）的 <code>lookat</code> 向量。
+当高光被反射时，只有当其可以反射到摄像机（或者人眼中）时才能起效果（类似于镜面反射）。因此我们需要根据法向量和入射向量求出出射向量，并判断出射向量与
+观察向量之间的夹角：</p>
+<p><img alt="Screenshot from 2021-10-30 14-14-28.png" src="https://i.loli.net/2021/10/30/oCWIJgB3rK6bQjn.png" /></p>
+<p>如图，我们可以得到反射相关向量的式子： <span><span class="MathJax_Preview">2(\vec I \cdot \vec N)\vec N = \vec O - \vec I</span><script type="math/tex">2(\vec I \cdot \vec N)\vec N = \vec O - \vec I</script></span> 。所以反射光线的向量的表达式为 <span><span class="MathJax_Preview">\vec O = \vec I + 2(\vec I \cdot \vec N)\vec N</span><script type="math/tex">\vec O = \vec I + 2(\vec I \cdot \vec N)\vec N</script></span> 。如果你使用的是Unity Shader，你可以使用内嵌的<code>reflect</code>函数得到反射光的方向 </p>
+<p>我们改写之前的着色器代码：
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">Upgrade</span> <span class="n">NOTE</span><span class="o">:</span> <span class="n">replaced</span> <span class="s">&#39;_World2Object&#39;</span> <span class="n">with</span> <span class="s">&#39;unity_WorldToObject&#39;</span>
+
+<span class="n">Shader</span> <span class="s">&quot;Unlit/Test&quot;</span>
+<span class="p">{</span>
+    <span class="n">Properties</span>
+    <span class="p">{</span>
+        _<span class="nf">AmbientColor </span><span class="p">(</span><span class="s">&quot;Ambient Color&quot;</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+        _<span class="nf">DiffuseColor </span><span class="p">(</span><span class="s">&quot;Diffuse Color&quot;</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+        _<span class="nf">SpecularColor </span><span class="p">(</span><span class="s">&quot;Specular Color&quot;</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">SubShader</span>
+    <span class="p">{</span>
+        <span class="n">Pass</span>
+        <span class="p">{</span>
+            <span class="n">CGPROGRAM</span>
+            <span class="c1">#pragma vertex vert</span>
+            <span class="c1">#pragma fragment frag</span>
+
+            <span class="c1">#include &quot;UnityCG.cginc&quot;</span>
+
+            <span class="n">struct</span> <span class="n">appdata</span>
+            <span class="p">{</span>
+                <span class="n">float4</span> <span class="n">vertex</span> <span class="o">:</span> <span class="n">POSITION</span><span class="p">;</span>
+                <span class="n">float3</span> <span class="n">normal</span> <span class="o">:</span> <span class="n">NORMAL</span><span class="p">;</span>
+            <span class="p">};</span>
+
+            <span class="n">struct</span> <span class="n">v2f</span>
+            <span class="p">{</span>
+                <span class="n">float4</span> <span class="n">vertex</span> <span class="o">:</span> <span class="n">SV_POSITION</span><span class="p">;</span>
+                <span class="n">float3</span> <span class="n">normal</span> <span class="o">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+            <span class="p">};</span>
+
+            <span class="n">fixed4</span> _<span class="n">AmbientColor</span><span class="p">;</span>
+            <span class="n">fixed4</span> _<span class="n">DiffuseColor</span><span class="p">;</span>
+            <span class="n">fixed4</span> _<span class="n">SpecularColor</span><span class="p">;</span>
+
+            <span class="n">v2f</span> <span class="nf">vert </span><span class="p">(</span><span class="n">appdata</span> <span class="n">v</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">v2f</span> <span class="n">o</span><span class="p">;</span>
+                <span class="n">o.vertex</span> <span class="o">=</span> <span class="nf">UnityObjectToClipPos</span><span class="p">(</span><span class="n">v.vertex</span><span class="p">);</span>
+                <span class="n">o.normal</span> <span class="o">=</span> <span class="nf">mul</span><span class="p">(</span><span class="n">v.normal</span><span class="p">,</span> <span class="p">(</span><span class="n">float3x3</span><span class="p">)</span><span class="n">unity_WorldToObject</span><span class="p">);</span>
+                <span class="n">return</span> <span class="n">o</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="n">fixed4</span> <span class="nf">frag </span><span class="p">(</span><span class="n">v2f</span> <span class="n">i</span><span class="p">)</span> <span class="o">:</span> <span class="n">SV_Target</span>
+            <span class="p">{</span>
+                <span class="n">fixed3</span> <span class="n">normal</span> <span class="o">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">i.normal</span><span class="p">);</span>
+                <span class="n">fixed3</span> <span class="n">light</span> <span class="o">=</span> <span class="nf">normalize</span><span class="p">(</span>_<span class="n">WorldSpaceLightPos0.xyz</span><span class="p">);</span>
+                <span class="n">float</span> <span class="n">cof</span> <span class="o">=</span> <span class="nf">dot</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span> <span class="n">light</span><span class="p">)</span> <span class="o">*</span> <span class="m">0.5</span> <span class="o">+</span> <span class="m">0.5</span><span class="p">;</span>
+
+                <span class="n">fixed3</span> <span class="n">ref</span> <span class="o">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="nf">reflect</span><span class="p">(</span><span class="n">light</span><span class="p">,</span> <span class="n">normal</span><span class="p">));</span>
+                <span class="n">fixed3</span> <span class="n">view</span> <span class="o">=</span> <span class="nf">normalize</span><span class="p">(</span>_<span class="n">WorldSpaceCameraPos.xyz</span> <span class="o">-</span> <span class="n">i.vertex.xzy</span><span class="p">);</span>
+
+                <span class="n">fixed3</span> <span class="n">color</span> <span class="o">=</span> _<span class="n">AmbientColor.rgb</span> <span class="o">+</span> _<span class="n">DiffuseColor.rgb</span> <span class="o">*</span> <span class="n">cof</span> <span class="o">+</span> _<span class="n">SpecularColor.rgb</span> <span class="o">*</span> <span class="nf">max</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="nf">dot</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">ref</span><span class="p">));</span>
+                <span class="n">return</span> <span class="nf">fixed4</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="m">1.0</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">ENDCG</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table></p>
+<p>为了方便演示，我调整了摄像机的方位：</p>
+<p><img alt="Screenshot from 2021-10-30 14-29-05.png" src="https://i.loli.net/2021/10/30/WFSrgwoEjbH83Ui.png" /></p>
+<p>我们会发现这个高光实在是太大了！因为余弦函数的变化过于缓慢，导致角度增加时高光消失的速度也过于缓慢。但现实生活中高光只有在非常小的角度内才能看到。
+为此，我们不再使用 <span><span class="MathJax_Preview">cos\theta</span><script type="math/tex">cos\theta</script></span> 作为高光的系数，而是改用 <span><span class="MathJax_Preview">cos^k\theta</span><script type="math/tex">cos^k\theta</script></span> 。由于这个 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 的存在，余弦函数将会很快降到0：</p>
+<p><img alt="Screenshot from 2021-10-30 14-33-13.png" src="https://i.loli.net/2021/10/30/fcxLRq2CMt5sbrd.png" /></p>
+<p>我们还可以通过控制 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 的大小来调整材质的光滑程度， <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 越大，说明材质越粗糙，能看到高光的角度就越小：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">fixed4</span> <span class="nf">frag </span><span class="p">(</span><span class="n">v2f</span> <span class="n">i</span><span class="p">)</span> <span class="o">:</span> <span class="n">SV_Target</span>
+<span class="p">{</span>
+    <span class="n">fixed3</span> <span class="n">normal</span> <span class="o">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">i.normal</span><span class="p">);</span>
+    <span class="n">fixed3</span> <span class="n">light</span> <span class="o">=</span> <span class="nf">normalize</span><span class="p">(</span>_<span class="n">WorldSpaceLightPos0.xyz</span><span class="p">);</span>
+    <span class="n">float</span> <span class="n">cof</span> <span class="o">=</span> <span class="nf">dot</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span> <span class="n">light</span><span class="p">)</span> <span class="o">*</span> <span class="m">0.5</span> <span class="o">+</span> <span class="m">0.5</span><span class="p">;</span>
+
+    <span class="n">fixed3</span> <span class="n">ref</span> <span class="o">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="nf">reflect</span><span class="p">(</span><span class="n">light</span><span class="p">,</span> <span class="n">normal</span><span class="p">));</span>
+    <span class="n">fixed3</span> <span class="n">view</span> <span class="o">=</span> <span class="nf">normalize</span><span class="p">(</span>_<span class="n">WorldSpaceCameraPos.xyz</span> <span class="o">-</span> <span class="n">i.vertex.xzy</span><span class="p">);</span>
+
+    <span class="n">fixed3</span> <span class="n">color</span> <span class="o">=</span> _<span class="n">AmbientColor.rgb</span> <span class="o">+</span> _<span class="n">DiffuseColor.rgb</span> <span class="o">*</span> <span class="n">cof</span> <span class="o">+</span> _<span class="n">SpecularColor.rgb</span> <span class="o">*</span> <span class="nf">pow</span><span class="p">(</span><span class="nf">max</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="nf">dot</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">ref</span><span class="p">)),</span> _<span class="n">Gloss</span><span class="p">);</span>
+    <span class="n">return</span> <span class="nf">fixed4</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="m">1.0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>最终效果：</p>
+<p><img alt="Screenshot from 2021-10-30 14-36-13.png" src="https://i.loli.net/2021/10/30/otk1y4FznC7efJT.png" /></p>
+<h3 id="blinn-phong">Blinn-Phong光照模型<a class="headerlink" href="#blinn-phong" title="Permanent link">&para;</a></h3>
+<p>Phong模型已经交出了一份令人满意的答卷，但我们依然感到不满足。并不是因为Phong模型的效果不够好，而是反射运算的运算量造成了不小的开销： <span><span class="MathJax_Preview">\vec O = \vec I + 2(\vec I \cdot \vec N)\vec N</span><script type="math/tex">\vec O = \vec I + 2(\vec I \cdot \vec N)\vec N</script></span> 。为了得到余弦值，我们需要进行两次点乘，两次数乘和一次向量加法。</p>
+<p>Blinn-Phong光照模型对这个算法进行了优化：我们不再计算最终的反射响亮，而是通过将光线向量和视线向量相加得到半程向量，然后判断半程向量和法线向量之间的夹角：</p>
+<p><img alt="Screenshot from 2021-10-30 14-43-57.png" src="https://i.loli.net/2021/10/30/fqFys5EuQribMz9.png" /></p>
+<p>此时我们的开销仅包含一次加法和一次点乘，比原来的模型更加快速：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">fixed4</span> <span class="nf">frag </span><span class="p">(</span><span class="n">v2f</span> <span class="n">i</span><span class="p">)</span> <span class="o">:</span> <span class="n">SV_Target</span>
+<span class="p">{</span>
+    <span class="n">fixed3</span> <span class="n">normal</span> <span class="o">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">i.normal</span><span class="p">);</span>
+    <span class="n">fixed3</span> <span class="n">light</span> <span class="o">=</span> <span class="nf">normalize</span><span class="p">(</span>_<span class="n">WorldSpaceLightPos0.xyz</span><span class="p">);</span>
+    <span class="n">float</span> <span class="n">cof</span> <span class="o">=</span> <span class="nf">dot</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span> <span class="n">light</span><span class="p">)</span> <span class="o">*</span> <span class="m">0.5</span> <span class="o">+</span> <span class="m">0.5</span><span class="p">;</span>
+
+    <span class="n">fixed3</span> <span class="n">h</span> <span class="o">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="nf">normalize</span><span class="p">(</span><span class="n">i.vertex.xzy</span> <span class="o">-</span> _<span class="n">WorldSpaceCameraPos.xyz</span><span class="p">)</span> <span class="o">-</span> <span class="n">light.xzy</span><span class="p">);</span>
+
+    <span class="n">fixed3</span> <span class="n">color</span> <span class="o">=</span> _<span class="n">AmbientColor.rgb</span> <span class="o">+</span> _<span class="n">DiffuseColor.rgb</span> <span class="o">*</span> <span class="n">cof</span> <span class="o">+</span> _<span class="n">SpecularColor.rgb</span> <span class="o">*</span> <span class="nf">pow</span><span class="p">(</span><span class="nf">max</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="nf">dot</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">normal</span><span class="p">)),</span> _<span class="n">Gloss</span><span class="p">);</span>
+    <span class="n">return</span> <span class="nf">fixed4</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="m">1.0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="_4">参考资料<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>《Unity Shader入门精要》 冯乐乐</li>
+<li><a href="https://www.bilibili.com/video/BV1X7411F744?p=8">GAMES101-现代计算机图形学入门-闫令琪</a></li>
+</ul>
                 
               
               
@@ -1351,13 +2068,13 @@
       
       
         
-        <a href="../../ray_tracing/" class="md-footer__link md-footer__link--next" aria-label="下一页: 光线追踪简介" rel="next">
+        <a href="../texture/" class="md-footer__link md-footer__link--next" aria-label="下一页: 纹理映射" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              光线追踪简介
+              纹理映射
             </div>
           </div>
           <div class="md-footer__button md-icon">
