@@ -97,6 +97,9 @@ nav:
     - 深度缓存: rasterization/zbuffer.md
     - 基本光照模型: rasterization/shading.md
     - 纹理映射: rasterization/texture.md
+    - MIPMAP: rasterization/mipmap.md
+    - 混合: rasterization/blend.md
+    - Gamma校正和HDR: rasterization/gamma.md
   - 光线追踪:
     - 光线追踪简介: ray_tracing/index.md
   - 辐射度量学:

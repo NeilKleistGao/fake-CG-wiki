@@ -70,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -933,10 +938,115 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          纹理映射
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         纹理映射
       </a>
       
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    什么是纹理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    三角形重心坐标
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    其他应用
+  </a>
+  
+    <nav class="md-nav" aria-label="其他应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    光照纹理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    法线纹理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mipmap/" class="md-nav__link">
+        MIPMAP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blend/" class="md-nav__link">
+        混合
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gamma/" class="md-nav__link">
+        Gamma校正和HDR
+      </a>
     </li>
   
 
@@ -1314,6 +1424,77 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    什么是纹理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    三角形重心坐标
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    其他应用
+  </a>
+  
+    <nav class="md-nav" aria-label="其他应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    光照纹理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    法线纹理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1322,7 +1503,136 @@
                 
                   <h1>纹理映射</h1>
                 
-                
+                <h2 id="_1">什么是纹理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>我们渲染出的模型到现在为止只有一个骨架（即网格），即便我们为他上色，也只是简单的颜色变换。虽然我们可以进行复杂的计算，从而让他实现逼真的效果，但是这样的计算量是非常巨大的。
+如果我们可以像画家一样，在这些模型的表面“画”出我们想要的效果（而不是“算”出），我们能节约不少时间和人力。不过，这样的花纹保存在3D模型上非常麻烦，我们不妨将这些花纹“撕下来”，
+保存在一张2D图像中。当我们需要显示的时候，再将这些图画粘贴回去。这些2D图像就是纹理（又称贴图，材质贴图）。</p>
+<p>为了把纹理粘贴回模型上，我们需要指定网格上每一个点对应的纹理坐标。这些纹理坐标通常用uv表示（和空间坐标的xyz区分开来），为了适应不同的纹理大小，这些uv坐标的取值范围通常在 <span><span class="MathJax_Preview">[0, 1]</span><script type="math/tex">[0, 1]</script></span> 之间。
+对于大小为 <span><span class="MathJax_Preview">w \times h</span><script type="math/tex">w \times h</script></span> 的纹理，我们会在 <span><span class="MathJax_Preview">[w \times u, h \times v]</span><script type="math/tex">[w \times u, h \times v]</script></span> 点处进行采样，采样结果被用于该点的着色。</p>
+<p>如果我们真的给每个点都指定一个uv坐标的话，这就和直接指定每个点的颜色没有太大区别了。通常来说，我们只给定网格顶点处的uv坐标（通常是三角形或四边形的网格，多边形的网格可以拆分为三角形），而其他内部点的uv坐标我们可以通过插值来完成。</p>
+<h2 id="_2">三角形重心坐标<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>给定一个三角形的三个顶点的uv坐标，我们如何才能知道三角形内部任意一个点的uv坐标？如果三角形内的点都可以由三个顶点经过某种运算得到，我们就能想办法用同样的方法计算uv坐标。</p>
+<p><img alt="Screenshot from 2021-11-20 13-18-05.png" src="https://i.loli.net/2021/11/20/3AdoOWknqZCD8yL.png" /></p>
+<p>我们不妨将三角形平移，使得点A与原点重合：</p>
+<p><img alt="Screenshot from 2021-11-20 13-23-41.png" src="https://i.loli.net/2021/11/20/MiQ8YdlBCetpOZq.png" /></p>
+<p>由于向量 <span><span class="MathJax_Preview">\vec{AB}, \vec{AC}</span><script type="math/tex">\vec{AB}, \vec{AC}</script></span> 不共线，这两个向量一定可以作为二维空间中的一组基。
+由于三角形内的点也一定在平面内，我们就可以将点表示为 <span><span class="MathJax_Preview">\beta\vec{AB} + \gamma\vec{AC}</span><script type="math/tex">\beta\vec{AB} + \gamma\vec{AC}</script></span> 。只要我们保证 <span><span class="MathJax_Preview">\beta \ge 0, \gamma \ge 0</span><script type="math/tex">\beta \ge 0, \gamma \ge 0</script></span> ，
+所有的点就都会落在 <span><span class="MathJax_Preview">\vec{AB}, \vec{AC}</span><script type="math/tex">\vec{AB}, \vec{AC}</script></span> 之间。我们只需要再增加一个约束，即所有的点都在 <span><span class="MathJax_Preview">\vec{CB}</span><script type="math/tex">\vec{CB}</script></span> 的左侧，就能表示出所有三角形内点。</p>
+<p><img alt="Screenshot from 2021-11-20 13-44-56.png" src="https://i.loli.net/2021/11/20/KtJDqdx6caR9Cmz.png" /></p>
+<p>对于 <span><span class="MathJax_Preview">\vec{CB}</span><script type="math/tex">\vec{CB}</script></span> 上任意一点D，我们若要表示 <span><span class="MathJax_Preview">\vec{AD}</span><script type="math/tex">\vec{AD}</script></span> ，我们可以简单地写成 <span><span class="MathJax_Preview">\vec{AC} + \alpha\vec{CB} = \vec{AC} + \alpha(\vec{AB} - \vec{AC})</span><script type="math/tex">\vec{AC} + \alpha\vec{CB} = \vec{AC} + \alpha(\vec{AB} - \vec{AC})</script></span> ，
+此时该点就可以表示为 <span><span class="MathJax_Preview">\vec{AB}, \vec{AC}</span><script type="math/tex">\vec{AB}, \vec{AC}</script></span> 的插值： <span><span class="MathJax_Preview">\beta\vec{AB} + \gamma\vec{AC}</span><script type="math/tex">\beta\vec{AB} + \gamma\vec{AC}</script></span> ，其中 <span><span class="MathJax_Preview">\beta + \gamma = 1</span><script type="math/tex">\beta + \gamma = 1</script></span> 。如果需要点落在三角形内，
+只需将条件修改为 <span><span class="MathJax_Preview">\beta + \gamma \le 1</span><script type="math/tex">\beta + \gamma \le 1</script></span> 。</p>
+<p>此时我们再将三角形平移回原来的位置即可。三角形内的点均可以写为 <span><span class="MathJax_Preview">\beta\vec{AB} + \gamma\vec{AC}</span><script type="math/tex">\beta\vec{AB} + \gamma\vec{AC}</script></span> ，将向量拆开写作三个点的坐标，
+我们可以得到 <span><span class="MathJax_Preview">\beta B - \beta A + \gamma C - \gamma A</span><script type="math/tex">\beta B - \beta A + \gamma C - \gamma A</script></span> 。为了方便，我们令 <span><span class="MathJax_Preview">\alpha = 1 - \beta - \gamma</span><script type="math/tex">\alpha = 1 - \beta - \gamma</script></span> ，
+这样三角形内的点就可以表示为 <span><span class="MathJax_Preview">\alpha A + \beta B + \gamma C</span><script type="math/tex">\alpha A + \beta B + \gamma C</script></span> ，其中 <span><span class="MathJax_Preview">\alpha \ge 0, \beta \ge 0, \gamma \ge 0, (\alpha + \beta + \gamma) = 1</span><script type="math/tex">\alpha \ge 0, \beta \ge 0, \gamma \ge 0, (\alpha + \beta + \gamma) = 1</script></span> 。</p>
+<p>对于平面内任意的一个点 <span><span class="MathJax_Preview">(x, y)</span><script type="math/tex">(x, y)</script></span> 我们都能算出对应的 <span><span class="MathJax_Preview">\alpha, \beta, \gamma</span><script type="math/tex">\alpha, \beta, \gamma</script></span> ，虽然看似有三个未知数，而我们只能列出两个方程，但我们可以用 <span><span class="MathJax_Preview">(\alpha + \beta + \gamma) = 1</span><script type="math/tex">(\alpha + \beta + \gamma) = 1</script></span> 消掉其中一维：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{array}{c}
+x = (1 - \beta - \gamma)A_x + \beta B_x + \gamma C_x \\
+y = (1 - \beta - \gamma)A_y + \beta B_y + \gamma C_y
+\end{array}
+</div>
+<script type="math/tex; mode=display">
+\begin{array}{c}
+x = (1 - \beta - \gamma)A_x + \beta B_x + \gamma C_x \\
+y = (1 - \beta - \gamma)A_y + \beta B_y + \gamma C_y
+\end{array}
+</script>
+</div>
+<p>解出上面的方程，我们可以得到：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{array}{c}
+\alpha = 1 - \beta - \gamma \\
+\beta = \frac{(x - A_x)(C_y - A_y) - (C_x - A_x)(y - A_y)}{(C_y - A_y)(B_x - A_x) - (C_x - A_x)(B_y - A_y)} \\
+\gamma = \frac{(y - A_y)(B_x - A_x) - (x - A_x)(B_y - A_y )}{(C_y - A_y)(B_x - A_x) - (C_x - A_x)(B_y - A_y)}
+\end{array}
+</div>
+<script type="math/tex; mode=display">
+\begin{array}{c}
+\alpha = 1 - \beta - \gamma \\
+\beta = \frac{(x - A_x)(C_y - A_y) - (C_x - A_x)(y - A_y)}{(C_y - A_y)(B_x - A_x) - (C_x - A_x)(B_y - A_y)} \\
+\gamma = \frac{(y - A_y)(B_x - A_x) - (x - A_x)(B_y - A_y )}{(C_y - A_y)(B_x - A_x) - (C_x - A_x)(B_y - A_y)}
+\end{array}
+</script>
+</div>
+<h2 id="_3">其他应用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">光照纹理<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>我们在基本光照模型中提到了光照的计算方式，其中我们认为材质的每一个点的高光行为都是一样的。这其实并不合理。想象一个穿着铠甲的战士，
+身上的铠甲由于是金属，其高光反射一定是要强于战士的手或是脸的。</p>
+<p>为了实现不同位置的不同光照行为，我们可以给材质指定专门的光照贴图（图片来自于LearnOpenGL）：</p>
+<p><img alt="" src="https://learnopengl-cn.github.io/img/02/04/container2_specular.png" /></p>
+<p>如果在某个位置我们不需要高光，我们只需要将该点的光照贴图设置为全黑（也就是RGB均为0），这个点的高光系数就会变为全0，从而没有高光行为。</p>
+<h3 id="_5">法线纹理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>我们制作的模型的表面可能非常的光滑，如果我们希望显示出一种粗糙的感觉，我们需要不断增加模型的面数，从而模拟真正的不平滑的感觉。
+但是模型面数上升的代价是极具的性能降低，这不是我们所期望的。</p>
+<p>一个很好的折中的方案是使用纹理修改模型默认的法线，从而在计算光照的时候，生成一些本不应该存在的阴影（图片来自于LearnOpenGL，下同）：</p>
+<p><img alt="" src="https://learnopengl-cn.github.io/img/05/04/normal_mapping_compare.png" /></p>
+<p>这样的纹理被称为法线纹理（也叫法线贴图，凹凸贴图）。</p>
+<p>我们在法线纹理中可以直接存储目标法线值，但这样会存在一些问题：法线值是绝对值，难以复用。比如我希望在另一个模型上复用这个法线纹理，但由于我表面发生了一些变化，法线就会出错。
+我们可以通过存储法线的相对值来解决这个问题。</p>
+<p>我们尝试重新建立一个局部坐标系，这个坐标系以当前位置原本的法线方向为z轴，以这个点的切线和副切线为x轴和y轴，这个空间被称为切线空间。由于大部分变换后的法线不会和原本的法线有太大的出入，所以切线控件下的法线贴图色调偏蓝。</p>
+<p>一个点的切线可以延许多方向展开。为了方便计算，我们不妨认为切线空间的xy平面与法线贴图的uv是对齐的：</p>
+<p><img alt="" src="https://learnopengl-cn.github.io/img/05/04/normal_mapping_tbn_vectors.png" /></p>
+<p>我们将当前点当作原点，开始建立坐标系。每一个顶点都会连接三角形的两条边（记作 <span><span class="MathJax_Preview">E_1, E_2</span><script type="math/tex">E_1, E_2</script></span> ）。由于他们和切线( <span><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span> )、副切线( <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> )在同一平面内，
+我们可以用这两个向量将其他向量表出：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{array}{c}
+\vec E_1 = \Delta U_1 \vec T + \Delta V_1 \vec B
+\vec E_2 = \Delta U_2 \vec T + \Delta V_2 \vec B
+\end{array}
+</div>
+<script type="math/tex; mode=display">
+\begin{array}{c}
+\vec E_1 = \Delta U_1 \vec T + \Delta V_1 \vec B
+\vec E_2 = \Delta U_2 \vec T + \Delta V_2 \vec B
+\end{array}
+</script>
+</div>
+<p>我们可以将这个式子写为矩阵表示：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+    E_{1x} &amp; E_{1y} &amp; E_{1z} \\
+    E_{2x} &amp; E_{2y} &amp; E_{2z}
+\end{bmatrix}
+=
+\begin{bmatrix}
+    \Delta U_1 &amp; \Delta V_1 \\
+    \Delta U_2 &amp; \Delta V_2
+\end{bmatrix}
+\begin{bmatrix}
+    T_x &amp; T_y &amp; T_z \\
+    B_x &amp; B_y &amp; B_z
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    E_{1x} & E_{1y} & E_{1z} \\
+    E_{2x} & E_{2y} & E_{2z}
+\end{bmatrix}
+=
+\begin{bmatrix}
+    \Delta U_1 & \Delta V_1 \\
+    \Delta U_2 & \Delta V_2
+\end{bmatrix}
+\begin{bmatrix}
+    T_x & T_y & T_z \\
+    B_x & B_y & B_z
+\end{bmatrix}
+</script>
+</div>
+<p>只需要在等式的两侧同时左乘UV矩阵的逆矩阵，我们就可以建立这样的切线空间。</p>
+<h2 id="_6">参考资料<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%9D%90%E8%B4%A8%E8%B4%B4%E5%9B%BE">材质贴图</a></li>
+<li><a href="https://www.bilibili.com/video/BV1X7411F744?p=8">GAMES101-现代计算机图形学入门-闫令琪</a></li>
+<li><a href="https://learnopengl-cn.github.io/02%20Lighting/04%20Lighting%20maps/">LearnOpenGL-纹理</a></li>
+<li><a href="https://learnopengl-cn.github.io/02%20Lighting/04%20Lighting%20maps/">LearnOpenGL-光照贴图</a></li>
+<li><a href="https://learnopengl-cn.github.io/05%20Advanced%20Lighting/04%20Normal%20Mapping/">LearnOpenGL-法线贴图</a></li>
+</ul>
                 
               
               
@@ -1363,13 +1673,13 @@
       
       
         
-        <a href="../../ray_tracing/" class="md-footer__link md-footer__link--next" aria-label="下一页: 光线追踪简介" rel="next">
+        <a href="../mipmap/" class="md-footer__link md-footer__link--next" aria-label="下一页: MIPMAP" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              光线追踪简介
+              MIPMAP
             </div>
           </div>
           <div class="md-footer__button md-icon">
