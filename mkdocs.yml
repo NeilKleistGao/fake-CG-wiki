@@ -97,9 +97,6 @@ nav:
     - 深度缓存: rasterization/zbuffer.md
     - 基本光照模型: rasterization/shading.md
     - 纹理映射: rasterization/texture.md
-    - MIPMAP: rasterization/mipmap.md
-    - 混合: rasterization/blend.md
-    - Gamma校正和HDR: rasterization/gamma.md
   - 光线追踪:
     - 光线追踪简介: ray_tracing/index.md
   - 辐射度量学:
@@ -108,6 +105,7 @@ nav:
     - 反走样技术简介: antialiasing/index.md
     - 采样原理: antialiasing/sampling.md
     - 多重采样抗锯齿: antialiasing/msaa.md
+    - MIPMAP: antialiasing/mipmap.md
   - 几何建模:
     - 几何建模简介: geometry/index.md
   - 基于物理的渲染:
@@ -118,3 +116,4 @@ nav:
     - 光子映射简介: photon/index.md
   - 杂项:
     - 简介: misc/index.md
+    - Gamma校正和HDR: misc/gamma.md
