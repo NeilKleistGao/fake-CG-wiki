@@ -116,4 +116,4 @@ nav:
     - 光子映射简介: photon/index.md
   - 杂项:
     - 简介: misc/index.md
-    - Gamma校正和HDR: misc/gamma.md
+    - Gamma校正: misc/gamma.md
