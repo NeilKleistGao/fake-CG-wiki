@@ -99,6 +99,8 @@ nav:
     - 纹理映射: rasterization/texture.md
   - 光线追踪:
     - 光线追踪简介: ray_tracing/index.md
+    - Whitted光线追踪: ray_tracing/whitted.md
+    - 空间划分数据结构: ray_tracing/struct.md
   - 辐射度量学:
     - 辐射度量学简介: radiance/index.md
   - 反走样技术:
