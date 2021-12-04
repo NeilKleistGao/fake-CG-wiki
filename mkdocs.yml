@@ -87,6 +87,9 @@ nav:
     - 介值定理和微分中值定理: calculus/mean.md
     - 积分和牛顿-莱布尼茨公式: calculus/integration.md
     - 复数和欧拉公式: calculus/complex.md
+    - 常用积分方法: calculus/integration2.md
+    - 偏导数和偏微分: calculus/pd.md
+    - 多重积分: calculus/mi.md
   - 概率论:
     - 概率论简介: probabiity/index.md
   - 光栅化:
@@ -101,8 +104,6 @@ nav:
     - 光线追踪简介: ray_tracing/index.md
     - Whitted光线追踪: ray_tracing/whitted.md
     - 加速结构: ray_tracing/struct.md
-  - 光度学:
-    - 光度学简介: radiance/index.md
   - 反走样技术:
     - 反走样技术简介: antialiasing/index.md
     - 采样原理: antialiasing/sampling.md
@@ -112,8 +113,13 @@ nav:
     - 几何建模简介: geometry/index.md
   - 基于物理的渲染:
     - 基于物理的渲染简介: pbr/index.md
+    - 辐射度量学: pbr/radiance.md
+    - 能量守恒: pbr/energy.md
+    - 渲染方程与BDRF: pbr/equation.md
   - 实时渲染技术:
     - 实时渲染简介: rtr/index.md
+  - 非真实感渲染:
+    - 非真实感渲染简介: npr/index.md
   - 光子映射:
     - 光子映射简介: photon/index.md
   - 杂项:

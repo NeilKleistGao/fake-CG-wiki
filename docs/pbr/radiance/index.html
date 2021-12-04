@@ -1,0 +1,1788 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://neilkleistgao.github.io/fake-CG-wiki/pbr/radiance/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>辐射度量学 - Fake CG Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="manifest" href="../../manifest.webmanifest" crossorigin="use-credentials">
+    
+    
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=13">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Fake CG Wiki" class="md-header__button md-logo" aria-label="Fake CG Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fake CG Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              辐射度量学
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        简介
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tools/" class="md-tabs__link">
+        工具软件
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../linear_algebra/" class="md-tabs__link">
+        线性代数
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../calculus/" class="md-tabs__link">
+        微积分
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../probabiity/" class="md-tabs__link">
+        概率论
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rasterization/" class="md-tabs__link">
+        光栅化
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ray_tracing/" class="md-tabs__link">
+        光线追踪
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../antialiasing/" class="md-tabs__link">
+        反走样技术
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../geometry/" class="md-tabs__link">
+        几何建模
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        基于物理的渲染
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rtr/" class="md-tabs__link">
+        实时渲染技术
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../npr/" class="md-tabs__link">
+        非真实感渲染
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../photon/" class="md-tabs__link">
+        光子映射
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../misc/" class="md-tabs__link">
+        杂项
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Fake CG Wiki" class="md-nav__button md-logo" aria-label="Fake CG Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Fake CG Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      <label class="md-nav__link" for="__nav_1">
+        简介
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="简介" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          简介
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/about/" class="md-nav__link">
+        关于本项目
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/thanks/" class="md-nav__link">
+        致谢
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        工具软件
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="工具软件" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          工具软件
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/" class="md-nav__link">
+        工具软件简介
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/ide/" class="md-nav__link">
+        IDE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/opengl/" class="md-nav__link">
+        OpenGL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/unity3d/" class="md-nav__link">
+        Unity3D
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/blender/" class="md-nav__link">
+        Blender
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/none/" class="md-nav__link">
+        也许……
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        线性代数
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="线性代数" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          线性代数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear_algebra/" class="md-nav__link">
+        线性代数简介
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear_algebra/vector/" class="md-nav__link">
+        向量
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear_algebra/matrix/" class="md-nav__link">
+        矩阵
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear_algebra/vector_space/" class="md-nav__link">
+        向量空间
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear_algebra/base/" class="md-nav__link">
+        基和维数
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        微积分
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="微积分" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          微积分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calculus/" class="md-nav__link">
+        微积分简介
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calculus/natural/" class="md-nav__link">
+        从自然数说起
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calculus/sequence/" class="md-nav__link">
+        柯西数列与极限
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calculus/derivative/" class="md-nav__link">
+        函数极限，求导和微分
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calculus/mean/" class="md-nav__link">
+        介值定理和微分中值定理
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calculus/integration/" class="md-nav__link">
+        积分和牛顿-莱布尼茨公式
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calculus/complex/" class="md-nav__link">
+        复数和欧拉公式
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calculus/integration2/" class="md-nav__link">
+        常用积分方法
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calculus/pd/" class="md-nav__link">
+        偏导数和偏微分
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calculus/mi/" class="md-nav__link">
+        多重积分
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        概率论
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="概率论" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          概率论
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probabiity/" class="md-nav__link">
+        概率论简介
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        光栅化
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="光栅化" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          光栅化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/" class="md-nav__link">
+        光栅化简介
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/pipeline/" class="md-nav__link">
+        渲染管线
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/mvp/" class="md-nav__link">
+        MVP变换
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/rasterization/" class="md-nav__link">
+        光栅化
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/zbuffer/" class="md-nav__link">
+        深度缓存
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/shading/" class="md-nav__link">
+        基本光照模型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rasterization/texture/" class="md-nav__link">
+        纹理映射
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        光线追踪
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="光线追踪" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          光线追踪
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ray_tracing/" class="md-nav__link">
+        光线追踪简介
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ray_tracing/whitted/" class="md-nav__link">
+        Whitted光线追踪
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ray_tracing/struct/" class="md-nav__link">
+        加速结构
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        反走样技术
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="反走样技术" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          反走样技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../antialiasing/" class="md-nav__link">
+        反走样技术简介
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../antialiasing/sampling/" class="md-nav__link">
+        采样原理
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../antialiasing/msaa/" class="md-nav__link">
+        多重采样抗锯齿
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../antialiasing/mipmap/" class="md-nav__link">
+        MIPMAP
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        几何建模
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="几何建模" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          几何建模
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/" class="md-nav__link">
+        几何建模简介
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" checked>
+      
+      <label class="md-nav__link" for="__nav_10">
+        基于物理的渲染
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="基于物理的渲染" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          基于物理的渲染
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        基于物理的渲染简介
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          辐射度量学
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        辐射度量学
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    朗伯光度学体系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    辐射和光
+  </a>
+  
+    <nav class="md-nav" aria-label="辐射和光">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    辐射能和波粒二象性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    立体角与辐射强度
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    照度、出度和平方反比定律
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    亮度
+  </a>
+  
+    <nav class="md-nav" aria-label="亮度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    辐亮度和光亮度
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    朗伯定律
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../energy/" class="md-nav__link">
+        能量守恒
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../equation/" class="md-nav__link">
+        渲染方程与BDRF
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      <label class="md-nav__link" for="__nav_11">
+        实时渲染技术
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="实时渲染技术" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          实时渲染技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rtr/" class="md-nav__link">
+        实时渲染简介
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      <label class="md-nav__link" for="__nav_12">
+        非真实感渲染
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="非真实感渲染" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          非真实感渲染
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../npr/" class="md-nav__link">
+        非真实感渲染简介
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
+      
+      <label class="md-nav__link" for="__nav_13">
+        光子映射
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="光子映射" data-md-level="1">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          光子映射
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../photon/" class="md-nav__link">
+        光子映射简介
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
+      
+      <label class="md-nav__link" for="__nav_14">
+        杂项
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="杂项" data-md-level="1">
+        <label class="md-nav__title" for="__nav_14">
+          <span class="md-nav__icon md-icon"></span>
+          杂项
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/gamma/" class="md-nav__link">
+        Gamma校正
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    朗伯光度学体系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    辐射和光
+  </a>
+  
+    <nav class="md-nav" aria-label="辐射和光">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    辐射能和波粒二象性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    立体角与辐射强度
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    照度、出度和平方反比定律
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    亮度
+  </a>
+  
+    <nav class="md-nav" aria-label="亮度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    辐亮度和光亮度
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    朗伯定律
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>辐射度量学</h1>
+                
+                <h2 id="_1">朗伯光度学体系<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在18世纪前，人们对光学的研究依然局限在几何光学的部分，即研究光如何在介质之中传播。
+1760年，随着朗伯的专著发表，光度学正式成为了一门学科。这门学科定义了如何衡量光的强弱，并通过数学的方式解释了各个物理量之间的关系。
+在过去的几百年间，实践已经证明了朗伯光度学体系的正确性。</p>
+<h2 id="_2">辐射和光<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">辐射能和波粒二象性<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>辐射指的是能量以波或者次原子粒子（比原子小的粒子）移动的形态，他们可以在真空或者介质中传播。辐射的能量会从辐射源往外所有方向直线放射。
+其中可以使用光学元件反射、成像或者色散的部分，我们称之为光辐射。</p>
+<p>以辐射形式发射、传播或者接收的能量，我们称之为辐射能（radiant energy），单位为J（焦耳）。</p>
+<p>在经典力学体系中，研究对象总是被区分为纯粒子或纯波动，前者组成了物质，后者最常见的即为光波。但是事实上微观粒子有时会显示出波动性（此时粒子性不明显），
+有些时候又会显示出粒子性（此时波动性不明显）。这就是波粒二象性。</p>
+<p>波动具有一定的频率，比如正弦波 <span><span class="MathJax_Preview">Asin(\omega t + \theta)</span><script type="math/tex">Asin(\omega t + \theta)</script></span> ，其中 <span><span class="MathJax_Preview">\omega</span><script type="math/tex">\omega</script></span> 就是其频率。频率决定了波改变的速率，等于周期的倒数。
+在光波中，我们一般记频率为 <span><span class="MathJax_Preview">\nu</span><script type="math/tex">\nu</script></span> ，其等于波长的倒数： <span><span class="MathJax_Preview">\nu = \frac{1}{\lambda}</span><script type="math/tex">\nu = \frac{1}{\lambda}</script></span> 。</p>
+<p>光波的量子被称为光子。光子自身是带有能量的，频率为 <span><span class="MathJax_Preview">\nu</span><script type="math/tex">\nu</script></span> 的光子能量可以表示为 <span><span class="MathJax_Preview">\epsilon_\nu = h\nu</span><script type="math/tex">\epsilon_\nu = h\nu</script></span> ，其中 <span><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> 为普郎克常数，
+<span><span class="MathJax_Preview">h \approx 6.6262 \times 10^{-34} J \cdot s</span><script type="math/tex">h \approx 6.6262 \times 10^{-34} J \cdot s</script></span> 。由此可见光子的能量是非常低的，使用焦耳作为单位对于电子来说太大了。
+为此，我们使用电子伏（eV）来表示光子的能量，  <span><span class="MathJax_Preview">1eV = 1.6022 \times 10^{-19}J</span><script type="math/tex">1eV = 1.6022 \times 10^{-19}J</script></span> 。</p>
+<p>除了能量外，我们通常还会关心辐射每秒所放出、接受或传递的能量。我们称该物理量为辐射通量（辐射功率，radiant flux），单位为W，即J/s，用符号 <span><span class="MathJax_Preview">\Phi</span><script type="math/tex">\Phi</script></span> 表示。
+对于光辐射，我们还会使用流明（lm）作为光通量的单位，并且与瓦等价。
+需要注意的是光通量不等价于辐射通量。以灯泡为例，当我们打开灯的时候，除了光辐射外，其还会向外部放出一定的热辐射。
+因此，许多灯泡外需要首先标明灯泡的光功率（即多少流明），因为功率大的灯泡不一定亮。</p>
+<h3 id="_4">立体角与辐射强度<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>辐射源会向所有方向发出辐射，而我们只关心其中某些甚至某个方向上的辐射通量。为此我们需要使用到立体角。</p>
+<p>我们类比平面角来定义立体角：</p>
+<p><img alt="Screenshot from 2021-12-04 13-07-05.png" src="https://s2.loli.net/2021/12/04/RExvj14N7DGCbU6.png" /></p>
+<p>在平面内，我们使用半径和弧长来定义弧度： <span><span class="MathJax_Preview">\theta = \frac{d}{r}</span><script type="math/tex">\theta = \frac{d}{r}</script></span> 。类似地，在空间中，我们定义球面上的面积和半径平方的比值为立体角： <span><span class="MathJax_Preview">\omega = \frac{S}{r^2}</span><script type="math/tex">\omega = \frac{S}{r^2}</script></span> （图片来自GAMES101）：</p>
+<p><img alt="Screenshot from 2021-12-04 13-50-16.png" src="https://s2.loli.net/2021/12/04/V4jcJPwzskdUfB2.png" /></p>
+<p>如图，我们在 <span><span class="MathJax_Preview">(\phi, \theta)</span><script type="math/tex">(\phi, \theta)</script></span> 方向上定义一个立体角。由于 <span><span class="MathJax_Preview">d\phi ,d\theta</span><script type="math/tex">d\phi ,d\theta</script></span> 非常小，我们不妨认为球面上的微小区域是一个矩形，我们只需要通过长宽即可得到该区域的面积。
+竖直方向上，根据弧度的公式，我们能得到弧长 <span><span class="MathJax_Preview">d = rd\theta</span><script type="math/tex">d = rd\theta</script></span> ；水平方向上，截面圆的半径为 <span><span class="MathJax_Preview">rsin\theta</span><script type="math/tex">rsin\theta</script></span> ，则弧长为 <span><span class="MathJax_Preview">rsin\theta d\phi</span><script type="math/tex">rsin\theta d\phi</script></span> 。因此，根据立体角公式，
+我们得到 <span><span class="MathJax_Preview">d\omega = \frac{r^2sin\theta d\theta d\phi}{r^2} = sin\theta d\theta d\phi</span><script type="math/tex">d\omega = \frac{r^2sin\theta d\theta d\phi}{r^2} = sin\theta d\theta d\phi</script></span> 。
+如果我们对 <span><span class="MathJax_Preview">\phi, \theta</span><script type="math/tex">\phi, \theta</script></span> 进行积分： <span><span class="MathJax_Preview">\int_{0}^{\pi}\int_{0}^{2\pi}sin\theta d\phi d\theta = \int_{0}^{\pi}2\pi sin\theta d\theta = 4\pi</span><script type="math/tex">\int_{0}^{\pi}\int_{0}^{2\pi}sin\theta d\phi d\theta = \int_{0}^{\pi}2\pi sin\theta d\theta = 4\pi</script></span> ，这就是整个球体的立体角。我们用球面度(sr)作为立体角的单位。</p>
+<p>现在，我们定义辐射强度（radiant intensity），即单位立体角方向上的辐射通量： <span><span class="MathJax_Preview">I = \frac{\Phi}{\omega}</span><script type="math/tex">I = \frac{\Phi}{\omega}</script></span> ，单位为 W/sr。对于光强度，我们使用等价的单位 lm/sr，也记作坎德拉（cd），该单位也是七大基本单位之一。</p>
+<h2 id="_5">照度、出度和平方反比定律<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>当一束光打到一个物体上时，我们会感觉到这个物体被“照亮了”。我们使用辐照度（irradiance）来描述物体表面被照射的情况。
+照度被定义为单位面积上的光通量： <span><span class="MathJax_Preview">E = \frac{\Phi}{S}</span><script type="math/tex">E = \frac{\Phi}{S}</script></span> ，其中 <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> 为表面面积。如果光线并不是垂直照射到表面上，那么我们还需要对光线进行投影： <span><span class="MathJax_Preview">E = \frac{\Phi cos\alpha}{S}</span><script type="math/tex">E = \frac{\Phi cos\alpha}{S}</script></span> ，其中 <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> 为表面法线与光线的夹角。</p>
+<p>同理，如果一个物体自身会发光，我们也能感受到这个物体是“明亮的”。我们使用一个类似的概念——辐出度（radiant exitance）来描述物体表面的发光情况，其定义和公式与辐照度是一样的，区别在于此处的辐射通量来自于自身发出的辐射。</p>
+<p>对应辐照度和辐出度，我们同样可以定义光照度和光出度（将定义中的辐射通量改为光通量）。他们的单位为 <span><span class="MathJax_Preview">lm/m^2</span><script type="math/tex">lm/m^2</script></span> ，这个单位通常也被记为勒克斯(lx) 。</p>
+<p>还记得刚刚讨论过的光照强度么？我们可以将其公式做一个变形： <span><span class="MathJax_Preview">I = \frac{\Phi}{\omega} = \frac{\Phi}{\frac{S}{r^2}} = r^2\frac{\Phi}{S} = r^2E</span><script type="math/tex">I = \frac{\Phi}{\omega} = \frac{\Phi}{\frac{S}{r^2}} = r^2\frac{\Phi}{S} = r^2E</script></span> ，
+因此 <span><span class="MathJax_Preview">E = \frac{I}{r^2}</span><script type="math/tex">E = \frac{I}{r^2}</script></span> 。这就是著名的平方反比定律：一个表面的照度与该方向的光照强度成平方反比。</p>
+<h2 id="_6">亮度<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="_7">辐亮度和光亮度<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>我们已经可以衡量一个表面的明亮程度了，但我们观察一个表面的时候，只能从其中一个方向进行观察。因此照度和出度依然不能很好地衡量我们所观察到的结果。
+将照度与方向相结合，我们给出辐亮度（radiance）的定义：单位面积、单位立体角上通过的辐射通量。用公式表示，辐亮度 <span><span class="MathJax_Preview">L = \frac{d^2\Phi}{d\omega dS}</span><script type="math/tex">L = \frac{d^2\Phi}{d\omega dS}</script></span> 。
+如果一个物体的辐亮度与方向无关，我们称这样的物体为朗伯体。</p>
+<p>同样的，我们使用光通量替代辐射通量，我们就可以得到光亮度的定义。光亮度对于描述渲染时摄像机所看到的内容已经足够了，事实上我们在计算的过程中计算的也就是光亮度。
+但我们很少用亮度去描述人眼所看到的情况，这是因为人在观察的过程中眼睛可能处于不同的状态：一个刚刚从黑暗的洞窟出来的人会觉得太阳非常耀眼而把眼睛闭上，但一直在户外的人会觉得这个亮度刚刚好合适。
+因此，我们通常使用明度（brightness）来描述人眼看到的实际情况。</p>
+<h3 id="_8">朗伯定律<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>我们根据亮度的公式，写出光强的表达式： <span><span class="MathJax_Preview">I_{\theta} = L_{\theta}Scos\theta</span><script type="math/tex">I_{\theta} = L_{\theta}Scos\theta</script></span> ，其中 <span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span> 表示给定的方向（比如观察方向）与表面法线的夹角。
+如果该物体是一个朗伯体，那么其亮度与方向无关，即 <span><span class="MathJax_Preview">L_{\theta}</span><script type="math/tex">L_{\theta}</script></span> 等于常数 <span><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> 。因此 <span><span class="MathJax_Preview">I_{\theta} = LScos\theta</span><script type="math/tex">I_{\theta} = LScos\theta</script></span> 。</p>
+<p>此时我们再写出法线方向的光强公式： <span><span class="MathJax_Preview">I_{0} = LS</span><script type="math/tex">I_{0} = LS</script></span> 。我们将该公式带入任意方向 <span><span class="MathJax_Preview">L_{\theta}</span><script type="math/tex">L_{\theta}</script></span> 的式子： <span><span class="MathJax_Preview">I_{\theta} = I_{0}cos\theta</span><script type="math/tex">I_{\theta} = I_{0}cos\theta</script></span> 。
+这就是朗伯定律的数学表示：对一个表面在某个方向上的光强，等于其法线方向光强的投影。</p>
+<h2 id="_9">参考资料<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ul>
+<li>《光度学》 郝允祥 等</li>
+<li><a href="https://zh.wikipedia.org/wiki/%E8%BE%90%E5%B0%84">辐射-维基百科</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%B3%A2%E7%B2%92%E4%BA%8C%E8%B1%A1%E6%80%A7">波粒二象性-维基百科</a></li>
+<li><a href="https://www.bilibili.com/video/BV1X7411F744?p=14">GAMES101-现代计算机图形学入门-闫令琪</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: 基于物理的渲染简介" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              基于物理的渲染简介
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../energy/" class="md-footer__link md-footer__link--next" aria-label="下一页: 能量守恒" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              能量守恒
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+        <script src="../../_static/js/extra.js?v=16"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
