@@ -9,21 +9,21 @@
       
       
       
-        <link rel="canonical" href="https://neilkleistgao.github.io/fake-CG-wiki/geometry/">
+        <link rel="canonical" href="https://neilkleistgao.github.io/fake-CG-wiki/misc/lens/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
-        <title>几何建模简介 - Fake CG Wiki</title>
+        <title>相机与透镜 - Fake CG Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.802231af.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -41,10 +41,10 @@
       
     
     
-      <link rel="manifest" href="../manifest.webmanifest" crossorigin="use-credentials">
+      <link rel="manifest" href="../../manifest.webmanifest" crossorigin="use-credentials">
     
     
-      <link rel="stylesheet" href="../_static/css/extra.css?v=13">
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=13">
     
     
       
@@ -63,12 +63,17 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="blue">
   
     
-    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -77,7 +82,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Fake CG Wiki" class="md-header__button md-logo" aria-label="Fake CG Wiki" data-md-component="logo">
+    <a href="../.." title="Fake CG Wiki" class="md-header__button md-logo" aria-label="Fake CG Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -96,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              几何建模简介
+              相机与透镜
             
           </span>
         </div>
@@ -161,7 +166,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         简介
       </a>
     </li>
@@ -177,7 +182,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../tools/" class="md-tabs__link">
+      <a href="../../tools/" class="md-tabs__link">
         工具软件
       </a>
     </li>
@@ -193,7 +198,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../linear_algebra/" class="md-tabs__link">
+      <a href="../../linear_algebra/" class="md-tabs__link">
         线性代数
       </a>
     </li>
@@ -209,7 +214,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../calculus/" class="md-tabs__link">
+      <a href="../../calculus/" class="md-tabs__link">
         微积分
       </a>
     </li>
@@ -225,7 +230,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../probabiity/" class="md-tabs__link">
+      <a href="../../probabiity/" class="md-tabs__link">
         概率论
       </a>
     </li>
@@ -241,7 +246,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../rasterization/" class="md-tabs__link">
+      <a href="../../rasterization/" class="md-tabs__link">
         光栅化
       </a>
     </li>
@@ -257,7 +262,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../ray_tracing/" class="md-tabs__link">
+      <a href="../../ray_tracing/" class="md-tabs__link">
         光线追踪
       </a>
     </li>
@@ -273,8 +278,88 @@
   
   
     <li class="md-tabs__item">
-      <a href="../antialiasing/" class="md-tabs__link">
+      <a href="../../antialiasing/" class="md-tabs__link">
         反走样技术
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../geometry/" class="md-tabs__link">
+        几何建模
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../pbr/" class="md-tabs__link">
+        基于物理的渲染
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rtr/" class="md-tabs__link">
+        实时渲染技术
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../npr/" class="md-tabs__link">
+        非真实感渲染
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../photon/" class="md-tabs__link">
+        光子映射
       </a>
     </li>
   
@@ -291,87 +376,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
-        几何建模
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../pbr/" class="md-tabs__link">
-        基于物理的渲染
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../rtr/" class="md-tabs__link">
-        实时渲染技术
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../npr/" class="md-tabs__link">
-        非真实感渲染
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../photon/" class="md-tabs__link">
-        光子映射
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../misc/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         杂项
       </a>
     </li>
@@ -398,7 +403,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Fake CG Wiki" class="md-nav__button md-logo" aria-label="Fake CG Wiki" data-md-component="logo">
+    <a href="../.." title="Fake CG Wiki" class="md-nav__button md-logo" aria-label="Fake CG Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -438,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Getting Started
       </a>
     </li>
@@ -450,7 +455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intro/about/" class="md-nav__link">
+      <a href="../../intro/about/" class="md-nav__link">
         关于本项目
       </a>
     </li>
@@ -462,7 +467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intro/thanks/" class="md-nav__link">
+      <a href="../../intro/thanks/" class="md-nav__link">
         致谢
       </a>
     </li>
@@ -504,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/" class="md-nav__link">
+      <a href="../../tools/" class="md-nav__link">
         工具软件简介
       </a>
     </li>
@@ -516,7 +521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/ide/" class="md-nav__link">
+      <a href="../../tools/ide/" class="md-nav__link">
         IDE
       </a>
     </li>
@@ -528,7 +533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/opengl/" class="md-nav__link">
+      <a href="../../tools/opengl/" class="md-nav__link">
         OpenGL
       </a>
     </li>
@@ -540,7 +545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/unity3d/" class="md-nav__link">
+      <a href="../../tools/unity3d/" class="md-nav__link">
         Unity3D
       </a>
     </li>
@@ -552,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/blender/" class="md-nav__link">
+      <a href="../../tools/blender/" class="md-nav__link">
         Blender
       </a>
     </li>
@@ -564,7 +569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/none/" class="md-nav__link">
+      <a href="../../tools/none/" class="md-nav__link">
         也许……
       </a>
     </li>
@@ -606,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linear_algebra/" class="md-nav__link">
+      <a href="../../linear_algebra/" class="md-nav__link">
         线性代数简介
       </a>
     </li>
@@ -618,7 +623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linear_algebra/vector/" class="md-nav__link">
+      <a href="../../linear_algebra/vector/" class="md-nav__link">
         向量
       </a>
     </li>
@@ -630,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linear_algebra/matrix/" class="md-nav__link">
+      <a href="../../linear_algebra/matrix/" class="md-nav__link">
         矩阵
       </a>
     </li>
@@ -642,7 +647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linear_algebra/vector_space/" class="md-nav__link">
+      <a href="../../linear_algebra/vector_space/" class="md-nav__link">
         向量空间
       </a>
     </li>
@@ -654,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linear_algebra/base/" class="md-nav__link">
+      <a href="../../linear_algebra/base/" class="md-nav__link">
         基和维数
       </a>
     </li>
@@ -696,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/" class="md-nav__link">
+      <a href="../../calculus/" class="md-nav__link">
         微积分简介
       </a>
     </li>
@@ -708,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/natural/" class="md-nav__link">
+      <a href="../../calculus/natural/" class="md-nav__link">
         从自然数说起
       </a>
     </li>
@@ -720,7 +725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/sequence/" class="md-nav__link">
+      <a href="../../calculus/sequence/" class="md-nav__link">
         柯西数列与极限
       </a>
     </li>
@@ -732,7 +737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/derivative/" class="md-nav__link">
+      <a href="../../calculus/derivative/" class="md-nav__link">
         函数极限，求导和微分
       </a>
     </li>
@@ -744,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/mean/" class="md-nav__link">
+      <a href="../../calculus/mean/" class="md-nav__link">
         介值定理和微分中值定理
       </a>
     </li>
@@ -756,7 +761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/integration/" class="md-nav__link">
+      <a href="../../calculus/integration/" class="md-nav__link">
         积分和牛顿-莱布尼茨公式
       </a>
     </li>
@@ -768,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/complex/" class="md-nav__link">
+      <a href="../../calculus/complex/" class="md-nav__link">
         复数和欧拉公式
       </a>
     </li>
@@ -780,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/integration2/" class="md-nav__link">
+      <a href="../../calculus/integration2/" class="md-nav__link">
         常用积分方法
       </a>
     </li>
@@ -792,7 +797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/pd/" class="md-nav__link">
+      <a href="../../calculus/pd/" class="md-nav__link">
         偏导数和偏微分
       </a>
     </li>
@@ -804,7 +809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/mi/" class="md-nav__link">
+      <a href="../../calculus/mi/" class="md-nav__link">
         多重积分
       </a>
     </li>
@@ -846,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../probabiity/" class="md-nav__link">
+      <a href="../../probabiity/" class="md-nav__link">
         概率论简介
       </a>
     </li>
@@ -888,7 +893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rasterization/" class="md-nav__link">
+      <a href="../../rasterization/" class="md-nav__link">
         光栅化简介
       </a>
     </li>
@@ -900,7 +905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rasterization/pipeline/" class="md-nav__link">
+      <a href="../../rasterization/pipeline/" class="md-nav__link">
         渲染管线
       </a>
     </li>
@@ -912,7 +917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rasterization/mvp/" class="md-nav__link">
+      <a href="../../rasterization/mvp/" class="md-nav__link">
         MVP变换
       </a>
     </li>
@@ -924,7 +929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rasterization/rasterization/" class="md-nav__link">
+      <a href="../../rasterization/rasterization/" class="md-nav__link">
         光栅化
       </a>
     </li>
@@ -936,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rasterization/zbuffer/" class="md-nav__link">
+      <a href="../../rasterization/zbuffer/" class="md-nav__link">
         深度缓存
       </a>
     </li>
@@ -948,7 +953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rasterization/shading/" class="md-nav__link">
+      <a href="../../rasterization/shading/" class="md-nav__link">
         基本光照模型
       </a>
     </li>
@@ -960,7 +965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rasterization/texture/" class="md-nav__link">
+      <a href="../../rasterization/texture/" class="md-nav__link">
         纹理映射
       </a>
     </li>
@@ -1002,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ray_tracing/" class="md-nav__link">
+      <a href="../../ray_tracing/" class="md-nav__link">
         光线追踪简介
       </a>
     </li>
@@ -1014,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ray_tracing/whitted/" class="md-nav__link">
+      <a href="../../ray_tracing/whitted/" class="md-nav__link">
         Whitted光线追踪
       </a>
     </li>
@@ -1026,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ray_tracing/struct/" class="md-nav__link">
+      <a href="../../ray_tracing/struct/" class="md-nav__link">
         加速结构
       </a>
     </li>
@@ -1068,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../antialiasing/" class="md-nav__link">
+      <a href="../../antialiasing/" class="md-nav__link">
         反走样技术简介
       </a>
     </li>
@@ -1080,7 +1085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../antialiasing/sampling/" class="md-nav__link">
+      <a href="../../antialiasing/sampling/" class="md-nav__link">
         采样原理
       </a>
     </li>
@@ -1092,7 +1097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../antialiasing/msaa/" class="md-nav__link">
+      <a href="../../antialiasing/msaa/" class="md-nav__link">
         多重采样抗锯齿
       </a>
     </li>
@@ -1104,7 +1109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../antialiasing/mipmap/" class="md-nav__link">
+      <a href="../../antialiasing/mipmap/" class="md-nav__link">
         MIPMAP
       </a>
     </li>
@@ -1123,14 +1128,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
       <label class="md-nav__link" for="__nav_9">
         几何建模
@@ -1146,19 +1149,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../geometry/" class="md-nav__link">
         几何建模简介
       </a>
-      
     </li>
   
 
@@ -1198,7 +1193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pbr/" class="md-nav__link">
+      <a href="../../pbr/" class="md-nav__link">
         基于物理的渲染简介
       </a>
     </li>
@@ -1210,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pbr/radiance/" class="md-nav__link">
+      <a href="../../pbr/radiance/" class="md-nav__link">
         辐射度量学
       </a>
     </li>
@@ -1222,7 +1217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pbr/energy/" class="md-nav__link">
+      <a href="../../pbr/energy/" class="md-nav__link">
         能量守恒
       </a>
     </li>
@@ -1234,7 +1229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pbr/equation/" class="md-nav__link">
+      <a href="../../pbr/equation/" class="md-nav__link">
         渲染方程与BDRF
       </a>
     </li>
@@ -1276,7 +1271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rtr/" class="md-nav__link">
+      <a href="../../rtr/" class="md-nav__link">
         实时渲染简介
       </a>
     </li>
@@ -1318,7 +1313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../npr/" class="md-nav__link">
+      <a href="../../npr/" class="md-nav__link">
         非真实感渲染简介
       </a>
     </li>
@@ -1360,7 +1355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../photon/" class="md-nav__link">
+      <a href="../../photon/" class="md-nav__link">
         光子映射简介
       </a>
     </li>
@@ -1379,12 +1374,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" checked>
       
       <label class="md-nav__link" for="__nav_14">
         杂项
@@ -1402,7 +1399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../misc/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         简介
       </a>
     </li>
@@ -1414,7 +1411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../misc/gamma/" class="md-nav__link">
+      <a href="../gamma/" class="md-nav__link">
         Gamma校正
       </a>
     </li>
@@ -1424,11 +1421,115 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../misc/lens/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          相机与透镜
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         相机与透镜
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    相机与透镜
+  </a>
+  
+    <nav class="md-nav" aria-label="相机与透镜">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    小孔成像
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    视场
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    曝光
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    透镜
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    光场相机
+  </a>
+  
+    <nav class="md-nav" aria-label="光场相机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    光场
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    光场相机
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1438,7 +1539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../misc/color/" class="md-nav__link">
+      <a href="../color/" class="md-nav__link">
         颜色
       </a>
     </li>
@@ -1458,17 +1559,204 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    相机与透镜
+  </a>
+  
+    <nav class="md-nav" aria-label="相机与透镜">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    小孔成像
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    视场
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    曝光
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    透镜
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    光场相机
+  </a>
+  
+    <nav class="md-nav" aria-label="光场相机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    光场
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    光场相机
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>几何建模简介</h1>
+                  <h1>相机与透镜</h1>
                 
-                <blockquote>
-<p>不要踩坏我的圆！ —— 阿基米德</p>
-</blockquote>
+                <h2 id="_1">相机与透镜<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">小孔成像<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>在古代，诸如墨子、亚里士多德等学者已经发现了小孔成像的现象。小孔成像利用了光沿直线传播的特性（图片来自于GAMES101）：</p>
+<p><img alt="Screenshot from 2021-12-11 08-34-32.png" src="https://s2.loli.net/2021/12/11/dWmnj2g8ueOR31Q.png" /></p>
+<p>由于光线仅能沿着直线传播，物体反射的光线只有在特定的角度下（见上图）才能穿过小孔，从而反射到另外一端。此时我们在小孔的另一端放置上感光元件，
+就可以将图像呈现出来。为了防止感光元件接受到外界其他的光线，我们需要将感光元件放置在一个暗箱中。</p>
+<p>人无法通过小孔看到对面的全部景象，但我们依然可以使用小孔成像，这是因为人眼所感知到的物理量为光亮度，而感光材料上所接受的为光照度（并会随着时间增加而累加）。</p>
+<p>虽然小孔成像的原理非常简单，并且要求长时间的曝光，但目前在艺术等方面仍然有着广泛的应用。</p>
+<h3 id="_3">视场<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>视场，即Field of View（FoV），表示摄像机所能看到的范围。视场有两种不同的表示方式，即从侧面看和从上面看能得到不同的视场表示。两种表示都没有错误，
+且被广泛使用。因此，这里以侧面观察的视场为例：</p>
+<p><img alt="Screenshot from 2021-12-11 08-53-11.png" src="https://s2.loli.net/2021/12/11/DnlUMvRWFH4NC9i.png" /></p>
+<p>最底部是我们的感光元件，他的高度为 <span><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> ；中间的焦点为我们的小孔。感光元件顶部和底部发出的射线穿过小孔，达到小孔的另一测，这个范围就是我们所能成像的范围。
+其中，小孔到感光元件的距离我们称之为焦距 <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 。为了表示视场的大小，我们需要计算两条射线之间的夹角，即 <span><span class="MathJax_Preview">FoV = arctan(\frac{h}{2f})</span><script type="math/tex">FoV = arctan(\frac{h}{2f})</script></span> 。
+根据这个角度，以及感光元件的高度和宽高比，我们就能推算出这个相机的其他属性。</p>
+<p>由于历史原因，我们平常所见到的焦距的数字是使用 <span><span class="MathJax_Preview">36 \times 24 mm</span><script type="math/tex">36 \times 24 mm</script></span> 大小的胶片（35毫米格式的胶片）与视场角的大小来计算的，并不一定是实际的大小，这个焦距被称为等效焦距。</p>
+<h3 id="_4">曝光<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>感光元件接受光照，并不关心光照的“效率”，即感光元件不考虑光通量，而是会记录下一定时间内所有的光照度。因此，曝光度定义为 <span><span class="MathJax_Preview">T \times E</span><script type="math/tex">T \times E</script></span> ，其中 <span><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span> 为曝光时间，
+而 <span><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span> 则是光照度。在摄像过程中，我们需要对曝光度进行调整：曝光过低则图像很暗；反之曝光过高图像又会接近全白。调整曝光度通常可以从两个角度进行考虑：调整光圈大小和调整曝光时间。</p>
+<p>光圈大小控制着感光元件可以接受到的光照度的大小，即光圈控制着相机的进光量。光圈一般是一个面积可变的孔状光栅（图片来自于维基百科）：</p>
+<p><img alt="Screenshot from 2021-12-11 09-19-42.png" src="https://s2.loli.net/2021/12/11/OZdDjszQhWrStBe.png" /></p>
+<p>光圈的大小由焦比（也叫f数）来表示。 焦比等于焦距除以孔径，是一个无量纲的变量。在焦距一定的情况下，焦比越大，则孔径越小，进光量也越小。
+随着光圈变大，感光元件上某个点能接受到的光照度就越高。这里照度的增加是由于一个点可以接受更多物体所反射过来的光线，相当于做了一半的滤波操作，所以拍出的照片的背景会变得模糊（即景深效果）。</p>
+<p>此外，我们还可以通过调整曝光时间来控制曝光度。曝光时间通过快门来进行控制。当快门打开时，光线即可进入到相机内部。我们直接使用一个数字来描述快门时间，
+如1/1000表示快门开放的时间为0.001秒。如果拍摄的物体本身是运动的，增加快门时间会导致拍摄到的图像变得模糊（即动态模糊效果），这样的模糊同样是由于连续的采样造成的（与光圈大小不同，这里的连续是时间上的连续）。</p>
+<p>除了两个常用方法外，相机一般还支持通过ISO来调整图片亮度。ISO本身并不控制曝光度，而是在成像完成后直接对图像进行处理。由于处理方式是直接对像素值进行缩放，所以一般会有较大的噪声。</p>
+<p>光圈大小和快门时间是相互制约的关系：光圈大快门时间长会导致过曝；光圈小快门时间短会导致曝光不足。因此，景深与动态模糊不可兼得。</p>
+<h3 id="_5">透镜<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>小孔成像固然很好，但是也有其不足：如果曝光时间过短，我们可能什么都看不到。为此我们需要短时间内快速聚集大量的光线，从而在较短的时间内完成曝光。此时我们会用到透镜。
+为了方便，我们假定研究的透镜为理想的薄透镜，即透镜的厚度忽略不计（图片来自于GAMES101，下同）：</p>
+<p><img alt="Screenshot from 2021-12-11 09-50-37.png" src="https://s2.loli.net/2021/12/11/YRvLPQAVeXU4O8B.png" /></p>
+<p>垂直于透镜的平行光，在进入透镜之后将会被聚集在一点，这个点被称为焦点，焦点到透镜的距离被称为焦距。根据光路的可逆性，如果一束光穿过了焦点并通过透镜，
+这束光将会被分解为一系列的平行光。如果光线穿过了透镜的中心，则其方向不会发生改变。</p>
+<p>此外，薄透镜还满足一个物理规律：</p>
+<p><img alt="Screenshot from 2021-12-11 09-57-39.png" src="https://s2.loli.net/2021/12/11/wrlbFu2zRQjqgno.png" /></p>
+<p>我们在透镜的左侧放上一个物体，物体到透镜的距离记作 <span><span class="MathJax_Preview">z_o</span><script type="math/tex">z_o</script></span> ，该物体会在透镜的右侧成像，像到透镜的距离及做 <span><span class="MathJax_Preview">z_i</span><script type="math/tex">z_i</script></span> ，透镜的焦距记作 <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 。</p>
+<p><img alt="Screenshot from 2021-12-11 10-03-11.png" src="https://s2.loli.net/2021/12/11/qrfNt67KSGgpaHW.png" /></p>
+<p>在图中，我们可以找到两对相似三角形，分别位于透镜的左侧和右侧。根据相似关系，我们可以得到：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{array}{c}
+\frac{h_0}{h_i} = \frac{z_o - f}{f} \\
+\frac{h_0}{h_i} = \frac{f}{z_i - f}
+\end{array}
+</div>
+<script type="math/tex; mode=display">
+\begin{array}{c}
+\frac{h_0}{h_i} = \frac{z_o - f}{f} \\
+\frac{h_0}{h_i} = \frac{f}{z_i - f}
+\end{array}
+</script>
+</div>
+<p>连立两个等式，整理后我们可以得到 <span><span class="MathJax_Preview">\frac{1}{f} = \frac{1}{z_o} + \frac{1}{z_i}</span><script type="math/tex">\frac{1}{f} = \frac{1}{z_o} + \frac{1}{z_i}</script></span> 。这就是<strong>高斯成像公式</strong>。</p>
+<p>根据高斯成像公式，我们可以解释弥散圈（Circle of Confusion）现象：</p>
+<p><img alt="Screenshot from 2021-12-11 10-16-31.png" src="https://s2.loli.net/2021/12/11/oMgC4OR2a1SJsmG.png" /></p>
+<p>根据焦距和感光元件的位置，我们可以求出一个“理想成像距离”：将物体放在该位置，我们可以正好将像投到感光元件上。但实际上，很多时候物距和理想距离并不相等。
+如图所示，由于物距过远，光线经过透镜在感光元件前形成了像。成像的光线并不会停留在原地，而是会继续传播，此时打到感光平面上光线就不再是一个点，而是一个圆。</p>
+<h2 id="_6">光场相机<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="_7">光场<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>我们的成像过程大致可以分为以下的步骤：
++ 在某一时刻，某一位置停下
++ 选取一个角度
++ 对这个角度的光线进行采样</p>
+<p>完成这些步骤后，我们就将这些信息压缩为了一幅二维的图像。这样做必然会导致信息的丢失。为了保证所有的信息都得到保留，
+我们将这些信息写为一个新的函数： <span><span class="MathJax_Preview">L(x, y, z, \theta , \phi , \lambda , t)</span><script type="math/tex">L(x, y, z, \theta , \phi , \lambda , t)</script></span> 。其中， <span><span class="MathJax_Preview">x, y, z</span><script type="math/tex">x, y, z</script></span> 表示我们在空间中的位置； <span><span class="MathJax_Preview">\theta , \phi</span><script type="math/tex">\theta , \phi</script></span> 表示我们观察的角度；
+为了表示光线，我们使用 <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> 表示其波长， <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 表示当前的时间。这就是<strong>七维全光函数</strong>，它所表示的就是一个光场。</p>
+<p>七维的函数对于我们来说开销太大了，因此我们需要考虑对其进行压缩：
++ 我们不再记录函数中每一个波长对应的分量，反之，我们令函数的返回值为RGB，从而抛弃掉 <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span>
++ 对于一个函数，我们只记录下一个特定时刻的值，而不是所有时刻。如果有需要，我们使用多个函数来进行表示</p>
+<p>此时我们的全光函数被削减为了 <span><span class="MathJax_Preview">L(x, y, z, \theta, \phi)</span><script type="math/tex">L(x, y, z, \theta, \phi)</script></span> 的形式。这是一个五维的函数。然而我们在观察的过程中，并不是所有的方向都能看到（南无三，世上无人背后长眼！），
+记录全部的方向也是没有必要的。我们可以限制 <span><span class="MathJax_Preview">\theta, \phi</span><script type="math/tex">\theta, \phi</script></span> 的定义域来达到效果，但一个更聪明的办法是，通过两个平面来定义我们所看到的光场（图片来自于GAMES101）：</p>
+<p><img alt="Screenshot from 2021-12-11 10-48-56.png" src="https://s2.loli.net/2021/12/11/mAjFGwla6XdskS2.png" /></p>
+<p>由于光线沿直线传播，我们只需要两个点即可定义一条直线。我们选取平面上的两个点，即可生成一条光线。此时我们的点坐标依然是三维的，
+为了简化表示，我们使用类似于纹理映射的方法，将三维的点写为平面上的uv坐标，这样我们就得到了光场的四维表示： <span><span class="MathJax_Preview">L(u, v, s, t)</span><script type="math/tex">L(u, v, s, t)</script></span> 。</p>
+<p>假定uv平面是靠近相机的平面，而st平面是靠近世界的平面。我们在uv平面上固定一个点，并且向st平面看去，我们就能看到整个世界。这就好比我们在uv平面上开了一个小孔，从而进行小孔成像。
+反过来，我们假设从uv平面上看向st平面上的同一个点，此时我们就可以逆向将光亮度拆解出来。</p>
+<h3 id="_8">光场相机<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>由于光场可以记录额外的方向信息，我们可以使用光场来制作相机，使得相机拍下的照片同样携带这些信息，以便于我们在拍照后对于光圈、焦距等属性的动态调整。</p>
+<p>光场相机的原理类似于苍蝇的复眼结构（图片来自于GAMES101，下同）：</p>
+<p><img alt="Screenshot from 2021-12-11 11-26-40.png" src="https://s2.loli.net/2021/12/11/jNVS64atW7F1O8Z.png" /></p>
+<p>普通的相机只记录对应位置的光照度，而光场相机记录光亮度，即将光照度分解到不同的方向上：</p>
+<p><img alt="Screenshot from 2021-12-11 11-36-22.png" src="https://s2.loli.net/2021/12/11/WTpjaStLKm2sY9G.png" /></p>
+<p>当我们需要移动摄像机，或者重新调整焦距时，我们计算出对应每一个小区域内，我们应该采样的方向，并将对应方向上的值拼接起来，最终我们就能得到一张照片。</p>
+<p>这样的动态效果看起来非常的炫酷，但是由于我们需要存储更多的信息，实际照片的分辨率会大幅下降。</p>
+<h2 id="_9">参考资料<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1X7411F744?p=19">GAMES101-现代计算机图形学入门-闫令琪</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E9%87%9D%E5%AD%94%E7%9B%B8%E6%A9%9F">针孔相机-维基百科</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%85%89%E5%9C%88">光圈-维基百科</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E7%84%A6%E6%AF%94">焦比-维基百科</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/150925126">光场(Light Field)是什么？</a></li>
+</ul>
                 
               
               
@@ -1493,7 +1781,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../antialiasing/mipmap/" class="md-footer__link md-footer__link--prev" aria-label="上一页: MIPMAP" rel="prev">
+        <a href="../gamma/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Gamma校正" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1502,20 +1790,20 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              MIPMAP
+              Gamma校正
             </div>
           </div>
         </a>
       
       
         
-        <a href="../pbr/" class="md-footer__link md-footer__link--next" aria-label="下一页: 基于物理的渲染简介" rel="next">
+        <a href="../color/" class="md-footer__link md-footer__link--next" aria-label="下一页: 颜色" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              基于物理的渲染简介
+              颜色
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1544,12 +1832,12 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
       
-        <script src="../_static/js/extra.js?v=16"></script>
+        <script src="../../_static/js/extra.js?v=16"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
