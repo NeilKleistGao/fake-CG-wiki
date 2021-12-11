@@ -126,4 +126,4 @@ nav:
     - 简介: misc/index.md
     - Gamma校正: misc/gamma.md
     - 相机与透镜: misc/lens.md
-    - 颜色: misc/color.md
+    - 颜色空间: misc/color.md
