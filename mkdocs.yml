@@ -92,6 +92,9 @@ nav:
     - 多重积分: calculus/mi.md
   - 概率论:
     - 概率论简介: probabiity/index.md
+    - 古典概型: probabiity/classical.md
+    - 几何概型: probabiity/geometry.md
+    - 期望: probabiity/expect.md
   - 光栅化:
     - 光栅化简介: rasterization/index.md
     - 渲染管线: rasterization/pipeline.md

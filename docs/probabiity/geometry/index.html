@@ -9,21 +9,21 @@
       
       
       
-        <link rel="canonical" href="https://neilkleistgao.github.io/fake-CG-wiki/antialiasing/">
+        <link rel="canonical" href="https://neilkleistgao.github.io/fake-CG-wiki/probabiity/geometry/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
-        <title>反走样技术简介 - Fake CG Wiki</title>
+        <title>几何概型 - Fake CG Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.802231af.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -41,10 +41,10 @@
       
     
     
-      <link rel="manifest" href="../manifest.webmanifest" crossorigin="use-credentials">
+      <link rel="manifest" href="../../manifest.webmanifest" crossorigin="use-credentials">
     
     
-      <link rel="stylesheet" href="../_static/css/extra.css?v=13">
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=13">
     
     
       
@@ -63,12 +63,17 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="blue">
   
     
-    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -77,7 +82,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Fake CG Wiki" class="md-header__button md-logo" aria-label="Fake CG Wiki" data-md-component="logo">
+    <a href="../.." title="Fake CG Wiki" class="md-header__button md-logo" aria-label="Fake CG Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -96,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              反走样技术简介
+              几何概型
             
           </span>
         </div>
@@ -161,7 +166,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         简介
       </a>
     </li>
@@ -177,7 +182,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../tools/" class="md-tabs__link">
+      <a href="../../tools/" class="md-tabs__link">
         工具软件
       </a>
     </li>
@@ -193,7 +198,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../linear_algebra/" class="md-tabs__link">
+      <a href="../../linear_algebra/" class="md-tabs__link">
         线性代数
       </a>
     </li>
@@ -209,56 +214,8 @@
   
   
     <li class="md-tabs__item">
-      <a href="../calculus/" class="md-tabs__link">
+      <a href="../../calculus/" class="md-tabs__link">
         微积分
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../probabiity/" class="md-tabs__link">
-        概率论
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../rasterization/" class="md-tabs__link">
-        光栅化
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../ray_tracing/" class="md-tabs__link">
-        光线追踪
       </a>
     </li>
   
@@ -275,7 +232,55 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        概率论
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rasterization/" class="md-tabs__link">
+        光栅化
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ray_tracing/" class="md-tabs__link">
+        光线追踪
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../antialiasing/" class="md-tabs__link">
         反走样技术
       </a>
     </li>
@@ -291,7 +296,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../geometry/" class="md-tabs__link">
+      <a href="../../geometry/" class="md-tabs__link">
         几何建模
       </a>
     </li>
@@ -307,7 +312,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../pbr/" class="md-tabs__link">
+      <a href="../../pbr/" class="md-tabs__link">
         基于物理的渲染
       </a>
     </li>
@@ -323,7 +328,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../rtr/" class="md-tabs__link">
+      <a href="../../rtr/" class="md-tabs__link">
         实时渲染技术
       </a>
     </li>
@@ -339,7 +344,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../npr/" class="md-tabs__link">
+      <a href="../../npr/" class="md-tabs__link">
         非真实感渲染
       </a>
     </li>
@@ -355,7 +360,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../photon/" class="md-tabs__link">
+      <a href="../../photon/" class="md-tabs__link">
         光子映射
       </a>
     </li>
@@ -371,7 +376,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../misc/" class="md-tabs__link">
+      <a href="../../misc/" class="md-tabs__link">
         杂项
       </a>
     </li>
@@ -398,7 +403,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Fake CG Wiki" class="md-nav__button md-logo" aria-label="Fake CG Wiki" data-md-component="logo">
+    <a href="../.." title="Fake CG Wiki" class="md-nav__button md-logo" aria-label="Fake CG Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -438,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Getting Started
       </a>
     </li>
@@ -450,7 +455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intro/about/" class="md-nav__link">
+      <a href="../../intro/about/" class="md-nav__link">
         关于本项目
       </a>
     </li>
@@ -462,7 +467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intro/thanks/" class="md-nav__link">
+      <a href="../../intro/thanks/" class="md-nav__link">
         致谢
       </a>
     </li>
@@ -504,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/" class="md-nav__link">
+      <a href="../../tools/" class="md-nav__link">
         工具软件简介
       </a>
     </li>
@@ -516,7 +521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/ide/" class="md-nav__link">
+      <a href="../../tools/ide/" class="md-nav__link">
         IDE
       </a>
     </li>
@@ -528,7 +533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/opengl/" class="md-nav__link">
+      <a href="../../tools/opengl/" class="md-nav__link">
         OpenGL
       </a>
     </li>
@@ -540,7 +545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/unity3d/" class="md-nav__link">
+      <a href="../../tools/unity3d/" class="md-nav__link">
         Unity3D
       </a>
     </li>
@@ -552,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/blender/" class="md-nav__link">
+      <a href="../../tools/blender/" class="md-nav__link">
         Blender
       </a>
     </li>
@@ -564,7 +569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/none/" class="md-nav__link">
+      <a href="../../tools/none/" class="md-nav__link">
         也许……
       </a>
     </li>
@@ -606,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linear_algebra/" class="md-nav__link">
+      <a href="../../linear_algebra/" class="md-nav__link">
         线性代数简介
       </a>
     </li>
@@ -618,7 +623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linear_algebra/vector/" class="md-nav__link">
+      <a href="../../linear_algebra/vector/" class="md-nav__link">
         向量
       </a>
     </li>
@@ -630,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linear_algebra/matrix/" class="md-nav__link">
+      <a href="../../linear_algebra/matrix/" class="md-nav__link">
         矩阵
       </a>
     </li>
@@ -642,7 +647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linear_algebra/vector_space/" class="md-nav__link">
+      <a href="../../linear_algebra/vector_space/" class="md-nav__link">
         向量空间
       </a>
     </li>
@@ -654,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linear_algebra/base/" class="md-nav__link">
+      <a href="../../linear_algebra/base/" class="md-nav__link">
         基和维数
       </a>
     </li>
@@ -696,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/" class="md-nav__link">
+      <a href="../../calculus/" class="md-nav__link">
         微积分简介
       </a>
     </li>
@@ -708,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/natural/" class="md-nav__link">
+      <a href="../../calculus/natural/" class="md-nav__link">
         从自然数说起
       </a>
     </li>
@@ -720,7 +725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/sequence/" class="md-nav__link">
+      <a href="../../calculus/sequence/" class="md-nav__link">
         柯西数列与极限
       </a>
     </li>
@@ -732,7 +737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/derivative/" class="md-nav__link">
+      <a href="../../calculus/derivative/" class="md-nav__link">
         函数极限，求导和微分
       </a>
     </li>
@@ -744,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/mean/" class="md-nav__link">
+      <a href="../../calculus/mean/" class="md-nav__link">
         介值定理和微分中值定理
       </a>
     </li>
@@ -756,7 +761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/integration/" class="md-nav__link">
+      <a href="../../calculus/integration/" class="md-nav__link">
         积分和牛顿-莱布尼茨公式
       </a>
     </li>
@@ -768,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/complex/" class="md-nav__link">
+      <a href="../../calculus/complex/" class="md-nav__link">
         复数和欧拉公式
       </a>
     </li>
@@ -780,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/integration2/" class="md-nav__link">
+      <a href="../../calculus/integration2/" class="md-nav__link">
         常用积分方法
       </a>
     </li>
@@ -792,7 +797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/pd/" class="md-nav__link">
+      <a href="../../calculus/pd/" class="md-nav__link">
         偏导数和偏微分
       </a>
     </li>
@@ -804,7 +809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculus/mi/" class="md-nav__link">
+      <a href="../../calculus/mi/" class="md-nav__link">
         多重积分
       </a>
     </li>
@@ -823,12 +828,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       <label class="md-nav__link" for="__nav_5">
         概率论
@@ -846,7 +853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../probabiity/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         概率论简介
       </a>
     </li>
@@ -858,7 +865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../probabiity/classical/" class="md-nav__link">
+      <a href="../classical/" class="md-nav__link">
         古典概型
       </a>
     </li>
@@ -868,11 +875,61 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../probabiity/geometry/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          几何概型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         几何概型
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    为什么需要几何概型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    概率密度函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -882,7 +939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../probabiity/expect/" class="md-nav__link">
+      <a href="../expect/" class="md-nav__link">
         期望
       </a>
     </li>
@@ -924,7 +981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rasterization/" class="md-nav__link">
+      <a href="../../rasterization/" class="md-nav__link">
         光栅化简介
       </a>
     </li>
@@ -936,7 +993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rasterization/pipeline/" class="md-nav__link">
+      <a href="../../rasterization/pipeline/" class="md-nav__link">
         渲染管线
       </a>
     </li>
@@ -948,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rasterization/mvp/" class="md-nav__link">
+      <a href="../../rasterization/mvp/" class="md-nav__link">
         MVP变换
       </a>
     </li>
@@ -960,7 +1017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rasterization/rasterization/" class="md-nav__link">
+      <a href="../../rasterization/rasterization/" class="md-nav__link">
         光栅化
       </a>
     </li>
@@ -972,7 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rasterization/zbuffer/" class="md-nav__link">
+      <a href="../../rasterization/zbuffer/" class="md-nav__link">
         深度缓存
       </a>
     </li>
@@ -984,7 +1041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rasterization/shading/" class="md-nav__link">
+      <a href="../../rasterization/shading/" class="md-nav__link">
         基本光照模型
       </a>
     </li>
@@ -996,7 +1053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rasterization/texture/" class="md-nav__link">
+      <a href="../../rasterization/texture/" class="md-nav__link">
         纹理映射
       </a>
     </li>
@@ -1038,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ray_tracing/" class="md-nav__link">
+      <a href="../../ray_tracing/" class="md-nav__link">
         光线追踪简介
       </a>
     </li>
@@ -1050,7 +1107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ray_tracing/whitted/" class="md-nav__link">
+      <a href="../../ray_tracing/whitted/" class="md-nav__link">
         Whitted光线追踪
       </a>
     </li>
@@ -1062,7 +1119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ray_tracing/struct/" class="md-nav__link">
+      <a href="../../ray_tracing/struct/" class="md-nav__link">
         加速结构
       </a>
     </li>
@@ -1081,14 +1138,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
       <label class="md-nav__link" for="__nav_8">
         反走样技术
@@ -1104,19 +1159,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../antialiasing/" class="md-nav__link">
         反走样技术简介
       </a>
-      
     </li>
   
 
@@ -1126,7 +1173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sampling/" class="md-nav__link">
+      <a href="../../antialiasing/sampling/" class="md-nav__link">
         采样原理
       </a>
     </li>
@@ -1138,7 +1185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="msaa/" class="md-nav__link">
+      <a href="../../antialiasing/msaa/" class="md-nav__link">
         多重采样抗锯齿
       </a>
     </li>
@@ -1150,7 +1197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="mipmap/" class="md-nav__link">
+      <a href="../../antialiasing/mipmap/" class="md-nav__link">
         MIPMAP
       </a>
     </li>
@@ -1192,7 +1239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../geometry/" class="md-nav__link">
+      <a href="../../geometry/" class="md-nav__link">
         几何建模简介
       </a>
     </li>
@@ -1234,7 +1281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pbr/" class="md-nav__link">
+      <a href="../../pbr/" class="md-nav__link">
         基于物理的渲染简介
       </a>
     </li>
@@ -1246,7 +1293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pbr/radiance/" class="md-nav__link">
+      <a href="../../pbr/radiance/" class="md-nav__link">
         辐射度量学
       </a>
     </li>
@@ -1258,7 +1305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pbr/energy/" class="md-nav__link">
+      <a href="../../pbr/energy/" class="md-nav__link">
         能量守恒
       </a>
     </li>
@@ -1270,7 +1317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pbr/equation/" class="md-nav__link">
+      <a href="../../pbr/equation/" class="md-nav__link">
         渲染方程与BDRF
       </a>
     </li>
@@ -1312,7 +1359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rtr/" class="md-nav__link">
+      <a href="../../rtr/" class="md-nav__link">
         实时渲染简介
       </a>
     </li>
@@ -1354,7 +1401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../npr/" class="md-nav__link">
+      <a href="../../npr/" class="md-nav__link">
         非真实感渲染简介
       </a>
     </li>
@@ -1396,7 +1443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../photon/" class="md-nav__link">
+      <a href="../../photon/" class="md-nav__link">
         光子映射简介
       </a>
     </li>
@@ -1438,7 +1485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../misc/" class="md-nav__link">
+      <a href="../../misc/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -1450,7 +1497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../misc/gamma/" class="md-nav__link">
+      <a href="../../misc/gamma/" class="md-nav__link">
         Gamma校正
       </a>
     </li>
@@ -1462,7 +1509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../misc/lens/" class="md-nav__link">
+      <a href="../../misc/lens/" class="md-nav__link">
         相机与透镜
       </a>
     </li>
@@ -1474,7 +1521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../misc/color/" class="md-nav__link">
+      <a href="../../misc/color/" class="md-nav__link">
         颜色空间
       </a>
     </li>
@@ -1494,22 +1541,85 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    为什么需要几何概型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    概率密度函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>反走样技术简介</h1>
+                  <h1>几何概型</h1>
                 
-                <blockquote>
-<p>数学可以对比各种各样的现象，并发现连接这些现象的秘密类比关系。—— 约瑟夫·傅里叶</p>
-</blockquote>
-<p>本章将介绍走样的成因，以及我们所能采取的反走样（也称为抗锯齿）技术。</p>
-<p>由于我们的硬件和技术有限，我们所渲染出的图像总是会存在瑕疵。除了买一台更好的显示器，我们还可以通过一些算法“弥补”图像的缺陷。
-这些算法就是反走样算法。除了图形渲染，数字信号处理、数字摄影等其他领域也会大量用到这方面的技术。</p>
-<p>由于个人主观因素，本章不会介绍深度学习抗锯齿（Deep Learning Anti-Aliasing，DLAA）相关的内容。
-<del>大家可以截图留念等到我博士发不出论文时来打我脸。</del></p>
+                <h2 id="_1">为什么需要几何概型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>古典概型有一个限制很大的条件：样本空间必须有限。这就使得我们无法对以下的事件求概率：</p>
+<ul>
+<li>在一个正方形内丢一粒豆子，豆子落在内切圆内的概率</li>
+<li>我的起床时间分布在7点到8点之间，我在7点20以前起床的概率</li>
+</ul>
+<p>不难发现，这些事件本身都是连续的（从而也是无限的），因此我们无法使用古典概型进行衡量。
+为了能够对这些事件进行计算，我们将他们映射到几何空间，利用几何的长度/面积/体积进行辅助计算，这就是几何概型。</p>
+<p>我们来看第一个例子，豆子落在整个正方形内的概率为1（这是整个样本空间），而其是否落在圆内要取决于圆的面积：面积越大，可能性就越大。
+为此，我们需要求出内切圆在正方形内的面积是多少，即 <span><span class="MathJax_Preview">S_c = \pi r^2</span><script type="math/tex">S_c = \pi r^2</script></span> 。因此，该事件发生的概率为 <span><span class="MathJax_Preview">\frac{S_c}{S_s} = \frac{\pi r^2}{4r^2} = \frac{\pi}{4}</span><script type="math/tex">\frac{S_c}{S_s} = \frac{\pi r^2}{4r^2} = \frac{\pi}{4}</script></span> 。</p>
+<p>我们在几何概型中就可以解释“概率为零的事件不一定发生；概率为一的事件也有可能不发生“这句话了：</p>
+<ul>
+<li>将一粒豆子扔进圆内，豆子正好落在圆心的概率为0（一个点的面积为0），但是豆子确实可能落在圆心上</li>
+<li>上面例子的对立事件：豆子不落在圆心的概率为1，但豆子也可能会落在圆心上</li>
+</ul>
+<h2 id="_2">概率密度函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>对于连续的随机变量（如上面的两个例子），衡量某个基本事件发生的概率意义已经不大了，我们更关注一段区间内（或者一定面积内）的事件发生的概率。
+为了方便描述，我们需要引入概率密度函数。</p>
+<p>概率密度函数的函数值并不表示实际的概率值，就像一段水管的密度函数也并不代表水管在某个位置的质量一样。
+为了求出水管的质量，我们需要将密度乘上某一段内的体积，即 <span><span class="MathJax_Preview">M = \rho dv</span><script type="math/tex">M = \rho dv</script></span> 。
+如果我们需要某一个区间内的质量，我们需要使用积分： <span><span class="MathJax_Preview">M_{\alpha\beta} = \int_{\alpha}^{\beta}\rho dv</span><script type="math/tex">M_{\alpha\beta} = \int_{\alpha}^{\beta}\rho dv</script></span> 。
+同理，如果我们需要某个区间上的概率，我们也需要进行积分操作： <span><span class="MathJax_Preview">P_(\alpha\beta) = \int_{\alpha}^{\beta}f(x)dx</span><script type="math/tex">P_(\alpha\beta) = \int_{\alpha}^{\beta}f(x)dx</script></span> ，其中 <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> 为概率密度函数。</p>
+<h2 id="_3">参考资料<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E4%BA%8B%E4%BB%B6_(%E6%A6%82%E7%8E%87%E8%AE%BA)">事件 (概率论) - 维基百科</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%A9%9F%E7%8E%87%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B8">概率密度函数 - 维基百科</a></li>
+</ul>
                 
               
               
@@ -1534,7 +1644,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../ray_tracing/struct/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 加速结构" rel="prev">
+        <a href="../classical/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 古典概型" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1543,20 +1653,20 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              加速结构
+              古典概型
             </div>
           </div>
         </a>
       
       
         
-        <a href="sampling/" class="md-footer__link md-footer__link--next" aria-label="下一页: 采样原理" rel="next">
+        <a href="../expect/" class="md-footer__link md-footer__link--next" aria-label="下一页: 期望" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              采样原理
+              期望
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1585,12 +1695,12 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
       
-        <script src="../_static/js/extra.js?v=16"></script>
+        <script src="../../_static/js/extra.js?v=16"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
