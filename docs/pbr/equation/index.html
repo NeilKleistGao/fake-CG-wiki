@@ -16,7 +16,7 @@
     
     
       
-        <title>渲染方程与BDRF - Fake CG Wiki</title>
+        <title>渲染方程与BRDF - Fake CG Wiki</title>
       
     
     
@@ -70,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -96,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              渲染方程与BDRF
+              渲染方程与BRDF
             
           </span>
         </div>
@@ -1069,6 +1074,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ray_tracing/path/" class="md-nav__link">
+        路径追踪
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1248,18 +1265,6 @@
             
   
   
-  
-    <li class="md-nav__item">
-      <a href="../energy/" class="md-nav__link">
-        能量守恒
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
     
   
   
@@ -1269,9 +1274,85 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          渲染方程与BRDF
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        渲染方程与BDRF
+        渲染方程与BRDF
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    微表面模型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    能量守恒
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    渲染方程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brdf" class="md-nav__link">
+    BRDF
+  </a>
+  
+    <nav class="md-nav" aria-label="BRDF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    菲涅尔现象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    几何函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1494,15 +1575,172 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    微表面模型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    能量守恒
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    渲染方程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brdf" class="md-nav__link">
+    BRDF
+  </a>
+  
+    <nav class="md-nav" aria-label="BRDF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    菲涅尔现象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    几何函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>渲染方程与BDRF</h1>
+                  <h1>渲染方程与BRDF</h1>
                 
-                
+                <h2 id="_1">微表面模型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>PBR模型必须要能满足三个条件，其中第一个便是微表面模型。该模型基于一个事实：世界上并不存在100%光滑的物体，即便是发生镜面反射的镜子，也只能将80%的内容反射回来。</p>
+<p><img alt="" src="https://learnopengl-cn.github.io/img/07/01/microfacets_light_rays.png" /></p>
+<p>如图所示（图片来自于Learn OpenGL），如果一个平面上的微表面越光滑，那么反射出的光线就会更趋近于同一个方向；反之，微表面越粗糙，
+光线就会向各个不同的方向发散开，形成漫反射。</p>
+<p>由于微表面过于“微小”，甚至小于一个像素，我们甚至很难用纹理来进行表示。因此，我们不得不舍弃具体的表面法线参数，而是泛泛地使用一个“粗糙度”变量，
+来控制微表面法线的分布。我们再次请出半程向量： <span><span class="MathJax_Preview">\vec h = \frac{\vec L + \vec V}{|\vec L + \vec V|}</span><script type="math/tex">\vec h = \frac{\vec L + \vec V}{|\vec L + \vec V|}</script></span> ，如果微表面法线与半程向量方向一致的概率越大，
+则说明效果越接近于镜面反射（图片来自于Learn OpenGL）：</p>
+<p><img alt="" src="https://learnopengl-cn.github.io/img/07/01/ndf.png" /></p>
+<p>常用的微表面模型有Blinn模型和Beckmann模型。Blinn模型的表达式为 <span><span class="MathJax_Preview">D = ce^{-\frac{\alpha}{m}}</span><script type="math/tex">D = ce^{-\frac{\alpha}{m}}</script></span> ，
+Beckmann模型的表达式为 <span><span class="MathJax_Preview">D = \frac{1}{m^2cos^4\alpha}e^{-(\frac{tan\alpha}{m})^2}</span><script type="math/tex">D = \frac{1}{m^2cos^4\alpha}e^{-(\frac{tan\alpha}{m})^2}</script></span> 。
+这两个模型中， <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> 表示法线和半程向量之间的夹角， <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 表示粗糙度。</p>
+<h2 id="_2">能量守恒<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>能量守恒是19世纪最伟大的发现之一，在图形学上也有重大的应用。为了真实模拟光线，我们规定：<strong>出射光线的能量永远不能超过入射光线的能量和自身发射出的光线的能量</strong>。</p>
+<p>我们将光线分为折射部分和反射部分，反射光线不会进入到物体中，这就是镜面光；折射光线会穿过物体（半透明）或干脆在物体内被吸收，最终形成漫反射。</p>
+<p>此外，对于金属的表面，所有的折射光会被直接吸收而不会继续散射开；而对于非金属（也叫做电介质，比如玻璃或者蜡），折射光线会继续散开。</p>
+<h2 id="_3">渲染方程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>在介绍PBR的最后一个条件之前，我们需要先介绍一下渲染方程。在说明渲染方程前，我们先介绍一下反射方程。</p>
+<p>渲染的本质就是处理光与材质之间的交互，而这些交互中最重要的莫过于反射。对一个像素进行渲染的过程，就等同于从空间中接收来自四面八方的光线，
+然后经过一定的计算，得到我们视角方向的反射光线。把这个过程用数学的方式表示出来就是：</p>
+<div>
+<div class="MathJax_Preview">L_r(p, \omega_r) = \int_{H^2} f_r(p, \omega_i, \omega_r)L_i(p, \omega_i)cos\theta_id\omega_i</div>
+<script type="math/tex; mode=display">L_r(p, \omega_r) = \int_{H^2} f_r(p, \omega_i, \omega_r)L_i(p, \omega_i)cos\theta_id\omega_i</script>
+</div>
+<p>在这个式子中，我们计算了对于一个点 <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> ，我们从立体角 <span><span class="MathJax_Preview">\omega_r</span><script type="math/tex">\omega_r</script></span> 看去时我们眼睛所接受的光亮度。这个值等于在该点接受了来自各个不同方向 <span><span class="MathJax_Preview">d\omega_i</span><script type="math/tex">d\omega_i</script></span>
+的光亮度 <span><span class="MathJax_Preview">L_i(p, \omega_i)</span><script type="math/tex">L_i(p, \omega_i)</script></span> 后，反射出的结果。其中， <span><span class="MathJax_Preview">f_r(p, \omega_i, \omega_r)</span><script type="math/tex">f_r(p, \omega_i, \omega_r)</script></span> 表示光线与材质交互的属性。</p>
+<p>这个方程只能表示反射的光线，如果一个物体自身可以发射出光线，这个方程将无法使用。最简单的修正方法就是将发光项添加到方程中：</p>
+<div>
+<div class="MathJax_Preview">L_o(p, \omega_o) = L_e(p, \omega_o) + \int_{\Omega^{+}} f_r(p, \omega_i, \omega_o)L_i(p, \omega_i)(n \cdot \omega_i)d\omega_i</div>
+<script type="math/tex; mode=display">L_o(p, \omega_o) = L_e(p, \omega_o) + \int_{\Omega^{+}} f_r(p, \omega_i, \omega_o)L_i(p, \omega_i)(n \cdot \omega_i)d\omega_i</script>
+</div>
+<p>这就是大名鼎鼎的<strong>渲染方程</strong>。现在我们只需要处理 <span><span class="MathJax_Preview">f_r</span><script type="math/tex">f_r</script></span> 项即可。</p>
+<h2 id="brdf">BRDF<a class="headerlink" href="#brdf" title="Permanent link">&para;</a></h2>
+<p>PBR的最后一个条件，就是需要一个函数，能够尽可能真实地表述出入射光线和出射光线的关系。这个函数就被称为<strong>双向反射分布函数（Bidirectional Reflectance Distribution Function， BRDF）</strong>。现在多数实时的渲染管线所使用的是Cook-Torrance BRDF模型。</p>
+<p>Cook-Torrance BRDF包含两个部分，分别是漫反射和镜面反射：</p>
+<div>
+<div class="MathJax_Preview">f_r = k_df_{lambert} + k_sf_{cook−torrance}</div>
+<script type="math/tex; mode=display">f_r = k_df_{lambert} + k_sf_{cook−torrance}</script>
+</div>
+<p>其中 <span><span class="MathJax_Preview">f_{lambert} = \frac{c}{\pi}</span><script type="math/tex">f_{lambert} = \frac{c}{\pi}</script></span> ，表示漫反射， <span><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> 表示材质本身的颜色。为了遵守能量守恒，我们需要保证 <span><span class="MathJax_Preview">\int_{\Omega^{+}}f_{lambert}L(n \cdot \omega_i)d\omega_i \le L</span><script type="math/tex">\int_{\Omega^{+}}f_{lambert}L(n \cdot \omega_i)d\omega_i \le L</script></span> 。我们将积分无关项移出积分外并进行化简 <span><span class="MathJax_Preview">c\int_{\Omega^{+}}cos\theta d\omega_i \le 1</span><script type="math/tex">c\int_{\Omega^{+}}cos\theta d\omega_i \le 1</script></span> 。
+将立体角展开，我们可以得到二重积分 <span><span class="MathJax_Preview">c\int_{0}^{2\pi}\int_{0}^{\frac{\pi}{2}}cos\theta sin\theta d\theta d\phi \le 1</span><script type="math/tex">c\int_{0}^{2\pi}\int_{0}^{\frac{\pi}{2}}cos\theta sin\theta d\theta d\phi \le 1</script></span> ，解出不等式我们可以得到 <span><span class="MathJax_Preview">c \le \frac{1}{\pi}</span><script type="math/tex">c \le \frac{1}{\pi}</script></span> 。因此我们需要在漫反射项上除以一个 <span><span class="MathJax_Preview">\pi</span><script type="math/tex">\pi</script></span> 。</p>
+<p>镜面反射项 <span><span class="MathJax_Preview">f_{cook−torrance} = \frac{DFG}{4(\omega_o \cdot n)(\omega_i \cdot n)}</span><script type="math/tex">f_{cook−torrance} = \frac{DFG}{4(\omega_o \cdot n)(\omega_i \cdot n)}</script></span> 包含三个函数，分别是：</p>
+<ul>
+<li>D：表面分布函数，我们在微表面部分已经处理过了</li>
+<li>F：菲涅尔项</li>
+<li>G：几何函数</li>
+</ul>
+<h3 id="_4">菲涅尔现象<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>同一个地方的湖面，在不同的位置去观察它，总能看到它在不同位置所呈现的效果是不一样的，近处看可以看到清澈见底的湖水，远处看却是波光粼粼的湖面。
+这就是菲涅尔现象的真实体验。掠夺角（视线和平面法线的夹角）越大，那么反射就越强，菲涅尔现象就越明显：</p>
+<p><img alt="" src="https://learnopengl-cn.github.io/img/07/01/fresnel.png" /></p>
+<p>由于菲涅尔方程本身非常复杂，我们在计算的过程中通常使用resnel-Schlick近似法进行表示：</p>
+<div>
+<div class="MathJax_Preview">F(h, v, F_0) = F_0 + (1 - F_0)(1 - (h \cdot v))^5</div>
+<script type="math/tex; mode=display">F(h, v, F_0) = F_0 + (1 - F_0)(1 - (h \cdot v))^5</script>
+</div>
+<p>其中， <span><span class="MathJax_Preview">F_0</span><script type="math/tex">F_0</script></span> 表示材质的基础反射率。你可以在参考资料中找到常见物体的基础反射率。</p>
+<h3 id="_5">几何函数<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>几何函数考虑了微表面模型下的自遮挡关系。如果一个物体表面非常粗糙，那么凸起的部分就有可能会挡住其他部分。
+与微表面类似地，我们也使用一个概率函数来表示几何遮挡：</p>
+<div>
+<div class="MathJax_Preview">G(n, v, k) = \frac{n \cdot v}{(n \cdot v)(1 - k) + k}</div>
+<script type="math/tex; mode=display">G(n, v, k) = \frac{n \cdot v}{(n \cdot v)(1 - k) + k}</script>
+</div>
+<p>这个函数被称为Schlick-GGX函数，它是几何函数的一种表示。函数中的 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 是关于粗糙度 <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> 的映射。
+对于直接光照来说，  <span><span class="MathJax_Preview">k = \frac{(\alpha + 1)^2}{8}</span><script type="math/tex">k = \frac{(\alpha + 1)^2}{8}</script></span> 。对于其他不同的光照，这个映射也会不同。</p>
+<p>为了同时考虑光照的遮蔽和观察的遮蔽，我们可以使用史密斯法(Smith’s method)合并二者，即假定两个遮挡相互独立：</p>
+<div>
+<div class="MathJax_Preview">G(n, v, l, k) = G(n, v, k)G(n, l, k)</div>
+<script type="math/tex; mode=display">G(n, v, l, k) = G(n, v, k)G(n, l, k)</script>
+</div>
+<h2 id="_6">参考资料<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://learnopengl-cn.github.io/07%20PBR/01%20Theory/">PBR理论 - LearnOpenGL</a></li>
+<li><a href="https://www.bilibili.com/video/BV1wb411z7J4?spm_id_from=333.999.0.0">【1080P+/BD】续 终物语 上卷（1 2 3话）【物语系列圈字幕组】</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25421091">微表面模型－PBR渲染管线的材质</a></li>
+<li><a href="https://www.bilibili.com/video/BV1X7411F744?p=15">GAMES101-现代计算机图形学入门-闫令琪</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/29837458">为什么PBR中Lambert光照要除PI?</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/151375798">Shader实验室:菲涅尔效应</a></li>
+</ul>
                 
               
               
@@ -1527,7 +1765,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../energy/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 能量守恒" rel="prev">
+        <a href="../radiance/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 辐射度量学" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1536,7 +1774,7 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              能量守恒
+              辐射度量学
             </div>
           </div>
         </a>

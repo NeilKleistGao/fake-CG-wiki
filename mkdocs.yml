@@ -107,6 +107,7 @@ nav:
     - 光线追踪简介: ray_tracing/index.md
     - Whitted光线追踪: ray_tracing/whitted.md
     - 加速结构: ray_tracing/struct.md
+    - 路径追踪: ray_tracing/path.md
   - 反走样技术:
     - 反走样技术简介: antialiasing/index.md
     - 采样原理: antialiasing/sampling.md
@@ -117,8 +118,7 @@ nav:
   - 基于物理的渲染:
     - 基于物理的渲染简介: pbr/index.md
     - 辐射度量学: pbr/radiance.md
-    - 能量守恒: pbr/energy.md
-    - 渲染方程与BDRF: pbr/equation.md
+    - 渲染方程与BRDF: pbr/equation.md
   - 实时渲染技术:
     - 实时渲染简介: rtr/index.md
   - 非真实感渲染:
