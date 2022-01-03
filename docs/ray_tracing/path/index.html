@@ -70,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1083,9 +1088,58 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          路径追踪
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         路径追踪
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    蒙特卡罗积分
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    路径追踪
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    俄罗斯轮盘赌
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1494,6 +1548,57 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    蒙特卡罗积分
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    路径追踪
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    俄罗斯轮盘赌
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1502,7 +1607,68 @@
                 
                   <h1>路径追踪</h1>
                 
-                
+                <h2 id="_1">蒙特卡罗积分<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>为什么我们需要蒙特卡罗积分？对于一个简单的函数，比如 <span><span class="MathJax_Preview">f(x) = x^2</span><script type="math/tex">f(x) = x^2</script></span> ，我们可以轻易地算出其积分的结果。
+但是对于我们的渲染方程，我们很难给出一个积分结果表达式。这个时候我们不得不放弃对表达式的求解，转而尝试求出其数值解。</p>
+<p>我们先从一个非常简单的例子入手：</p>
+<p><img alt="Screenshot from 2022-01-03 12-57-59.png" src="https://s2.loli.net/2022/01/03/NRTnvbXBhAm1edz.png" /></p>
+<p>假定此时的你并不知道圆形的面积为 <span><span class="MathJax_Preview">\pi r^2</span><script type="math/tex">\pi r^2</script></span> ，我们如何求出内切圆的面积（假设正方形的边长为 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> ）？
+大家应该都听说过这个做法：将一把豆子均匀随机地撒到正方形内，并求出落在圆内的数量。
+假设 <span><span class="MathJax_Preview">f(i)</span><script type="math/tex">f(i)</script></span> 表示第i粒豆子是否落在圆内（圆内取值为1,否则为0），那么圆形面积就可以近似地表示为 <span><span class="MathJax_Preview">S\sum_i^N\frac{f(i)}{N}</span><script type="math/tex">S\sum_i^N\frac{f(i)}{N}</script></span> 。</p>
+<p>这是通过概率的方法来对面积进行近似。如果我们投入的豆子的数量足够多， <span><span class="MathJax_Preview">\frac{f(i)}{N}</span><script type="math/tex">\frac{f(i)}{N}</script></span> 就会越来越接近 <span><span class="MathJax_Preview">\frac{S'}{S}</span><script type="math/tex">\frac{S'}{S}</script></span> ，其中 <span><span class="MathJax_Preview">S'</span><script type="math/tex">S'</script></span> 代表圆形的面积。
+只要 <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 足够大，<span><span class="MathJax_Preview">S\sum_i^N\frac{f(i)}{N}</span><script type="math/tex">S\sum_i^N\frac{f(i)}{N}</script></span> 就能任意地逼近 <span><span class="MathJax_Preview">S'</span><script type="math/tex">S'</script></span> 。</p>
+<p>现在，我们做一些微小的变形，将 <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> 放入到求和式中，并将 <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 拿出来： <span><span class="MathJax_Preview">S' \approx \frac{1}{N}\sum_i^N \frac{f(i)}{\frac{1}{S}}</span><script type="math/tex">S' \approx \frac{1}{N}\sum_i^N \frac{f(i)}{\frac{1}{S}}</script></span> 。
+此时，求和式两部分组成：</p>
+<ul>
+<li><span><span class="MathJax_Preview">f(i)</span><script type="math/tex">f(i)</script></span> ：这个函数只有当豆子落在圆内的时候才会取1，否则就是0。我们可以认为这是对正方形内部情况的一个采样</li>
+<li><span><span class="MathJax_Preview">\frac{1}{S}</span><script type="math/tex">\frac{1}{S}</script></span> ：这部分是原本式子外部的正方形面积 <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> ，我们将它写为这个形式并放在了分母上，这样就可以将其看作一个概率 <span><span class="MathJax_Preview">p(i) = \frac{1}{S}</span><script type="math/tex">p(i) = \frac{1}{S}</script></span> ，这个概率恰好是对正方形内部任意一个点进行采样的概率</li>
+</ul>
+<p>因此，我们可以整理表达式 <span><span class="MathJax_Preview">S' \approx \frac{1}{N}\sum_i^N \frac{f(i)}{p(i)}</span><script type="math/tex">S' \approx \frac{1}{N}\sum_i^N \frac{f(i)}{p(i)}</script></span> 。这就是这个例子的蒙特卡罗积分求解。
+对于一般的形式，我们有 <span><span class="MathJax_Preview">\int_S f(x)dx = \frac{1}{N}\sum_i^N\frac{f(X_i)}{P(X_i)}</span><script type="math/tex">\int_S f(x)dx = \frac{1}{N}\sum_i^N\frac{f(X_i)}{P(X_i)}</script></span> 。</p>
+<p>你可能很惊讶，但事实确实如此，我们已经完成了蒙特卡罗积分的推导（非严格地）。我们可以再从概率论的角度来看这个式子：</p>
+<p><img alt="Screenshot from 2022-01-03 13-23-00.png" src="https://s2.loli.net/2022/01/03/VMS2BPcutEbpXks.png" /></p>
+<p>我们如何对这个函数在区间上求积分？如果我们不知道函数的式子，我们可以使用最传统的求和来做： <span><span class="MathJax_Preview">\int_a^b f(x)dx \approx \frac{1}{N}\sum_i^Nf(x)dx</span><script type="math/tex">\int_a^b f(x)dx \approx \frac{1}{N}\sum_i^Nf(x)dx</script></span> 。
+如果 <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 越大，这个结果就越准确。或者换一个视角：如果 <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 越大，那么每个可能的取值被取到且恰好取到一次的概率就越接近于 <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 。</p>
+<p>然而对于计算机来说，让 <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 趋近于无穷是不可能实现的。因此，在每一次取值的时候，每个点都会有一个被取到的概率 <span><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> ，并且 <span><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> 越大，被重复取到的机会也就越多。
+为了减少重复取值对函数估计造成的影响，我们在每次取值下面除以一个 <span><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> ，以减少该值的权重。这就是蒙特卡罗积分。</p>
+<h2 id="_2">路径追踪<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>我们u已经知道如何使用Whitted风格的光线追踪了，但是这样做的效果往往很不好。根据渲染方程，每一个点我们都需要对周围进行大量的采样，这会导致（图片来自于GAMES101，下同）：</p>
+<p><img alt="Screenshot from 2022-01-03 14-16-48.png" src="https://s2.loli.net/2022/01/03/fKBOduzLMaDRVvJ.png" /></p>
+<p>是的，我们最后需要模拟的光线将成千上万，这不是计算机可以负担的起的。因此，我们需要将采样次数降低为1次。
+我们降低了 <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> ，效果当然会变得糟糕。我们需要使用蒙特卡罗积分来帮助我们进行优化。</p>
+<p>对于需要渲染的一个像素，我们打出N束光线，即进行N次采样，并使用蒙特卡罗积分进行求和。在弹射的过程中，我们就不再需要弹射出多根光线：</p>
+<p><img alt="Screenshot from 2022-01-03 14-26-56.png" src="https://s2.loli.net/2022/01/03/HNeBZU7sbrv8yum.png" /></p>
+<p>我们依然需要限制弹射的次数。如果递归的次数过多，我们也无法负担过高的性能开销。当递归达到一定次数时，我们就认为光线的热情与斗志，都已经消耗殆尽了，
+说什么它都不会再返回一个颜色了：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// If we&#39;ve exceeded the ray bounce limit, no more light is gathered.</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">depth</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<p>由于每次射出的光线只有唯一的一个弹射方向，光线在空间中形成了一条条路径，因此这个算法被称为路径追踪（Path Tracing）。</p>
+<p>这样的路径追踪在某些情况下往往有着较大的噪声。比如光源较小的情况下，可能很多可以被光照直接照明的地方由于随机的缘故无法将光线打到光源上。
+为了避免这种情况，我们可以考虑将直接光照和间接光照分别采样。</p>
+<p>如果光源是面光源，我们还是不能逐个计算每一条光线。为此，我们需要对光源也应用蒙特卡罗积分。注意到我们的渲染方程是对 <span><span class="MathJax_Preview">d\omega</span><script type="math/tex">d\omega</script></span> 进行积分，
+而面光源是一个平面，求其面积是对 <span><span class="MathJax_Preview">dS</span><script type="math/tex">dS</script></span> 进行积分。为此我们要将 <span><span class="MathJax_Preview">d\omega</span><script type="math/tex">d\omega</script></span> 写为立体角的定义 <span><span class="MathJax_Preview">\frac{dScos\theta'}{||x - x'||^2}</span><script type="math/tex">\frac{dScos\theta'}{||x - x'||^2}</script></span> ，然后再进行积分：</p>
+<p><img alt="Screenshot from 2022-01-03 14-49-10.png" src="https://s2.loli.net/2022/01/03/HfT2arMyxveNiZC.png" />   </p>
+<h2 id="_3">俄罗斯轮盘赌<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>刚才的ROTK式的光线依然会存在问题：提前停止弹射对结果一定会产生影响。我们如何削减这种影响，同时又不会产生过多的额外开销呢？答案就是使用俄罗斯轮盘赌算法（Russian Roulette, RR）。</p>
+<p>我们假定每一束光线都会有一定的概率 <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> 停止传播，那么也就会有 <span><span class="MathJax_Preview">1 - P</span><script type="math/tex">1 - P</script></span> 的概率会继续传播。这样为什么能保证效果呢？</p>
+<p>假定一个点计算的结果是 <span><span class="MathJax_Preview">L_o</span><script type="math/tex">L_o</script></span> ，我们认为光线该点继续弹射的概率为 <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> ，并且将返回值变为 <span><span class="MathJax_Preview">\frac{L_o}{P}</span><script type="math/tex">\frac{L_o}{P}</script></span> 。此时我们可以分别讨论这个离散随机变量：</p>
+<ul>
+<li>光线确实弹射出去了，该部分的期望是 <span><span class="MathJax_Preview">\frac{L_o}{P} \times P = L_o</span><script type="math/tex">\frac{L_o}{P} \times P = L_o</script></span></li>
+<li>光线没有弹射，此时的期望是 <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span></li>
+</ul>
+<p>因此，我们最终求出的光亮度的期望是不变的。最终我们得到的路径追踪伪代码为（图片来自于GAMES101）：</p>
+<p><img alt="Screenshot from 2022-01-03 14-39-27.png" src="https://s2.loli.net/2022/01/03/xb96MnSrVCTsGgY.png" /></p>
+<h2 id="_4">参考资料<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1X7411F744?p=16">GAMES101-现代计算机图形学入门-闫令琪</a></li>
+<li><a href="https://raytracing.github.io/books/RayTracingInOneWeekend.html#rays,asimplecamera,andbackground/sendingraysintothescene">Ray Tracing in One Weekend</a></li>
+<li><a href="https://www.sohu.com/a/423413074_338155">rOtK故事会：热情和斗志已经被消耗殆尽，决定暂时休息一段时间 </a></li>
+</ul>
                 
               
               
